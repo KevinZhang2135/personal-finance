@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Banner from "./components/Banner.tsx";
+import Taxes from "./components/Taxes.tsx";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <body>
+            <Banner />
+            <div className="introduction container">
+                <p>
+                    According to CNBC and Forbes, more than <em>60%</em> of
+                    Americans live paycheck to paycheck in 2023.
+                </p>
+            </div>
+
+            <div className="calculators">
+                <Taxes />
+            </div>
+        </body>
+    );
+};
 
 export default App;
