@@ -9,6 +9,7 @@ const Taxes = (props) => {
         231250: 0.32,
         578125: 0.35,
     };
+    
     return (
         <div className="tax-calculator container">
             <p>
