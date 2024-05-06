@@ -1,6 +1,5 @@
 .header {
     /* Background */
-    background-color: #f1e9db;
     background-image: url("../public/mountain-road.png");
 
     /* Display */
@@ -8,14 +7,62 @@
 
     /* Font */
     font-weight: 500;
-    font-size: 5vmin;
+    font-size: 6vmin;
+}
+
+.introduction {
+    /* Font */
+	font-size: 3vmin;
+    text-align: center;
+}
+
+.footer {
+    /* Background */
+    background-color: #07020d;
+
+    /* Font */
+    color: #f1e9db;
+    font-weight: 200;
+    font-size: 2.5vmin;
+}
+
+.footer a {
+    /* Font */
+    color: #f1e9db;
 }
 
 .container {
+    /* Display */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    padding: 5vh;
+}
+
+.calculator-container {
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2.5% 10%;
+}
+
+.khaki-border {
+    border-color: #a39b8b;
+    border-style: solid;
+    border-width: 10%;
+    border-radius: 2rem;
+}
+
+.gim-grey-border {
+    border-color: #716a5c;
+    border-style: solid;
+    border-width: 10%;
+    border-radius: 2rem;
 }
 
 .parallax {
@@ -33,22 +80,17 @@
     }
 }
 
-.introduction {
-	padding: 10vh;
-
-	font-size: 3vmin;
-    
-}
-
-em {
-    color: #0dbf6f;
-    font-weight: 500;
-    font-style: normal;
-}
-
 .button {
-    background-color: #0dbf6f;
+    /* Display */
+    min-width: 30vh;
+    min-height: 10vh;
+    border-radius: 1vh;
+    
+    /* Font */
+	font-size: 3vmin;
+    text-align: center;
 }
+
 
 /*
  * black     #07020d
