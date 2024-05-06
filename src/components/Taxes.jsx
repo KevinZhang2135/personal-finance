@@ -6,34 +6,48 @@ const Taxes = (props) => {
     // const calculateTax = (income) => {brackets};
 
     return (
-        <div className="container">
-            <div className="container khaki-border">
-                <div className="container">
-                    <h2>Income Salary</h2>
+        <div className="container-fluid">
+            <div className="container-row">
+                <div className="container-col col-2">
+                    <h2>Gross Annual Salary</h2>
+                    {props.salary}
                     <form onSubmit={(e) => e.preventDefault()}>
-                        {props.salary}
-                        <span>$</span>
                         <input
                             className="button khaki-border"
                             type="text"
                             defaultValue="15000"
                             placeholder="Enter income"
                             onChange={(e) => {
-                                props.setSalary(e.target.value);
-                                calculateTax(e.target.value);
+                                props.setSalary(parseInt(e.target.value));
+                                calculateTax(parseInt(e.target.value) / 12);
                             }}
                         />
                     </form>
+
+                    <h2>Gross Monthly Salary</h2>
+                    <p>$lorem ipsum</p>
+
+                    <h2>Monthly Tax Payment</h2>
+                    <p>$lorem ipsum</p>
                 </div>
 
-                <p>
-                    Tax rates were calculated using the 2023 tax brackets
-                    released by the IRS from{" "}
-                    <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets">
-                        www.irs.gov/filing/federal-income-tax-rates-and-brackets
-                    </a>
-                    .
-                </p>
+                <div className="container-col col-2 khaki-border">
+                    <p>
+                        The US implements a progressive tax that steadily takes
+                        a larger share of the gross salary as income increases.
+                        While many other factors such as filing-status and
+                        number of children influence the total federal tax paid,
+                        all approximations will be based on a single filing status.
+                        <br />
+                        <br />
+                        Tax rates were calculated using the 2023 tax brackets
+                        released by the IRS from{" "}
+                        <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets">
+                            www.irs.gov/filing/federal-income-tax-rates-and-brackets
+                        </a>
+                        .
+                    </p>
+                </div>
             </div>
         </div>
     );
@@ -41,9 +55,10 @@ const Taxes = (props) => {
 
 const calculateTax = (annualSalary) => {
     const brackets = {
+        // lower bracket: tax rate
         0: 0.1,
         11000: 0.12,
-        44725: 0.12,
+        44725: 0.22,
         95375: 0.24,
         182100: 0.22,
         231250: 0.35,
@@ -52,26 +67,14 @@ const calculateTax = (annualSalary) => {
 
     let totalTax = 0;
     for (let [key, taxRate] of Object.entries(brackets).reverse()) {
-        console.log(annualSalary);
         const bracket = parseInt(key);
-        if (annualSalary > brackets) {
+
+        if (annualSalary > bracket) {
             totalTax += (annualSalary - bracket) * taxRate;
             annualSalary -= annualSalary - bracket;
         }
 
-        //
-
-        // console.log(typeof bracket ,typeof  taxRate)
     }
-
-    //console.log(totalTax);
 };
 
 export default Taxes;
-
-/**
-24%	$95,376	$182,100
-32%	$182,101	$231,250
-35%	$231,251	$578,125
-37%	$578,126	And up
- */

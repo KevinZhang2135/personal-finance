@@ -11,7 +11,7 @@ const App = () => {
     return (
         <div>
             <Banner />
-            <div className="introduction container">
+            <div className="introduction container-fluid">
                 <p>
                     According to CNBC and Forbes, more than 60% of Americans
                     live paycheck to paycheck in 2023.{" "}

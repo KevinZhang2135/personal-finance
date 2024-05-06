@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = (props) => {
     return (
-        <header className="footer container">
+        <header className="footer container-fluid">
             <p>
                 For the sake of transparency and open-source code, read the
                 source code at{" "}
