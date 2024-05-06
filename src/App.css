@@ -1,112 +1,111 @@
 .header {
-    /* Background */
-    background-image: url("../public/mountain-road.png");
+	/* Background */
+	background-image: url("../public/mountain-road.png");
 
-    /* Display */
-    min-height: 100vh;
+	/* Display */
+	min-height: 100vh;
 
-    /* Font */
-    font-weight: 500;
-    font-size: 6vmin;
+	/* Font */
+	font-weight: 500;
+	font-size: 8vmin;
 }
 
 .introduction {
-    /* Font */
+	/* Font */
 	font-size: 3vmin;
-    text-align: center;
+	text-align: center;
 }
 
 .footer {
-    /* Background */
-    background-color: #07020d;
+	/* Background */
+	background-color: #07020d;
 
-    /* Font */
-    color: #f1e9db;
-    font-weight: 200;
-    font-size: 2.5vmin;
+	/* Font */
+	color: #f1e9db;
+	font-weight: 200;
+	font-size: 2.5vmin;
 }
 
 .footer a {
-    /* Font */
-    color: #f1e9db;
+	/* Font */
+	color: #f1e9db;
 }
 
 .container-fluid {
-    /* Display */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	/* Display */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-    padding: 5vh 5vw;
-    min-width: 80vw;
+	padding: 5vh 5vw;
+	min-width: 80vw;
 }
 
 .container-col {
-    /* Display */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	/* Display */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-    padding: 1vh;
+	padding: 1vh;
 }
 
 .container-row {
-    /* Display */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+	/* Display */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 
-    padding: 1vh;
+	padding: 1vh;
 }
 
 .col-2 {
-    /* Display */
-    min-width: 50%;
+	/* Display */
+	min-width: 50%;
 }
 
 .khaki-border {
-    border-color: #a39b8b;
-    border-style: solid;
-    border-width: 10%;
-    border-radius: 2rem;
+	border-color: #a39b8b;
+	border-style: solid;
+	border-width: 10%;
+	border-radius: 2rem;
 }
 
 .gim-grey-border {
-    border-color: #716a5c;
-    border-style: solid;
-    border-width: 10%;
-    border-radius: 2rem;
+	border-color: #716a5c;
+	border-style: solid;
+	border-width: 10%;
+	border-radius: 2rem;
 }
 
 .parallax {
-    /* Parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	/* Parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
 @media only screen and (max-device-width: 1366px) {
-    .parallax {
-        background-attachment: scroll;
-    }
+	.parallax {
+		background-attachment: scroll;
+	}
 }
 
 .button {
-    /* Display */
-    min-width: 20vw;
-    min-height: 10vh;
-    border-radius: 1vmin;
-    
-    /* Font */
-	font-size: 3vmin;
-    text-align: center;
-}
+	/* Display */
+	min-width: 20vw;
+	min-height: 10vh;
+	border-radius: 1vmin;
 
+	/* Font */
+	font-size: 3vmin;
+	text-align: center;
+}
 
 /*
  * black     #07020d
