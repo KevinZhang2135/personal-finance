@@ -27,7 +27,6 @@
 }
 
 .footer a {
-	/* Font */
 	color: #f1e9db;
 }
 
@@ -49,7 +48,7 @@
 	align-items: center;
 	justify-content: center;
 
-	padding: 1vh;
+	padding: 1vh 2vw;
 }
 
 .container-row {
@@ -59,26 +58,32 @@
 	align-items: center;
 	justify-content: center;
 
-	padding: 1vh;
+	padding: 1vh 2vw;
 }
 
 .col-2 {
 	/* Display */
-	min-width: 50%;
+	width: 50%;
 }
 
-.khaki-border {
-	border-color: #a39b8b;
-	border-style: solid;
-	border-width: 10%;
-	border-radius: 2rem;
+.col-3 {
+	min-width: 33.33%;
 }
 
-.gim-grey-border {
-	border-color: #716a5c;
-	border-style: solid;
-	border-width: 10%;
-	border-radius: 2rem;
+.text-align-center {
+	text-align: center;
+}
+
+.bg-khaki {
+    background-color: #716a5c;
+}
+
+.bg-dim-grey {
+    background-color: #716a5c;
+}
+
+.bg-black {
+    background-color: #07020d;
 }
 
 .parallax {
@@ -109,7 +114,7 @@
 
 /*
  * black     #07020d
- * gim grey  #716a5c
+ * dim grey  #716a5c
  * khaki     #a39b8b
  * alabaster #f1e9db
  * emerald   #0dbf6f

@@ -1,17 +1,18 @@
 import React from "react";
 import { Paper } from "@mui/material";
 import IncomeForm from "./IncomeForm";
+import StateForm from "./StateForm";
 
 const Taxes = (props) => {
 	let { salary, setSalary, taxes, setTaxes } = props;
 
 	return (
-		<div className="container-fluid bg-khaki">
+		<div className="container-fluid bg-khaki text-align-center">
 			<div className="container-row">
 				<Paper
 					className="container-col col-2"
 					elevation={3}
-					sx={{ margin: "0vh 1vw" }}
+					sx={{ margin: "0vh 1vw", padding: "0vh 5vw" }}
 				>
 					<IncomeForm
 						salary={salary}
@@ -19,20 +20,24 @@ const Taxes = (props) => {
 						setTaxes={setTaxes}
 					></IncomeForm>
 
-					<h2>Taxable Salary</h2>
-					<p>${salary - 13850}</p>
-
 					<div className="container-row col">
-						<div className="container-col col-2">
+						<div className="container-col col-3">
 							<h2>Annual Federal Tax</h2>
 							<p>${Math.round(taxes.federal)}</p>
 						</div>
 
-						<div className="container-col col-2">
-							<h2>Annual State Tax</h2>
-							<p>${Math.round(taxes.state)}</p>
+						<div className="container-col col-3">
+							<h2>Annual FICA Tax</h2>
+							<p>${Math.round(taxes.fica)}</p>
 						</div>
 					</div>
+
+					<StateForm
+						salary={salary}
+						setSalary={setSalary}
+						taxes={taxes}
+						setTaxes={setTaxes}
+					></StateForm>
 				</Paper>
 
 				<Paper

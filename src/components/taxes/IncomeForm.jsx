@@ -35,12 +35,12 @@ const IncomeForm = (props) => {
 						}
 						sx={{ fontSize: "2vmin" }}
 						defaultValue="15000"
-						placeholder="Enter income"
 						onChange={(e) => {
 							const annualSalary = parseInt(e.target.value);
 							setSalary(annualSalary);
 							setTaxes({
 								federal: calculateTax(annualSalary, "federal"),
+								fica: annualSalary * 0.0765
 							});
 						}}
 					/>

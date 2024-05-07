@@ -9,14 +9,15 @@ import Footer from "./components/Footer.jsx";
 const App = () => {
 	// $15,000 is the minimum wage salary set by US as of 2023
 	let [salary, setSalary] = useState(15000);
+	let [state, setState] = useState("california");
+
 	let [taxes, setTaxes] = useState({
 		federal: calculateTax(salary, "federal"),
-		state: 0,
-		socialSecurityMedicaid: 0,
+		state: calculateTax(salary, state),
+		fica: salary * 0.0765,
 	});
 
-	// let [state, setState] = useState("california");
-
+	console.log(state);
 	return (
 		<div>
 			<Banner />
@@ -43,13 +44,18 @@ const App = () => {
 };
 
 const calculateTax = (annualSalary, type) => {
-	// additional tax of $90 per $10,000 of income earned above $200,000
-	let totalTax = (Math.max(0, annualSalary - 200000) * 90) / 10000;
+	let totalTax = 0;
 
-	// $13850 is the tax exemption with a single filing status
-	annualSalary = Math.max(0, annualSalary - 13850);
+	if (type === "federal") 
+		// additional tax of $90 per $10,000 of income earned above $200,000
+		totalTax = (Math.max(0, annualSalary - 200000) * 90) / 10000;
 
-	for (let [key, taxRate] of Object.entries(taxBrackets[type]).reverse()) {
+	// deducts tax exemption with a single filing status
+	annualSalary = Math.max(0, annualSalary - taxBrackets[type].deduction);
+
+	for (let [key, taxRate] of Object.entries(
+		taxBrackets[type].brackets
+	).reverse()) {
 		const bracket = parseInt(key);
 
 		if (annualSalary > bracket) {
@@ -58,7 +64,8 @@ const calculateTax = (annualSalary, type) => {
 		}
 	}
 
-	return totalTax;
+	// reduces tax with credits with a single filing status
+	return totalTax - taxBrackets[type].credits;
 };
 
 export default App;
