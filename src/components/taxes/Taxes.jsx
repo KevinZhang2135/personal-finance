@@ -1,18 +1,15 @@
 import React from "react";
-import { Box, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Grid, Paper, Stack, Typography } from "@mui/material";
 
 import IncomeForm from "./IncomeForm";
 import StateForm from "./StateForm";
 import FederalForm from "./FederalForm";
 
 const Taxes = (props) => {
-	let { salary, setSalary, taxes, setTaxes } = props;
+	let { salary, setSalary, state, setState, taxes, setTaxes } = props;
 	return (
 		<Stack bgcolor="secondary.main" flexDirection="row">
-			<Paper
-				elevation={3}
-				sx={{ m: "5vh 2vw", p: "3vh 3vw" }}
-			>
+			<Paper elevation={3} sx={{ m: "5vh 2vw", p: "3vh 3vw" }}>
 				<Grid
 					container
 					spacing={4}
@@ -21,6 +18,7 @@ const Taxes = (props) => {
 					<IncomeForm
 						salary={salary}
 						setSalary={setSalary}
+						state={state}
 						setTaxes={setTaxes}
 					></IncomeForm>
 
@@ -28,17 +26,15 @@ const Taxes = (props) => {
 
 					<StateForm
 						salary={salary}
-						setSalary={setSalary}
 						taxes={taxes}
+						state={state}
+						setState={setState}
 						setTaxes={setTaxes}
 					></StateForm>
 				</Grid>
 			</Paper>
 
-			<Paper
-				elevation={3}
-				sx={{ m: "5vh 2vw", p: "3vh 3vw" }}
-			>
+			<Paper elevation={3} sx={{ m: "5vh 2vw", p: "3vh 3vw" }}>
 				<Typography variant="p">
 					The US implements a progressive tax that steadily takes a
 					larger share of the gross salary as income increases. While

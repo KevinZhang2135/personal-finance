@@ -33,6 +33,8 @@ const App = () => {
 			<Taxes
 				salary={salary}
 				setSalary={setSalary}
+				state={state}
+				setState={setState}
 				taxes={taxes}
 				setTaxes={setTaxes}
 			/>
@@ -42,15 +44,17 @@ const App = () => {
 };
 
 const calculateTax = (annualSalary, type) => {
+	// Determines the total taxes for a region with a single filing status
 	let totalTax = 0;
 
 	if (type === "federal")
-		// additional tax of $90 per $10,000 of income earned above $200,000
+		// Additional federal tax of $90 per $10,000 of income earned above $200,000
 		totalTax = (Math.max(0, annualSalary - 200000) * 90) / 10000;
 
-	// deducts tax exemption with a single filing status
+	// Deducts tax exemption
 	annualSalary = Math.max(0, annualSalary - taxBrackets[type].deduction);
 
+	// Adds taxes according to brackets
 	for (let [key, taxRate] of Object.entries(
 		taxBrackets[type].brackets
 	).reverse()) {
@@ -62,7 +66,7 @@ const calculateTax = (annualSalary, type) => {
 		}
 	}
 
-	// reduces tax with credits with a single filing status
+	// Reduces tax with credits
 	return totalTax - taxBrackets[type].credits;
 };
 

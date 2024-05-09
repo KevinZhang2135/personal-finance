@@ -1,62 +1,72 @@
+import taxBrackets from "../../res/taxBrackets.json";
+
 import React from "react";
 import {
-	Box,
 	FormControl,
-	FilledInput,
 	Grid,
-	InputAdornment,
 	InputLabel,
+	MenuItem,
+	Select,
 	Typography,
 } from "@mui/material";
 
 import { calculateTax } from "../../App";
 
 const StateForm = (props) => {
-	let { salary, setSalary, taxes, setTaxes } = props;
+	let { salary, state, setState, taxes, setTaxes } = props;
+
+	// Gets all states, including D.C, and capitalizes them
+	const states = Object.keys(taxBrackets).splice(1);
+	const handleStateChange = (e) => {
+		const inputState = e.target.value;
+		setState(inputState);
+		setTaxes({
+			...taxes,
+			state: calculateTax(salary, inputState),
+		});
+	};
 
 	return (
 		<React.Fragment>
 			<Grid item xs={6} textAlign="center">
-				<Typography variant="h3">
-					State
-				</Typography>
+				<Typography variant="h3">State</Typography>
 				<FormControl variant="filled">
-					<InputLabel
-						htmlFor="filled-adornment-amount"
-						fontSize="2vmin"
+					<InputLabel>State</InputLabel>
+					<Select
+						value={state}
+						label="State"
+						onChange={(e) => {
+							handleStateChange(e);
+						}}
 					>
-						State
-					</InputLabel>
-
-					<FilledInput
-						id="filled-adornment-amount"
-						startAdornment={
-							<InputAdornment
-								position="start"
-								sx={{ fontSize: "2vmin" }}
-							>
-								$
-							</InputAdornment>
-						}
-						defaultValue="15000"
-						placeholder="Select state"
-						fontSize="2vmin"
-						onChange={(e) => {}}
-					/>
+						{states.map((inputState) => (
+							<MenuItem key={inputState} value={inputState}>
+								{inputState.replace(/(^.)|(\W.)/g, (char) =>
+									char.toUpperCase()
+								)}
+							</MenuItem>
+						))}
+					</Select>
 				</FormControl>
 			</Grid>
 
 			<Grid item xs={6} textAlign="center">
-				<Typography variant="h3">
-					Annual State Tax
-				</Typography>
+				<Typography variant="h3">Annual State Tax</Typography>
 
-				<Typography variant="p">
-					${Math.round(taxes.state)}
-				</Typography>
+				<Typography variant="p">${Math.round(taxes.state)}</Typography>
 			</Grid>
 		</React.Fragment>
 	);
 };
 
 export default StateForm;
+
+/**<Autocomplete
+					disablePortal
+					options={states}
+					defaultValue="California"
+					renderInput={(params) => (
+						<TextField {...params} label="State" />
+					)}
+					onChange={handleStateChange(e, value)}
+				/> */

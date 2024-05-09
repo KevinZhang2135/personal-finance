@@ -1,6 +1,5 @@
 import React from "react";
 import {
-	Box,
 	FormControl,
 	FilledInput,
 	Grid,
@@ -12,51 +11,40 @@ import {
 import { calculateTax } from "../../App";
 
 const IncomeForm = (props) => {
-	let { salary, setSalary, setTaxes } = props;
+	let { salary, setSalary, state, setTaxes } = props;
+
+	const handleSalaryChange = (e) => {
+		const annualSalary = parseInt(e.target.value);
+
+		setSalary(annualSalary);
+		setTaxes({
+			federal: calculateTax(annualSalary, "federal"),
+			state: calculateTax(annualSalary, state),
+			fica: annualSalary * 0.0765,
+		});
+	};
 
 	return (
 		<React.Fragment>
 			<Grid item xs={6} textAlign="center">
-				<Typography variant="h3">
-					Gross Annual Salary
-				</Typography>
+				<Typography variant="h3">Gross Annual Salary</Typography>
 
 				<FormControl variant="filled">
-					<InputLabel htmlFor="filled-adornment-amount">
-						Gross Annual Salary
-					</InputLabel>
-
+					<InputLabel>Gross Annual Salary</InputLabel>
 					<FilledInput
-						id="filled-adornment-amount"
 						startAdornment={
-							<InputAdornment
-								position="start"
-								sx={{ fontSize: "2vmin" }}
-							>
-								$
-							</InputAdornment>
+							<InputAdornment position="start">$</InputAdornment>
 						}
 						defaultValue="15000"
-						onChange={(e) => {
-							const annualSalary = parseInt(e.target.value);
-							setSalary(annualSalary);
-							setTaxes({
-								federal: calculateTax(annualSalary, "federal"),
-								fica: annualSalary * 0.0765,
-							});
-						}}
+						onChange={(e) => handleSalaryChange(e)}
 					/>
 				</FormControl>
 			</Grid>
 
 			<Grid item xs={6} textAlign="center">
-				<Typography variant="h3">
-					Gross Monthly Salary
-				</Typography>
+				<Typography variant="h3">Gross Monthly Salary</Typography>
 
-				<Typography variant="p">
-					${Math.round(salary / 12)}
-				</Typography>
+				<Typography variant="p">${Math.round(salary / 12)}</Typography>
 			</Grid>
 		</React.Fragment>
 	);
