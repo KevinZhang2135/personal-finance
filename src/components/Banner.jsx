@@ -1,12 +1,20 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const Banner = (props) => {
-    return (
-        <header className="header container-fluid parallax">
-            <Typography variant="h1">Personal finance done easy.</Typography>
-        </header>
-    );
+	return (
+		<Box
+			className="header parallax"
+			sx={{
+				display: "flex",
+				flexDirection: "column",
+				textAlign: "center",
+				justifyContent: "center",
+			}}
+		>
+			<Typography variant="h1">Personal finance done easy.</Typography>
+		</Box>
+	);
 };
 
 export default Banner;

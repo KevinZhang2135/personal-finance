@@ -1,7 +1,9 @@
 import React from "react";
 import {
+	Box,
 	FormControl,
 	FilledInput,
+	Grid,
 	InputAdornment,
 	InputLabel,
 	Typography,
@@ -13,17 +15,14 @@ const IncomeForm = (props) => {
 	let { salary, setSalary, setTaxes } = props;
 
 	return (
-		<div className="container-row">
-			<div className="container-col col-2">
-				<Typography variant="h3" textAlign="center">
+		<React.Fragment>
+			<Grid item xs={6} textAlign="center">
+				<Typography variant="h3">
 					Gross Annual Salary
 				</Typography>
-				
+
 				<FormControl variant="filled">
-					<InputLabel
-						htmlFor="filled-adornment-amount"
-						fontSize="2vmin"
-					>
+					<InputLabel htmlFor="filled-adornment-amount">
 						Gross Annual Salary
 					</InputLabel>
 
@@ -46,21 +45,20 @@ const IncomeForm = (props) => {
 								fica: annualSalary * 0.0765,
 							});
 						}}
-						fontSize="2vmin"
 					/>
 				</FormControl>
-			</div>
+			</Grid>
 
-			<div className="container-col col-2">
-				<Typography variant="h3" textAlign="center">
+			<Grid item xs={6} textAlign="center">
+				<Typography variant="h3">
 					Gross Monthly Salary
 				</Typography>
 
-				<Typography variant="p" textAlign="center">
+				<Typography variant="p">
 					${Math.round(salary / 12)}
 				</Typography>
-			</div>
-		</div>
+			</Grid>
+		</React.Fragment>
 	);
 };
 

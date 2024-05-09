@@ -1,8 +1,9 @@
 import React from "react";
 import {
-    Box,
+	Box,
 	FormControl,
 	FilledInput,
+	Grid,
 	InputAdornment,
 	InputLabel,
 	Typography,
@@ -14,9 +15,9 @@ const StateForm = (props) => {
 	let { salary, setSalary, taxes, setTaxes } = props;
 
 	return (
-		<Box sx={{ display: "flex", flexDirection: "col" }}>
-            <Box>
-				<Typography variant="h3" textAlign="center">
+		<React.Fragment>
+			<Grid item xs={6} textAlign="center">
+				<Typography variant="h3">
 					State
 				</Typography>
 				<FormControl variant="filled">
@@ -43,18 +44,18 @@ const StateForm = (props) => {
 						onChange={(e) => {}}
 					/>
 				</FormControl>
-			</Box>
+			</Grid>
 
-			<Box>
-				<Typography variant="h3" textAlign="center">
+			<Grid item xs={6} textAlign="center">
+				<Typography variant="h3">
 					Annual State Tax
 				</Typography>
 
-				<Typography variant="p" textAlign="center">
+				<Typography variant="p">
 					${Math.round(taxes.state)}
 				</Typography>
-            </Box>
-		</Box>
+			</Grid>
+		</React.Fragment>
 	);
 };
 

@@ -6,22 +6,20 @@ const Footer = (props) => {
 		<Box
 			sx={{
 				bgcolor: "#07020d",
-				minHeight: "2.5vmin",
+				display: "flex",
+				flexDirection: "column",
+				height: "10vh",
+				textAlign: "center",
 				justifyContent: "center",
 			}}
 		>
-            hello
-			<Typography
-				variant="p"
-                color="secondary.contrastText"
-				sx={{
-					textAlign: "center",
-					justifyContent: "center",
-				}}
-			>
+			<Typography variant="p" color="secondary.contrastText" >
 				For the sake of transparency and open-source code, read the
 				source code at{" "}
-				<Link href="https://github.com/KevinZhang2135/Personal-Finance">
+				<Link
+					color="secondary.contrastText"
+					href="https://github.com/KevinZhang2135/Personal-Finance"
+				>
 					github.com/KevinZhang2135/Personal-Finance
 				</Link>
 				.

@@ -1,57 +1,11 @@
 .header {
-	/* Background */
 	background-image: url("../public/mountain-road.png");
-
-	/* Display */
-	min-height: 100vh;
-
-	/* Font */
-	font-weight: 500;
-	font-size: 6vmin;
-}
-
-.footer {
-	/* Background */
-	background-color: #07020d;
-
-	/* Font */
-	color: #f1e9db;
-	font-weight: 200;
-	font-size: 2.5vmin;
-}
-
-.container-fluid {
-    /* Display */
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	padding: 5vh 5vw;
-	min-width: 80vw;
-}
-
-.container-col {
-    /* Display */
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	padding: 1vh;
-}
-
-.container-row {
-    /* Display */
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-
-	padding: 1vh;
 }
 
 .parallax {
+    /* Display */
+	min-height: 100vh;
+
 	/* Parallax scrolling effect */
 	background-attachment: fixed;
 	background-position: center;

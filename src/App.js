@@ -22,22 +22,20 @@ const App = () => {
 	return (
 		<Box>
 			<Banner />
-			<div className="introduction container-fluid">
+			
+			<Box sx={{ p: "5vh 5vw" }}>
 				<Typography variant="h2" textAlign="center">
 					According to CNBC and Forbes, more than 60% of Americans
 					live paycheck to paycheck in 2023. <>Let's change that.</>
 				</Typography>
-			</div>
+			</Box>
 
-			
 			<Taxes
 				salary={salary}
 				setSalary={setSalary}
 				taxes={taxes}
 				setTaxes={setTaxes}
 			/>
-			
-
 			<Footer />
 		</Box>
 	);

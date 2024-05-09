@@ -1,59 +1,43 @@
 import React from "react";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Grid, Paper, Stack, Typography } from "@mui/material";
 
 import IncomeForm from "./IncomeForm";
 import StateForm from "./StateForm";
+import FederalForm from "./FederalForm";
 
 const Taxes = (props) => {
 	let { salary, setSalary, taxes, setTaxes } = props;
-	// className="container-row"
 	return (
-		<Box sx={{ display: "flex", flexDirection: "col" }}>
+		<Stack bgcolor="secondary.main" flexDirection="row">
 			<Paper
-				className="container-col col-2"
 				elevation={3}
-				sx={{ m: "0vh 1vw", p: "0vh 5vw" }}
+				sx={{ m: "5vh 2vw", p: "3vh 3vw" }}
 			>
-				<IncomeForm
-					salary={salary}
-					setSalary={setSalary}
-					setTaxes={setTaxes}
-				></IncomeForm>
+				<Grid
+					container
+					spacing={4}
+					sx={{ display: "flex", flexDirection: "row" }}
+				>
+					<IncomeForm
+						salary={salary}
+						setSalary={setSalary}
+						setTaxes={setTaxes}
+					></IncomeForm>
 
-				<div className="container-row col">
-					<div className="container-col col-3">
-						<Typography variant="h3" textAlign="center">
-							Annual Federal Tax
-						</Typography>
+					<FederalForm taxes={taxes}></FederalForm>
 
-						<Typography variant="p" textAlign="center">
-							${Math.round(taxes.federal)}
-						</Typography>
-					</div>
-
-					<div className="container-col col-3">
-						<Typography variant="h3" textAlign="center">
-							Annual FICA Tax
-						</Typography>
-
-						<Typography variant="p" textAlign="center">
-							${Math.round(taxes.fica)}
-						</Typography>
-					</div>
-				</div>
-
-				<StateForm
-					salary={salary}
-					setSalary={setSalary}
-					taxes={taxes}
-					setTaxes={setTaxes}
-				></StateForm>
+					<StateForm
+						salary={salary}
+						setSalary={setSalary}
+						taxes={taxes}
+						setTaxes={setTaxes}
+					></StateForm>
+				</Grid>
 			</Paper>
 
 			<Paper
-				className="container-col col-2"
 				elevation={3}
-				sx={{ m: "0vh 1vw", p: "2vh 2vw" }}
+				sx={{ m: "5vh 2vw", p: "3vh 3vw" }}
 			>
 				<Typography variant="p">
 					The US implements a progressive tax that steadily takes a
@@ -63,7 +47,7 @@ const Taxes = (props) => {
 					approximations will be based on a single filing status.
 				</Typography>
 			</Paper>
-		</Box>
+		</Stack>
 	);
 };
 
