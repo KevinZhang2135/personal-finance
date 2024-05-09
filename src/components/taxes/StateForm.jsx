@@ -1,9 +1,11 @@
 import React from "react";
 import {
+    Box,
 	FormControl,
 	FilledInput,
 	InputAdornment,
 	InputLabel,
+	Typography,
 } from "@mui/material";
 
 import { calculateTax } from "../../App";
@@ -12,13 +14,15 @@ const StateForm = (props) => {
 	let { salary, setSalary, taxes, setTaxes } = props;
 
 	return (
-		<div className="container-row">
-			<div className="container-col col-2">
-				<h2>State</h2>
+		<Box sx={{ display: "flex", flexDirection: "col" }}>
+            <Box>
+				<Typography variant="h3" textAlign="center">
+					State
+				</Typography>
 				<FormControl variant="filled">
 					<InputLabel
 						htmlFor="filled-adornment-amount"
-						sx={{ fontSize: "2vmin" }}
+						fontSize="2vmin"
 					>
 						State
 					</InputLabel>
@@ -33,19 +37,24 @@ const StateForm = (props) => {
 								$
 							</InputAdornment>
 						}
-						sx={{ fontSize: "2vmin" }}
 						defaultValue="15000"
 						placeholder="Select state"
-						onChange={(e) => { }}
+						fontSize="2vmin"
+						onChange={(e) => {}}
 					/>
 				</FormControl>
-			</div>
+			</Box>
 
-			<div className="container-col col-2">
-				<h2>Annual State Tax</h2>
-				<p>${Math.round(taxes.state)}</p>
-			</div>
-		</div>
+			<Box>
+				<Typography variant="h3" textAlign="center">
+					Annual State Tax
+				</Typography>
+
+				<Typography variant="p" textAlign="center">
+					${Math.round(taxes.state)}
+				</Typography>
+            </Box>
+		</Box>
 	);
 };
 

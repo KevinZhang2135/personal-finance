@@ -6,6 +6,8 @@ import Banner from "./components/Banner.jsx";
 import Taxes from "./components/taxes/Taxes.jsx";
 import Footer from "./components/Footer.jsx";
 
+import { Box, Typography } from "@mui/material";
+
 const App = () => {
 	// $15,000 is the minimum wage salary set by US as of 2023
 	let [salary, setSalary] = useState(15000);
@@ -17,36 +19,34 @@ const App = () => {
 		fica: salary * 0.0765,
 	});
 
-	console.log(state);
 	return (
-		<div>
+		<Box>
 			<Banner />
 			<div className="introduction container-fluid">
-				<p>
+				<Typography variant="h2" textAlign="center">
 					According to CNBC and Forbes, more than 60% of Americans
-					live paycheck to paycheck in 2023.{" "}
-					<em>Let's change that.</em>
-				</p>
+					live paycheck to paycheck in 2023. <>Let's change that.</>
+				</Typography>
 			</div>
 
-			<div className="calculators">
-				<Taxes
-					salary={salary}
-					setSalary={setSalary}
-					taxes={taxes}
-					setTaxes={setTaxes}
-				/>
-			</div>
+			
+			<Taxes
+				salary={salary}
+				setSalary={setSalary}
+				taxes={taxes}
+				setTaxes={setTaxes}
+			/>
+			
 
 			<Footer />
-		</div>
+		</Box>
 	);
 };
 
 const calculateTax = (annualSalary, type) => {
 	let totalTax = 0;
 
-	if (type === "federal") 
+	if (type === "federal")
 		// additional tax of $90 per $10,000 of income earned above $200,000
 		totalTax = (Math.max(0, annualSalary - 200000) * 90) / 10000;
 

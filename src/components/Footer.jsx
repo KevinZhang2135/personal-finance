@@ -1,17 +1,32 @@
 import React from "react";
+import { Box, Link, Typography } from "@mui/material";
 
 const Footer = (props) => {
 	return (
-		<header className="footer container-fluid">
-			<p>
+		<Box
+			sx={{
+				bgcolor: "#07020d",
+				minHeight: "2.5vmin",
+				justifyContent: "center",
+			}}
+		>
+            hello
+			<Typography
+				variant="p"
+                color="secondary.contrastText"
+				sx={{
+					textAlign: "center",
+					justifyContent: "center",
+				}}
+			>
 				For the sake of transparency and open-source code, read the
 				source code at{" "}
-				<a href="https://github.com/KevinZhang2135/Personal-Finance">
+				<Link href="https://github.com/KevinZhang2135/Personal-Finance">
 					github.com/KevinZhang2135/Personal-Finance
-				</a>
+				</Link>
 				.
-			</p>
-		</header>
+			</Typography>
+		</Box>
 	);
 };
 
