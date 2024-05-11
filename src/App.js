@@ -11,7 +11,6 @@ const taxBrackets = await (
 	await fetch("./Personal-Finance/taxBrackets.json")
 ).json();
 
-console.log(taxBrackets)
 const App = () => {
 	// $15,000 is the minimum wage salary set by US as of 2023
 
