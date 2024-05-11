@@ -12,3 +12,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+em {
+	color: #0dbf6f;
+	font-style: normal;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Paper, Stack, Typography } from "@mui/material";
+import { Box, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
 
 import IncomeForm from "./IncomeForm";
 import StateForm from "./StateForm";
@@ -7,13 +7,27 @@ import FederalForm from "./FederalForm";
 
 const Taxes = (props) => {
 	let { salary, setSalary, state, setState, taxes, setTaxes } = props;
+
+	const paperWidth = { xs: "90vw", md: "40vw" };
+	const papersx = { width: paperWidth, p: "3vh 3vw" };
+
 	return (
-		<Stack bgcolor="secondary.main" flexDirection="row">
-			<Paper elevation={3} sx={{ m: "5vh 2vw", p: "3vh 3vw" }}>
+		<Stack
+			bgcolor="secondary.main"
+			direction={{ xs: "column", md: "row" }}
+			spacing={"3vw"}
+			sx={{ justifyContent: "center", p: "2vh 2vw" }}
+		>
+			<Paper elevation={3} sx={papersx}>
 				<Grid
 					container
 					spacing={4}
-					sx={{ display: "flex", flexDirection: "row" }}
+					sx={{
+						display: "flex",
+						flexDirection: "row",
+						justifyContent: "center",
+						p: "3vh 3vw"
+					}}
 				>
 					<IncomeForm
 						salary={salary}
@@ -34,14 +48,46 @@ const Taxes = (props) => {
 				</Grid>
 			</Paper>
 
-			<Paper elevation={3} sx={{ m: "5vh 2vw", p: "3vh 3vw" }}>
-				<Typography variant="p">
-					The US implements a progressive tax that steadily takes a
-					larger share of the gross salary as income increases. While
-					many other factors such as filing-status and number of
-					children influence the total federal tax paid, all
-					approximations will be based on a single filing status.
-				</Typography>
+			<Paper elevation={3} sx={papersx}>
+				<Box>
+					<Typography variant="h3">Federal Taxes</Typography>
+					<Typography variant="p">
+						The US federal government implements a progressive tax
+						that steadily takes a larger share of the gross salary
+						as income increases.
+					</Typography>
+
+					<Divider
+						flexItem
+						orientation="horizontal"
+						variant="middle"
+						sx={{ my: "2vh" }}
+					/>
+
+					<Typography variant="h3">FICA Taxes</Typography>
+					<Typography variant="p">
+						To fund Social Security and Medicaid, the government
+						also automatically deducts a combined flat rate 7.65% of
+						the payroll.
+					</Typography>
+
+					<Divider
+						flexItem
+						orientation="horizontal"
+						variant="middle"
+						sx={{ my: "2vh" }}
+					/>
+
+					<Typography variant="h3">State Taxes</Typography>
+					<Typography variant="p">
+						The separate states of the US also levy an income tax,
+						though it varies from state to state. While so states
+						imitate the federal tax and create progressive brackets
+						on their own, others implement a flat income tax rate or
+						none at all.
+					</Typography>
+				</Box>
+				<img src="./Personal-Finance/incomeTax.png" alt="income tax" />
 			</Paper>
 		</Stack>
 	);

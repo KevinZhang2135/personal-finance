@@ -3,18 +3,22 @@ import { Box, Typography } from "@mui/material";
 
 const Banner = (props) => {
 	return (
-		<Box
-			className="header parallax"
-			sx={{
-				display: "flex",
-				flexDirection: "column",
-				textAlign: "center",
-				justifyContent: "center",
-			}}
-		>
-			<Typography variant="h1">Personal finance done easy.</Typography>
+		<Box className="header parallax">
+			<Box
+				className="overlay"
+				sx={{
+                    height: "100vh",
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+                    bgcolor: "rgba(0, 0, 0, 0.4)"
+				}}
+			>
+				<Typography variant="h1" color="primary.contrast" align="center">
+					Personal finance done easy.
+				</Typography>
+			</Box>
 		</Box>
 	);
 };
-
 export default Banner;

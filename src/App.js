@@ -1,5 +1,4 @@
 import "./App.css";
-import taxBrackets from "./res/taxBrackets.json";
 
 import React, { useState } from "react";
 import Banner from "./components/Banner.jsx";
@@ -8,8 +7,14 @@ import Footer from "./components/Footer.jsx";
 
 import { Box, Typography } from "@mui/material";
 
+const taxBrackets = await (
+	await fetch("./Personal-Finance/taxBrackets.json")
+).json();
+
+console.log(taxBrackets)
 const App = () => {
 	// $15,000 is the minimum wage salary set by US as of 2023
+
 	let [salary, setSalary] = useState(15000);
 	let [state, setState] = useState("california");
 
@@ -22,11 +27,12 @@ const App = () => {
 	return (
 		<Box>
 			<Banner />
-			
+
 			<Box sx={{ p: "5vh 5vw" }}>
 				<Typography variant="h2" textAlign="center">
 					According to CNBC and Forbes, more than 60% of Americans
-					live paycheck to paycheck in 2023. <>Let's change that.</>
+					live paycheck to paycheck in 2023.{" "}
+					<em>Let's change that.</em>
 				</Typography>
 			</Box>
 

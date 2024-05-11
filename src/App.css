@@ -1,9 +1,9 @@
 .header {
-	background-image: url("../public/mountain-road.png");
+	background-image: url("../public/mountainRoad.png");
 }
 
 .parallax {
-    /* Display */
+	/* Display */
 	min-height: 100vh;
 
 	/* Parallax scrolling effect */
