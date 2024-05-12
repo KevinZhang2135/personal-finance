@@ -8,21 +8,21 @@ const FederalForm = (props) => {
 		<React.Fragment>
 			<Grid item xs={6} textAlign="center">
 				<Typography variant="h3" >
-					Annual Federal Tax
+					Monthy Federal Tax
 				</Typography>
 
 				<Typography variant="p">
-					${Math.round(taxes.federal)}
+					${Math.round(taxes.federal / 12)}
 				</Typography>
 			</Grid>
 
 			<Grid item xs={6} textAlign="center">
 				<Typography variant="h3">
-					Annual FICA Tax
+					Monthly FICA Tax
 				</Typography>
 
 				<Typography variant="p">
-					${Math.round(taxes.fica)}
+					${Math.round(taxes.fica / 12)}
 				</Typography>
 			</Grid>
 		</React.Fragment>

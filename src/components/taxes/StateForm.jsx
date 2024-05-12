@@ -53,9 +53,9 @@ const StateForm = (props) => {
 			</Grid>
 
 			<Grid item xs={6} textAlign="center">
-				<Typography variant="h3">Annual State Tax</Typography>
+				<Typography variant="h3">Monthly State Tax</Typography>
 
-				<Typography variant="p">${Math.round(taxes.state)}</Typography>
+				<Typography variant="p">${Math.round(taxes.state / 12)}</Typography>
 			</Grid>
 		</React.Fragment>
 	);

@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Box, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
 
 import IncomeForm from "./IncomeForm";
 import StateForm from "./StateForm";
@@ -8,26 +8,26 @@ import FederalForm from "./FederalForm";
 const Taxes = (props) => {
     let { salary, setSalary, state, setState, taxes, setTaxes } = props;
 
-    const papersx = { width: { md: "90vw", lg: "40vw" }, p: "3vh 3vw" };
-
     return (
-        <Stack
-            bgcolor="secondary.main"
-            direction={{ md: "column", lg: "row" }}
-            spacing={"3vw"}
-            sx={{ justifyContent: "center", p: "2vh 2vw"}}
-        >
+        <Paper elevation={3} sx={{ p: "3vh 3vw", mb: "2vh" }}>
             <Stack
-                direction={{ md: "column", lg: "column" }}
+                direction={{ md: "column", lg: "row" }}
                 spacing={"3vw"}
-                sx={{ justifyContent: "center"}}
+                justifyContent="center"
             >
-                <Paper elevation={3} sx={papersx}>
+                <Box width="100%">
+                    <Typography variant="h2" pb={"3vh"}>
+                        Taxes
+                    </Typography>
+
                     <Typography variant="h3">Federal Taxes</Typography>
                     <Typography variant="p">
                         The US federal government implements a progressive tax
                         that steadily takes a larger share of the gross salary
-                        as income increases.
+                        as income increases. Hence, to help the impoverished,
+                        they deduct $13,850 of the taxable income as a tax break
+                        and levy an additional tax of $90 per $10,000 of gross
+                        income earned above $200,000.
                     </Typography>
 
                     <Divider
@@ -41,7 +41,8 @@ const Taxes = (props) => {
                     <Typography variant="p">
                         To fund Social Security and Medicaid, the government
                         also automatically deducts a combined flat rate 7.65% of
-                        the payroll.
+                        the payroll known as the Federal Insurance Contributions
+                        Act.
                     </Typography>
 
                     <Divider
@@ -54,23 +55,26 @@ const Taxes = (props) => {
                     <Typography variant="h3">State Taxes</Typography>
                     <Typography variant="p">
                         The separate states of the US also levy an income tax,
-                        though it varies from state to state. While so states
+                        though it varies from state to state. While some states
                         imitate the federal tax and create progressive brackets
                         on their own, others implement a flat income tax rate or
                         none at all.
                     </Typography>
-                </Paper>
 
-                <Paper elevation={3} sx={papersx}>
+                    <Divider
+                        flexItem
+                        orientation="horizontal"
+                        variant="middle"
+                        sx={{ my: "2vh" }}
+                    />
+
                     <Grid
                         container
                         spacing={4}
-                        sx={{
-                            display: "flex",
-                            flexDirection: "row",
-                            justifyContent: "center",
-                            p: "3vh 3vw",
-                        }}
+                        display="flex"
+                        flexDirection="row"
+                        justifyContent="center"
+                        width="100%"
                     >
                         <IncomeForm
                             salary={salary}
@@ -89,28 +93,24 @@ const Taxes = (props) => {
                             setTaxes={setTaxes}
                         ></StateForm>
                     </Grid>
-                </Paper>
-            </Stack>
+                </Box>
 
-            <Paper
-                elevation={3}
-                sx={{
-                    width: { md: "90vw", lg: "20vw" },
-                    height: "100%",
-					p: "3vh 3vw",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                }}
-            >
-                <img
-                    src="./Personal-Finance/incomeTax.png"
-                    alt="income tax"
-                    width={"100%"}
+                <Box
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="center"
+                    width={"50%"}
                     height={"auto"}
-                />
-            </Paper>
-        </Stack>
+                >
+                    <img
+                        src="./Personal-Finance/incomeTax.png"
+                        alt="income tax"
+                        width={"100%"}
+                        height={"auto"}
+                    />
+                </Box>
+            </Stack>
+        </Paper>
     );
 };
 
