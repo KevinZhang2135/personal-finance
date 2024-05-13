@@ -30,7 +30,7 @@ const Theme = createTheme({
 
 		p: {
 			fontSize: "rem",
-			fontWeight: 300,
+			fontWeight: 400,
 		},
 
 		em: {

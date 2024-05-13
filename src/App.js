@@ -14,23 +14,33 @@ const taxBrackets = await (
 
 const App = () => {
     // $15,000 is the minimum wage salary set by US as of 2023
-
     let [salary, setSalary] = useState(15000);
-    let [state, setState] = useState("california");
 
+    // California is the most populous US state as of 2023
+    let [state, setState] = useState("california");
     let [taxes, setTaxes] = useState({
         federal: calculateTax(salary, "federal"),
         state: calculateTax(salary, state),
         fica: salary * 0.0765,
     });
 
-    let [loans, setLoans] = useState([]);
+    // the average student loan debt im 2023 is about $37,000
+    let [loans, setLoans] = useState({
+        student: 37000,
+    });
+
+    let [apr, setApr] = useState(0.06);
+    let [termMonths, setTermMonths] = useState(60);
+
+    let [loanEMI, setLoanEMI] = useState({
+        student: calculateLoanEMI(loans.student, apr, termMonths),
+    });
 
     return (
         <Box>
             <Banner />
 
-            <Box p="5vh 5vw" >
+            <Box p="5vh 5vw">
                 <Typography variant="h2" textAlign="center">
                     According to CNBC and Forbes, more than 60% of Americans
                     live paycheck to paycheck in 2023.{" "}
@@ -38,7 +48,7 @@ const App = () => {
                 </Typography>
             </Box>
 
-            <Box px={"10vw"}>
+            <Box px="10vw">
                 <Taxes
                     salary={salary}
                     setSalary={setSalary}
@@ -48,7 +58,14 @@ const App = () => {
                     setTaxes={setTaxes}
                 />
 
-                <Loans loans={loans} setLoans={setLoans} />
+                <Loans
+                    apr={apr}
+                    setApr={setApr}
+                    termMonths={termMonths}
+                    setTermMonths={setTermMonths}
+                    loans={loans}
+                    setLoans={setLoans}
+                />
             </Box>
             <Footer />
         </Box>
@@ -82,5 +99,17 @@ const calculateTax = (annualSalary, type) => {
     return totalTax - taxBrackets[type].credits;
 };
 
+const calculateLoanEMI = (principal, apr, termMonths) => {
+    // Calculates monthly payment based on the equated monthly installment (EMI) formula
+
+    const frequency = 12; // compounded monthly
+    const interestRate = apr / frequency; // monthly interest rate
+
+    return (
+        (principal * interestRate * Math.pow(1 + interestRate, termMonths)) /
+        (Math.pow(1 + interestRate, termMonths) - 1)
+    );
+};
+
 export default App;
-export { calculateTax };
+export { calculateTax, calculateLoanEMI };

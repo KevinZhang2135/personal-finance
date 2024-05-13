@@ -10,16 +10,16 @@ const Taxes = (props) => {
 
     return (
         <Paper elevation={3} sx={{ p: "3vh 3vw", mb: "2vh" }}>
+            <Typography variant="h2" pb={6}>
+                Taxes
+            </Typography>
+
             <Stack
-                direction={{ md: "column", lg: "row" }}
-                spacing={"3vw"}
+                spacing="3vw"
+                direction={{ xs: "column", lg: "row" }}
                 justifyContent="center"
             >
-                <Box width="100%">
-                    <Typography variant="h2" pb={"3vh"}>
-                        Taxes
-                    </Typography>
-
+                <Box width={{ xs: "100%", lg: "67%", xl: "75%" }}>
                     <Typography variant="h3">Federal Taxes</Typography>
                     <Typography variant="p">
                         The US federal government implements a progressive tax
@@ -34,7 +34,7 @@ const Taxes = (props) => {
                         flexItem
                         orientation="horizontal"
                         variant="middle"
-                        sx={{ my: "2vh" }}
+                        sx={{ my: 4 }}
                     />
 
                     <Typography variant="h3">FICA Taxes</Typography>
@@ -49,7 +49,7 @@ const Taxes = (props) => {
                         flexItem
                         orientation="horizontal"
                         variant="middle"
-                        sx={{ my: "2vh" }}
+                        sx={{ my: 4 }}
                     />
 
                     <Typography variant="h3">State Taxes</Typography>
@@ -65,7 +65,7 @@ const Taxes = (props) => {
                         flexItem
                         orientation="horizontal"
                         variant="middle"
-                        sx={{ my: "2vh" }}
+                        sx={{ my: 4 }}
                     />
 
                     <Grid
@@ -74,7 +74,6 @@ const Taxes = (props) => {
                         display="flex"
                         flexDirection="row"
                         justifyContent="center"
-                        width="100%"
                     >
                         <IncomeForm
                             salary={salary}
@@ -96,17 +95,16 @@ const Taxes = (props) => {
                 </Box>
 
                 <Box
-                    display="flex"
+                    display={{ xs: "none", lg: "flex" }}
                     flexDirection="column"
-                    justifyContent="center"
-                    width={"50%"}
-                    height={"auto"}
+                    alignItems="center"
+                    width={{ lg: "33%", xl: "25%" }}
                 >
                     <img
                         src="./Personal-Finance/incomeTax.png"
                         alt="income tax"
-                        width={"100%"}
-                        height={"auto"}
+                        width="300rem"
+                        height="auto"
                     />
                 </Box>
             </Stack>
