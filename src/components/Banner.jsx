@@ -14,7 +14,7 @@ const Banner = (props) => {
                     bgcolor: "rgba(0, 0, 0, 0.4)"
 				}}
 			>
-				<Typography variant="h1" color="primary.contrast" align="center">
+				<Typography variant="h1" color="white" align="center">
 					Personal finance done easy.
 				</Typography>
 			</Box>
