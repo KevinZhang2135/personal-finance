@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Link, Typography } from "@mui/material";
-import { yellow } from '@mui/material/colors';
+import { yellow } from "@mui/material/colors";
 
 const Footer = (props) => {
 	return (
@@ -12,7 +12,7 @@ const Footer = (props) => {
 				justifyContent: "center",
 				height: { xs: "15vh", md: "10vh" },
 				px: 2,
-				my: 4
+				my: 4,
 			}}
 		>
 			<Typography variant="p" color="whiteSmoke" align="center">
@@ -22,7 +22,7 @@ const Footer = (props) => {
 					target="_blank"
 					rel="noopener noreferrer"
 					href="https://github.com/KevinZhang2135/Personal-Finance"
-					sx={{color: "whiteSmoke"}}
+					sx={{ color: "whiteSmoke" }}
 				>
 					github.com/KevinZhang2135/Personal-Finance
 				</Link>

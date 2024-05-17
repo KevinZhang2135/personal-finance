@@ -7,11 +7,11 @@ const Banner = (props) => {
 			<Box
 				className="overlay"
 				sx={{
-                    height: "100vh",
+					height: "100vh",
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-                    bgcolor: "rgba(0, 0, 0, 0.4)"
+					bgcolor: "rgba(0, 0, 0, 0.4)",
 				}}
 			>
 				<Typography variant="h1" color="white" align="center">
