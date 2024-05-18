@@ -8,11 +8,7 @@ import {
 	Typography,
 } from "@mui/material";
 
-import { calculateTax } from "./../../App";
-
-const taxBrackets = await (
-	await fetch("./Personal-Finance/taxBrackets.json")
-).json();
+import { calculateTax, taxBrackets } from "./../../App";
 
 const StateForm = (props) => {
 	let { salary, state, setState, taxes, setTaxes } = props;

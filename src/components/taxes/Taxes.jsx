@@ -93,23 +93,26 @@ const Taxes = (props) => {
 						></StateForm>
 					</Grid>
 				</Box>
-
-				<Box
-					display={{ xs: "none", lg: "flex" }}
-					flexDirection="column"
-					alignItems="center"
-					width={{ lg: "33%", xl: "25%" }}
-				>
-					<img
-						src="./Personal-Finance/incomeTax.png"
-						alt="income tax"
-						width="300rem"
-						height="auto"
-					/>
-				</Box>
 			</Stack>
 		</Paper>
 	);
 };
 
 export default Taxes;
+
+/*
+ 
+<Box
+	display={{ xs: "none", lg: "flex" }}
+	flexDirection="column"
+	alignItems="center"
+	width={{ lg: "33%", xl: "25%" }}
+>
+	<img
+		src="incomeTax.png"
+		alt="income tax"
+		width="300rem"
+		height="auto"
+	/>
+</Box>
+ */
