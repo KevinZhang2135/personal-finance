@@ -8,7 +8,7 @@ import {
 	Typography,
 } from "@mui/material";
 
-import { calculateTax } from "../../App";
+import { calculateTax } from "./../../App";
 
 const taxBrackets = await (
 	await fetch("./Personal-Finance/taxBrackets.json")

@@ -8,7 +8,7 @@ import {
 	Typography,
 } from "@mui/material";
 
-import { calculateTax } from "../../App";
+import { calculateTax } from "./../../App";
 
 const IncomeForm = (props) => {
 	let { salary, setSalary, state, setTaxes } = props;

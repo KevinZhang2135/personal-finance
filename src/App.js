@@ -13,6 +13,7 @@ const taxBrackets = await (
 ).json();
 
 const App = () => {
+	console.log("running");
 	// $15,000 is the minimum wage salary set by US as of 2023
 	let [salary, setSalary] = useState(15000);
 
