@@ -11,7 +11,7 @@ import {
 import { calculateTax } from "./../../App";
 
 const IncomeForm = (props) => {
-	let { salary, setSalary, state, setTaxes } = props;
+	const { salary, setSalary, state, setTaxes } = props;
 
 	const handleSalaryChange = (e) => {
 		const annualSalary = parseInt(e.target.value);

@@ -9,7 +9,7 @@ import Footer from "./components/Footer.jsx";
 import Loans from "./components/loans/Loans.jsx";
 
 const taxBrackets = await (
-    await fetch("./taxBrackets.json", {
+    await fetch("taxBrackets.json", {
         headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
@@ -19,18 +19,25 @@ const taxBrackets = await (
 
 const App = () => {
     // $15,000 is the minimum wage salary set by US as of 2023
-    let [salary, setSalary] = useState(15000);
+    const [salary, setSalary] = useState(15000);
 
     // California is the most populous US state as of 2023
-    let [state, setState] = useState("california");
-    let [taxes, setTaxes] = useState({
+    const [state, setState] = useState("california");
+    const [taxes, setTaxes] = useState({
         federal: calculateTax(salary, "federal"),
         state: calculateTax(salary, state),
         fica: salary * 0.0765,
     });
 
     // the average student loan debt im 2023 is about $37,000
-    let [loans, setLoans] = useState([
+    const [loans, setLoans] = useState([
+        {
+            principal: 37000,
+            apr: 0.06,
+            termMonths: 60,
+            emi: calculateLoanEMI(37000, 0.06, 60),
+        },
+
         {
             principal: 37000,
             apr: 0.06,
@@ -57,7 +64,7 @@ const App = () => {
                 </Typography>
             </Box>
 
-            <Box px="10vw">
+            <Box px="15vw">
                 <Taxes
                     salary={salary}
                     setSalary={setSalary}
@@ -72,6 +79,11 @@ const App = () => {
             <Footer />
         </Box>
     );
+};
+
+const toTitleCase = (string) => {
+    // Capitalizes the first character and any characters proceding a non-character
+    return string.replace(/(^.)|(\W.)/g, (char) => char.toUpperCase());
 };
 
 const calculateTax = (annualSalary, type) => {
@@ -114,4 +126,4 @@ const calculateLoanEMI = (principal, apr, termMonths) => {
 };
 
 export default App;
-export { calculateTax, calculateLoanEMI, taxBrackets };
+export { toTitleCase, calculateTax, calculateLoanEMI, taxBrackets };
