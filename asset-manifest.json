@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Personal-Finance/static/css/main.a791394f.css",
-    "main.js": "/Personal-Finance/static/js/main.ce37ea0d.js",
+    "main.css": "/Personal-Finance/static/css/main.17c107df.css",
+    "main.js": "/Personal-Finance/static/js/main.49c4f9d3.js",
     "static/media/mountainRoad.png": "/Personal-Finance/static/media/mountainRoad.6dc5f16adb56a61fa76b.png",
     "index.html": "/Personal-Finance/index.html",
-    "main.a791394f.css.map": "/Personal-Finance/static/css/main.a791394f.css.map",
-    "main.ce37ea0d.js.map": "/Personal-Finance/static/js/main.ce37ea0d.js.map"
+    "main.17c107df.css.map": "/Personal-Finance/static/css/main.17c107df.css.map",
+    "main.49c4f9d3.js.map": "/Personal-Finance/static/js/main.49c4f9d3.js.map"
   },
   "entrypoints": [
-    "static/css/main.a791394f.css",
-    "static/js/main.ce37ea0d.js"
+    "static/css/main.17c107df.css",
+    "static/js/main.49c4f9d3.js"
   ]
 }
