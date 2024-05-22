@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 
 const Banner = (props) => {
 	return (
-		<Box className="header parallax">
+		<Box className="banner parallax">
 			<Box
 				className="overlay"
 				sx={{
@@ -14,7 +14,14 @@ const Banner = (props) => {
 					bgcolor: "rgba(0, 0, 0, 0.4)",
 				}}
 			>
-				<Typography variant="h1" color="white" align="center">
+				<Typography
+					sx={{
+						textAlign: "center",
+						color: "white",
+						fontSize: "10vmin",
+						fontWeight: 500,
+					}}
+				>
 					Personal finance done easy.
 				</Typography>
 			</Box>
