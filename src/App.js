@@ -8,6 +8,7 @@ import Footer from "./components/Footer.jsx";
 import Loans from "./components/loans/Loans.jsx";
 import TaxInfo from "./components/taxes/TaxInfo.jsx";
 import TaxForm from "./components/taxes/TaxForm.jsx";
+import TaxImage from "./components/taxes/TaxImage.jsx";
 
 const taxBrackets = await (
 	await fetch("taxBrackets.json", {
@@ -35,12 +36,11 @@ const App = () => {
 	return (
 		<Box>
 			<Banner />
-
 			<Box
-				p="5vh 5vw"
 				sx={{
 					display: "flex",
 					justifyContent: "center",
+					p: "5vh 10vw",
 				}}
 			>
 				<Typography variant="h2" textAlign="center">
@@ -59,8 +59,7 @@ const App = () => {
 				taxes={taxes}
 				setTaxes={setTaxes}
 			/>
-
-			<Loans loans={loans} setLoans={setLoans} />
+			<TaxImage />
 
 			<Footer />
 		</Box>

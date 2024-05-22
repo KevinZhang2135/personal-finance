@@ -8,10 +8,14 @@ const TaxInfo = (props) => {
 	const infoItemWidth = { xs: 1, lg: 0.33 };
 
 	return (
-		<Box className="tax-info" sx={{ p: "5vh 10vw", bgcolor: blue[50] }}>
+		<Box
+			className="tax-info"
+			sx={{ bgcolor: blue[50], px: "10vw", pt: "5vh" }}
+		>
 			<Typography variant="h1" textAlign="center" mb={4}>
 				Taxes
 			</Typography>
+
 			<Stack
 				direction={{ xs: "column", lg: "row" }}
 				alignItems="stretch"

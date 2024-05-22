@@ -2,7 +2,6 @@ import React from "react";
 import {
 	Box,
 	Divider,
-	FilledInput,
 	FormControl,
 	InputAdornment,
 	InputLabel,
@@ -51,7 +50,10 @@ const TaxForm = (props) => {
 	};
 
 	return (
-		<Box className="tax-form" sx={{ p: "5vh 10vw", bgcolor: blue[50] }}>
+		<Box
+			className="tax-form"
+			sx={{ bgcolor: blue[50], px: "10vw", pt: "5vh" }}
+		>
 			<Paper elevation={1} sx={{ p: 4 }}>
 				<Stack
 					direction={{ xs: "column", lg: "row" }}
