@@ -10,7 +10,7 @@ import TaxForm from "./components/taxes/TaxForm.jsx";
 import TaxChart from "./components/taxes/TaxChart.jsx";
 
 const taxBrackets = await (
-	await fetch("Personal-Finance/taxBrackets.json", {
+	await fetch("taxBrackets.json", {
 		headers: {
 			"Content-Type": "application/json",
 			Accept: "application/json",
