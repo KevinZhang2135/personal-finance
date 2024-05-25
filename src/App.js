@@ -8,10 +8,9 @@ import Footer from "./components/Footer.jsx";
 import TaxInfo from "./components/taxes/TaxInfo.jsx";
 import TaxForm from "./components/taxes/TaxForm.jsx";
 import TaxChart from "./components/taxes/TaxChart.jsx";
-import LoanInfo from "./components/loans/LoanInfo.jsx";
 
 const taxBrackets = await (
-	await fetch("./Personal-Finance/taxBrackets.json", {
+	await fetch("Personal-Finance/taxBrackets.json", {
 		headers: {
 			"Content-Type": "application/json",
 			Accept: "application/json",
