@@ -15,11 +15,18 @@ import {
 } from "@mui/material";
 import { blue } from "@mui/material/colors";
 
-import { toTitleCase, calculateTax, taxBrackets } from "./../../App";
+import {
+	toTitleCase,
+	currencyFormatter,
+	calculateTax,
+	taxBrackets,
+} from "./../../App";
 import Theme from "../../Theme";
 
 const TaxForm = (props) => {
 	const { salary, setSalary, state, setState, taxes, setTaxes } = props;
+	const netSalary = salary - taxes.federal - taxes.fica - taxes.state;
+
 	const formItemWidth = { xs: 1, lg: 0.5 };
 	const outputProps = {
 		direction: "row",
@@ -31,11 +38,15 @@ const TaxForm = (props) => {
 		let annualSalary = parseInt(e.target.value);
 		(isNaN(annualSalary) || annualSalary < 0) && (annualSalary = 0);
 
+		const federalTax = calculateTax(annualSalary, "federal");
+		const stateTax = calculateTax(annualSalary, state);
+		const fica = annualSalary * 0.0765;
+
 		setSalary(annualSalary);
 		setTaxes({
-			federal: calculateTax(annualSalary, "federal"),
-			state: calculateTax(annualSalary, state),
-			fica: annualSalary * 0.0765,
+			federal: federalTax,
+			state: stateTax,
+			fica: fica,
 		});
 	};
 
@@ -120,7 +131,7 @@ const TaxForm = (props) => {
 							</Typography>
 
 							<Typography variant="h4" color="primary">
-								${Math.round((salary * 100) / 12) / 100}
+								{currencyFormatter(salary / 12)}
 							</Typography>
 						</Stack>
 
@@ -130,7 +141,7 @@ const TaxForm = (props) => {
 							</Typography>
 
 							<Typography variant="h4" color="primary">
-								${Math.round((taxes.federal * 100) / 12) / 100}
+								{currencyFormatter(taxes.federal / 12)}
 							</Typography>
 						</Stack>
 
@@ -140,7 +151,7 @@ const TaxForm = (props) => {
 							</Typography>
 
 							<Typography variant="h4" color="primary">
-								${Math.round((taxes.fica * 100) / 12) / 100}
+								{currencyFormatter(taxes.fica / 12)}
 							</Typography>
 						</Stack>
 
@@ -150,7 +161,15 @@ const TaxForm = (props) => {
 							</Typography>
 
 							<Typography variant="h4" color="primary">
-								${Math.round((taxes.state * 100) / 12) / 100}
+								{currencyFormatter(taxes.state / 12)}
+							</Typography>
+						</Stack>
+
+						<Stack {...outputProps}>
+							<Typography variant="h4">Net Salary</Typography>
+
+							<Typography variant="h4" color="primary">
+								{currencyFormatter(netSalary / 12)}
 							</Typography>
 						</Stack>
 					</Stack>

@@ -19,3 +19,7 @@
 		background-attachment: scroll;
 	}
 }
+
+.salary-breakdown .MuiChartsAxis-directionY .MuiChartsAxis-label {
+	transform: translateY(0-100px) !important;
+}

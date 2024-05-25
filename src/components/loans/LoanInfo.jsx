@@ -8,12 +8,22 @@ const LoanInfo = (props) => {
 	const infoItemWidth = { xs: 1, lg: 0.33 };
 
 	return (
-		<Box
+		<Stack
 			className="loan-info"
-			sx={{ bgcolor: brown[400], px: "10vw", pt: "5vh" }}
+			direction="row"
+			sx={{
+				justifyContent: "space-between",
+				alignItems: "center",
+				bgcolor: brown[400],
+				pt: "5vh",
+			}}
 		>
-			
-		</Box>
+			<Box sx={{ width: 0.5, display: "flex", bgcolor: "whitesmoke" }}>
+			</Box>
+
+			<Box sx={{ width: 0.5, display: "flex", bgcolor: "black" }}>
+			</Box>
+		</Stack>
 	);
 };
 

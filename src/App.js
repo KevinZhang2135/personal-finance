@@ -5,13 +5,13 @@ import { Box, Typography } from "@mui/material";
 
 import Banner from "./components/Banner.jsx";
 import Footer from "./components/Footer.jsx";
-import Loans from "./components/loans/Loans.jsx";
 import TaxInfo from "./components/taxes/TaxInfo.jsx";
 import TaxForm from "./components/taxes/TaxForm.jsx";
-import TaxImage from "./components/taxes/TaxImage.jsx";
+import TaxChart from "./components/taxes/TaxChart.jsx";
+import LoanInfo from "./components/loans/LoanInfo.jsx";
 
 const taxBrackets = await (
-	await fetch("taxBrackets.json", {
+	await fetch("./Personal-Finance/taxBrackets.json", {
 		headers: {
 			"Content-Type": "application/json",
 			Accept: "application/json",
@@ -59,7 +59,11 @@ const App = () => {
 				taxes={taxes}
 				setTaxes={setTaxes}
 			/>
-			<TaxImage />
+			<TaxChart 
+				salary={salary}
+				taxes={taxes}
+			/>
+
 
 			<Footer />
 		</Box>
@@ -71,13 +75,19 @@ const toTitleCase = (string) => {
 	return string.replace(/(^.)|(\W.)/g, (char) => char.toUpperCase());
 };
 
+const currencyFormatter = new Intl.NumberFormat("en-US", {
+	style: "currency",
+	currency: "USD",
+}).format;
+
 const calculateTax = (annualSalary, type) => {
 	// Determines the total taxes for a region with a single filing status
 	let totalTax = 0;
 
-	if (type === "federal")
+	if (type === "federal") {
 		// Additional federal tax of $90 per $10,000 of income earned above $200,000
 		totalTax = (Math.max(0, annualSalary - 200000) * 90) / 10000;
+	}
 
 	// Deducts tax exemption
 	annualSalary = Math.max(0, annualSalary - taxBrackets[type].deduction);
@@ -110,5 +120,7 @@ const calculateLoanEMI = (principal, apr, termMonths) => {
 	);
 };
 
+
+
 export default App;
-export { toTitleCase, calculateTax, calculateLoanEMI, taxBrackets };
+export { taxBrackets, currencyFormatter, toTitleCase, calculateTax, calculateLoanEMI,  };
