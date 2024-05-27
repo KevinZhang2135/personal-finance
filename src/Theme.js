@@ -29,9 +29,9 @@ const Theme = createTheme({
 		},
 
 		p: {
-			fontSize: "rem",
+			fontSize: "1rem",
 			fontWeight: 400,
-			lineHeight: 2,
+			lineHeight: 1.8,
 		},
 	},
 });
