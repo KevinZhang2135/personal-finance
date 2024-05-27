@@ -1,18 +1,33 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import { Parallax, ParallaxBanner } from "react-scroll-parallax";
+import { ParallaxBanner } from "react-scroll-parallax";
 
 const Banner = (props) => {
-    return (
-        <ParallaxBanner className="main-banner">
+    const background = {
+        image: "Personal-Finance/mountainRoad.png",
+        translateY: [0, 30],
+    };
+
+    const backgroundOverlay = {
+        children: (
             <Box
-                className="overlay"
-                height="100vh"
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                bgcolor="rgba(0, 0, 0, 0.4)"
-            >
+                className="main-banner"
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    bgcolor: "rgba(0, 0, 0, 0.2)",
+                }}
+            />
+        ),
+    };
+
+    const title = {
+        translateY: [30, 0],
+        scale: [1, 0.75],
+        easing: "easeInCubic",
+        children: (
+            <Box sx={{ px: "10vw" }}>
                 <Typography
                     textAlign="center"
                     color="white"
@@ -22,7 +37,15 @@ const Banner = (props) => {
                     Personal finance done easy.
                 </Typography>
             </Box>
-        </ParallaxBanner>
+        ),
+    };
+
+    return (
+        <ParallaxBanner
+            className="main-banner"
+            layers={[background, backgroundOverlay, title]}
+        />
     );
 };
+
 export default Banner;

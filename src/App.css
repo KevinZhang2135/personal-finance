@@ -1,24 +1,7 @@
 .main-banner {
-	background-image: url("./../public/mountainRoad.png");
 	min-height: 100vh;
 }
 
-.parallax {
-	/* Parallax effect*/
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-/* Turn off parallax scrolling for all tablets and phones.*/
-@media only screen and (max-device-width: 1366px) {
-	.parallax {
-		background-attachment: scroll;
-	}
-}
-
 .loan-info-banner {
-	background-image: url("./../public/autumnForest.png");
-	min-height: 40vh;
+	min-height: 30vh;
 }
