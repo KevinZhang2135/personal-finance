@@ -1,48 +1,29 @@
 import React from "react";
-import { Button, Grid, Paper, Typography } from "@mui/material";
-import { AddCircle } from "@mui/icons-material";
+import { Box, Stack } from "@mui/material";
+import { blue } from "@mui/material/colors";
 
-import Loan from "./Loan";
+import LoanForm from "./LoanForm";
 
 const Loans = (props) => {
-	const { loans, setLoans } = props;
+    const { loans, setLoans } = props;
 
-	return (
-		<Paper elevation={3} sx={{ p: "5vh 3vw", mb: "2vh" }}>
-			<Typography variant="h2" mb={4}>
-				Loans
-			</Typography>
-
-			<Grid container spacing={4} display="flex" flexDirection="row" mb={2}>
-				{loans.map((loan, index) => (
-					<Loan
-						key={loan + index}
-						loan={loan}
-						loans={loans}
-						setLoans={setLoans}
-					/>
-				))}
-			</Grid>
-
-			<Button
-				variant="contained"
-				startIcon={<AddCircle fontSize="large" />}
-				size="large"
-				onClick={(e) => {
-					const newLoan = {
-						principal: 0,
-                        termMonths: 60,
-						apr: 0.06,
-						emi: 0,
-					};
-
-					setLoans([...loans, newLoan]);
-				}}
-			>
-				<Typography variant="p">ADD LOAN</Typography>
-			</Button>
-		</Paper>
-	);
+    return (
+        <Box
+            className="loan-forms"
+            sx={{ bgcolor: blue[50], px: "10vw", py: "5vh" }}
+        >
+            <Stack justifyContent="space-evenly" spacing={4}>
+                {loans.map((loan, index) => (
+                    <LoanForm
+                        key={loan + index}
+                        loan={loan}
+                        loans={loans}
+                        setLoans={setLoans}
+                    />
+                ))}
+            </Stack>
+        </Box>
+    );
 };
 
 export default Loans;

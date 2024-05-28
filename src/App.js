@@ -9,6 +9,7 @@ import TaxInfo from "./components/taxes/TaxInfo.jsx";
 import TaxForm from "./components/taxes/TaxForm.jsx";
 import TaxChart from "./components/taxes/TaxChart.jsx";
 import LoansInfo from "./components/loans/LoansInfo.jsx";
+import Loans from "./components/loans/Loans.jsx";
 
 const taxBrackets = await (
     await fetch("taxBrackets.json", {
@@ -61,7 +62,8 @@ const App = () => {
             />
             <TaxChart salary={salary} taxes={taxes} />
 
-            <LoansInfo />
+            <LoansInfo loans={loans} setLoans={setLoans} />
+            {loans.length > 0 && <Loans loans={loans} setLoans={setLoans} />}
 
             <Footer />
         </Box>

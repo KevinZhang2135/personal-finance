@@ -4,7 +4,7 @@ import { ParallaxBanner } from "react-scroll-parallax";
 
 const Banner = (props) => {
     const background = {
-        image: "Personal-Finance/mountainRoad.png",
+        image: process.env.PUBLIC_URL + "/mountainRoad.png",
         translateY: [0, 30],
     };
 
@@ -23,7 +23,7 @@ const Banner = (props) => {
     };
 
     const title = {
-        translateY: [30, 0],
+        translateY: [35, 0],
         scale: [1, 0.75],
         easing: "easeInCubic",
         children: (

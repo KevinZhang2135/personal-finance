@@ -18,11 +18,9 @@ const TaxChart = (props) => {
 
     return (
         <Box
-            className="tax-image"
+            className="tax-chart"
             sx={{
-                display: { xs: "none", md: "flex" },
-                alignItems: "center",
-                justifyContent: "center",
+                display: "flex",
                 bgcolor: blue[50],
                 px: "10vw",
                 pb: "5vh",
@@ -41,7 +39,7 @@ const TaxChart = (props) => {
                     grid={{ vertical: true }}
                     colors={mangoFusionPalette}
                     xAxis={[{ label: "Monthy Salary Breakdown in USD" }]}
-                    yAxis={[{ scaleType: "band", data: ["Salary Breakdown"] }]}
+                    yAxis={[{ scaleType: "band", data: ["Monthly Salary Breakdown"] }]}
                     leftAxis={null}
                     mb={4}
                 />
