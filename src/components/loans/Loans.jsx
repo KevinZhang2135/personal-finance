@@ -10,7 +10,7 @@ const Loans = (props) => {
     return (
         <Box
             className="loan-forms"
-            sx={{ bgcolor: blue[50], px: "10vw", py: "5vh" }}
+            sx={{ bgcolor: blue[50], px: "10vw", pt: "5vh" }}
         >
             <Stack justifyContent="space-evenly" spacing={4}>
                 {loans.map((loan, index) => (

@@ -173,7 +173,7 @@ const TaxForm = (props) => {
                         </Stack>
 
                         <Stack {...outputProps}>
-                            <Typography variant="h4">Net Salary</Typography>
+                            <Typography variant="h4">Net Monthly Salary</Typography>
 
                             <Typography variant="h4" color="primary">
                                 {currencyFormatter(netSalary / 12)}

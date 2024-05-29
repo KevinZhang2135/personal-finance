@@ -20,7 +20,7 @@ const TaxChart = (props) => {
         <Box
             className="tax-chart"
             sx={{
-                display: "flex",
+                display: {xs: "none", md: "flex"},
                 bgcolor: blue[50],
                 px: "10vw",
                 pb: "5vh",

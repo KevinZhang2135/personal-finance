@@ -1,15 +1,19 @@
 import "./App.css";
 
 import React, { useState } from "react";
-import { Box, Typography } from "@mui/material";
 
 import Banner from "./components/Banner.jsx";
-import Footer from "./components/Footer.jsx";
+import CallToAction from "./components/CallToAction.jsx";
+
 import TaxInfo from "./components/taxes/TaxInfo.jsx";
 import TaxForm from "./components/taxes/TaxForm.jsx";
 import TaxChart from "./components/taxes/TaxChart.jsx";
+
 import LoansInfo from "./components/loans/LoansInfo.jsx";
 import Loans from "./components/loans/Loans.jsx";
+import Footer from "./components/Footer.jsx";
+import InsuranceInfo from "./components/insurance/InsuranceInfo.jsx";
+import MenuBar from "./components/menu/MenuBar.jsx";
 
 const taxBrackets = await (
     await fetch("taxBrackets.json", {
@@ -35,21 +39,10 @@ const App = () => {
     const [loans, setLoans] = useState([]);
 
     return (
-        <Box>
+        <React.Fragment>
+            <MenuBar />
             <Banner />
-            <Box
-                sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    p: "5vh 10vw",
-                }}
-            >
-                <Typography variant="h2" textAlign="center">
-                    According to CNBC and Forbes, more than 60% of Americans
-                    live paycheck to paycheck in 2023.{" "}
-                    <em>Let's change that.</em>
-                </Typography>
-            </Box>
+            <CallToAction />
 
             <TaxInfo />
             <TaxForm
@@ -65,8 +58,10 @@ const App = () => {
             <LoansInfo loans={loans} setLoans={setLoans} />
             {loans.length > 0 && <Loans loans={loans} setLoans={setLoans} />}
 
+            <InsuranceInfo />
+
             <Footer />
-        </Box>
+        </React.Fragment>
     );
 };
 
