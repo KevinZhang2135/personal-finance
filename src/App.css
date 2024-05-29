@@ -5,3 +5,7 @@
 .loan-info-banner {
 	min-height: 40vh;
 }
+
+.menu-btn .MuiTouchRipple-rippleVisible {
+	color: black;
+  }

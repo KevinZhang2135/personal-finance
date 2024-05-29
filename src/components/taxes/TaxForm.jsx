@@ -27,6 +27,7 @@ const TaxForm = (props) => {
     const { salary, setSalary, state, setState, taxes, setTaxes } = props;
     const netSalary = salary - taxes.federal - taxes.fica - taxes.state;
 
+    // Styling
     const formItemWidth = { xs: 1, lg: 0.5 };
     const outputProps = {
         direction: "row",
@@ -38,6 +39,7 @@ const TaxForm = (props) => {
         ? "horizontal"
         : "vertical";
 
+    // Handling input
     const handleSalaryChange = (e) => {
         let annualSalary = parseInt(e.target.value);
         (isNaN(annualSalary) || annualSalary < 0) && (annualSalary = 0);

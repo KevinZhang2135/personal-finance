@@ -1,6 +1,14 @@
-import React from "react";
-import { AppBar, Button, Toolbar, Typography } from "@mui/material";
-import { Menu } from "@mui/icons-material";
+import React, { useState } from "react";
+import {
+    AppBar,
+    Button,
+    Link,
+    Menu,
+    MenuItem,
+    Toolbar,
+    Typography,
+} from "@mui/material";
+import { Menu as MenuIcon } from "@mui/icons-material";
 
 const MobileMenu = (props) => {
     const anchorLinks = [
@@ -9,24 +17,72 @@ const MobileMenu = (props) => {
         { name: "Insurance", id: "insurance-info" },
     ];
 
+    // Styling
+    const black20a = "rgba(0, 0, 0, 0.2)";
+    const black60a = "rgba(0, 0, 0, 0.6)";
+    const black80a = "rgba(0, 0, 0, 0.6)";
+
+    // Pop over menu
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
         <AppBar position="fixed" elevation={0} sx={{ bgcolor: "transparent" }}>
             <Toolbar>
                 <Button
+                    className="menu-btn"
                     variant="text"
                     size="large"
-                    startIcon={<Menu color="white" fontSize="large" />}
+                    startIcon={
+                        <MenuIcon
+                            fontSize="large"
+                            sx={{ color: "whitesmoke" }}
+                        />
+                    }
                     sx={{
-                        bgcolor: "rgba(0, 0, 0, 0.6)",
-                        "&:hover": { bgcolor: "rgba(0, 0, 0, 0.8)" },
-                        ".MuiTouchRipple-child": { backgroundColor: "black" },
+                        bgcolor: black60a,
+                        "&:hover": { bgcolor: black80a },
                         mr: 4,
                     }}
+                    onClick={handleClick}
                 >
                     <Typography variant="h5" color="whitesmoke">
-                        MENU
+                        Menu
                     </Typography>
                 </Button>
+
+                <Menu
+                    className="mobile-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    sx={{
+                        "& .MuiMenu-paper": {
+                            color: "whitesmoke",
+                            backgroundColor: black60a,
+                        },
+                    }}
+                >
+                    {anchorLinks.map((anchor) => (
+                        <MenuItem
+                            key={`#${anchor.id}-menu-item`}
+                            href={`#${anchor.id}`}
+                            sx={{ "&:hover": { bgcolor: black20a } }}
+                            onClick={handleClose}
+                            component={Link}
+                        >
+                            {anchor.name}
+                        </MenuItem>
+                    ))}
+                </Menu>
             </Toolbar>
         </AppBar>
     );

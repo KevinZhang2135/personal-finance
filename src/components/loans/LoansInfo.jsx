@@ -6,6 +6,7 @@ import { ParallaxBanner } from "react-scroll-parallax";
 const LoansInfo = (props) => {
     const { loans, setLoans } = props;
 
+    // Parallax layers
     const background = {
         image: process.env.PUBLIC_URL + "/autumnForest.png",
         translateY: [-20, 0],

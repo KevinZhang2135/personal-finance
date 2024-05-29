@@ -10,22 +10,22 @@ const DesktopMenu = (props) => {
 
     return (
         <AppBar position="fixed" elevation={0} sx={{ bgcolor: "transparent" }}>
-            <Toolbar>
-                {anchorLinks.map((link) => (
+            <Toolbar className="menu-buttons">
+                {anchorLinks.map((anchor) => (
                     <Button
-                        key={`#${link.id}-anchor`}
-                        href={`#${link.id}`}
+                        className="menu-btn"
+                        key={`#${anchor.id}-anchor`}
+                        href={`#${anchor.id}`}
                         variant="text"
                         size="large"
                         sx={{
                             bgcolor: "rgba(0, 0, 0, 0.6)",
                             "&:hover": { bgcolor: "rgba(0, 0, 0, 0.8)" },
-                            ".MuiTouchRipple-child": { backgroundColor: "black" },
                             mr: 4,
                         }}
                     >
                         <Typography variant="h5" color="whitesmoke">
-                            {link.name}
+                            {anchor.name}
                         </Typography>
                     </Button>
                 ))}

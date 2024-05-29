@@ -19,6 +19,7 @@ import Theme from "../../Theme";
 const LoanForm = (props) => {
     const { loan, loans, setLoans } = props;
 
+    // Styling
     const formItemWidth = { xs: 1, lg: 0.5 };
     const outputProps = {
         direction: "row",
@@ -30,6 +31,7 @@ const LoanForm = (props) => {
         ? "horizontal"
         : "vertical";
 
+    // Handling input
     const handlePrincipalChange = (e) => {
         let principal = parseInt(e.target.value);
         (isNaN(principal) || principal < 0) && (principal = 0);

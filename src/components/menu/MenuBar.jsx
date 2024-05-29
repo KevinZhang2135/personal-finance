@@ -7,10 +7,10 @@ import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 
 const MenuBar = (props) => {
-    return useMediaQuery(Theme.breakpoints.down("md")) ? (
-        <MobileMenu />
-    ) : (
+    return useMediaQuery(Theme.breakpoints.up("md")) ? (
         <DesktopMenu />
+    ) : (
+        <MobileMenu />
     );
 };
 
