@@ -51,13 +51,11 @@ const LoansInfo = (props) => {
 
                         <Typography variant="p">
                             Loans are frequently borrowed to help finance for
-                            large expenses which cannot be paid out of pocket by
-                            paying a portion of the cost over time. Whether the
-                            loan is taken for a car, mortgage, student, or
-                            personal loan While the monthly payment rate may
-                            seem appealling, loans accrue interest that is
-                            dramatically amplified by the yearly interest rate
-                            and loan duration.
+                            large expenses which cannot be paid out of pocket.
+                            Whether financing a car, mortgage, post-  secondary
+                            education, or other personal reasons, loans required
+                            that portion of its total cost over time, typically
+                            on monthly intervals.
                         </Typography>
                         <br />
                         <br />
@@ -88,6 +86,7 @@ const LoansInfo = (props) => {
                         >
                             <Typography variant="p">ADD LOAN</Typography>
                         </Button>
+
                         {loans.length > 0 && (
                             <Button
                                 variant="contained"

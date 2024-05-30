@@ -37,10 +37,10 @@ const LoanForm = (props) => {
         (isNaN(principal) || principal < 0) && (principal = 0);
 
         const emi = calculateLoanEMI(principal, loan.apr, loan.termMonths);
-        const loansCopy = [
-            ...loans.filter((e) => e !== loan),
-            { ...loan, principal: principal, emi: emi },
-        ];
+
+        const loanIndex = loans.indexOf(loan);
+        const loansCopy = [...loans];
+        loansCopy[loanIndex] = { ...loan, principal: principal, emi: emi };
 
         setLoans(loansCopy);
     };
@@ -50,10 +50,10 @@ const LoanForm = (props) => {
         (isNaN(termMonths) || termMonths < 0) && (termMonths = 0);
 
         const emi = calculateLoanEMI(loan.principal, loan.apr, termMonths);
-        const loansCopy = [
-            ...loans.filter((e) => e !== loan),
-            { ...loan, termMonths: termMonths, emi: emi },
-        ];
+
+        const loanIndex = loans.indexOf(loan);
+        const loansCopy = [...loans];
+        loansCopy[loanIndex] = { ...loan, termMonths: termMonths, emi: emi };
 
         setLoans(loansCopy);
     };
@@ -63,16 +63,16 @@ const LoanForm = (props) => {
         (isNaN(apr) || apr < 0) && (apr = 0);
 
         const emi = calculateLoanEMI(loan.principal, apr, loan.termMonths);
-        const loansCopy = [
-            ...loans.filter((e) => e !== loan),
-            { ...loan, apr: apr, emi: emi },
-        ];
+
+        const loanIndex = loans.indexOf(loan);
+        const loansCopy = [...loans];
+        loansCopy[loanIndex] = { ...loan, apr: apr, emi: emi };
 
         setLoans(loansCopy);
     };
 
     return (
-        <Paper elevation={0} sx={{p: 4 }}>
+        <Paper elevation={0} sx={{ p: 4 }}>
             <Stack
                 direction={{ xs: "column", lg: "row" }}
                 justifyContent="space-evenly"
@@ -84,11 +84,8 @@ const LoanForm = (props) => {
             >
                 <Stack width={formItemWidth} spacing={4}>
                     <FormControl fullWidth>
-                        <InputLabel htmlFor="loan-principal">
-                            Principal
-                        </InputLabel>
+                        <InputLabel>Principal</InputLabel>
                         <OutlinedInput
-                            id="loan-principal"
                             startAdornment={
                                 <InputAdornment position="start">
                                     $
@@ -103,9 +100,8 @@ const LoanForm = (props) => {
                     </FormControl>
 
                     <FormControl fullWidth>
-                        <InputLabel htmlFor="loan-months">Months</InputLabel>
+                        <InputLabel>Months</InputLabel>
                         <OutlinedInput
-                            id="loan-months"
                             endAdornment={
                                 <InputAdornment position="start">
                                     months
@@ -120,16 +116,15 @@ const LoanForm = (props) => {
                     </FormControl>
 
                     <FormControl fullWidth>
-                        <InputLabel htmlFor="loan-apr">APR</InputLabel>
+                        <InputLabel>APR</InputLabel>
                         <OutlinedInput
-                            id="loan-apr"
                             endAdornment={
                                 <InputAdornment position="start">
                                     %
                                 </InputAdornment>
                             }
-                            label="APR"
                             value={loan.apr * 100}
+                            label="APR"
                             onChange={(e) => {
                                 handleAprChange(e);
                             }}
