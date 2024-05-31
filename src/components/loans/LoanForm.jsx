@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import {
+    Box,
     Button,
     Divider,
     FormControl,
@@ -18,6 +19,9 @@ import Theme from "../../Theme";
 
 const LoanForm = (props) => {
     const { loan, loans, setLoans } = props;
+    const [aprFormValue, setAprFormValue] = useState(loan.apr * 100);
+    const [aprInvalid, setAprInvalid] = useState(false);
+    const [termMonthsInvalid, setTermMonthsInvalid] = useState(false);
 
     // Styling
     const formItemWidth = { xs: 1, lg: 0.5 };
@@ -47,7 +51,7 @@ const LoanForm = (props) => {
 
     const handleTermMonthsChange = (e) => {
         let termMonths = parseInt(e.target.value);
-        (isNaN(termMonths) || termMonths < 0) && (termMonths = 0);
+        (isNaN(termMonths) || termMonths <= 0) && (termMonths = 1);
 
         const emi = calculateLoanEMI(loan.principal, loan.apr, termMonths);
 
@@ -59,8 +63,15 @@ const LoanForm = (props) => {
     };
 
     const handleAprChange = (e) => {
-        let apr = parseInt(e.target.value) / 100;
-        (isNaN(apr) || apr < 0) && (apr = 0);
+        setAprFormValue(e.target.value);
+
+        const apr = parseFloat(e.target.value) / 100;
+
+        // Does not continue if apr is invalid
+        const regex = /^\d+.?\d*$/;
+        const error = !(regex.test(e.target.value) && apr > 0);
+        setAprInvalid(error);
+        if (error) return;
 
         const emi = calculateLoanEMI(loan.principal, apr, loan.termMonths);
 
@@ -123,8 +134,9 @@ const LoanForm = (props) => {
                                     %
                                 </InputAdornment>
                             }
-                            value={loan.apr * 100}
                             label="APR"
+                            value={aprFormValue}
+                            error={aprInvalid}
                             onChange={(e) => {
                                 handleAprChange(e);
                             }}
