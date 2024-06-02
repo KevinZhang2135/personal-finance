@@ -13,11 +13,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 em {
 	color: #2196f3;
 	font-style: normal;

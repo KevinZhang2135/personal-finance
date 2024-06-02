@@ -24,7 +24,7 @@ const Banner = (props) => {
     };
 
     const title = {
-        translateY: [35, 0],
+        translateY: ["50vh", "0vh"],
         scale: [1, 0.75],
         easing: "easeInCubic",
         children: (

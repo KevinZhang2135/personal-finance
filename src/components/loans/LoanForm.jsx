@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-    Box,
     Button,
     Divider,
     FormControl,
@@ -21,7 +20,6 @@ const LoanForm = (props) => {
     const { loan, loans, setLoans } = props;
     const [aprFormValue, setAprFormValue] = useState(loan.apr * 100);
     const [aprInvalid, setAprInvalid] = useState(false);
-    const [termMonthsInvalid, setTermMonthsInvalid] = useState(false);
 
     // Styling
     const formItemWidth = { xs: 1, lg: 0.5 };
@@ -35,7 +33,6 @@ const LoanForm = (props) => {
         ? "horizontal"
         : "vertical";
 
-    // Handling input
     const handlePrincipalChange = (e) => {
         let principal = parseInt(e.target.value);
         (isNaN(principal) || principal < 0) && (principal = 0);

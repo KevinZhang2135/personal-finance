@@ -13,6 +13,7 @@ const Loans = (props) => {
             sx={{ bgcolor: blue[50], px: "10vw", pt: "5vh" }}
         >
             <Stack justifyContent="space-evenly" spacing={4}>
+                
                 {loans.map((loan, index) => (
                     <LoanForm
                         key={loan + index}
