@@ -3,8 +3,10 @@ import {
     Button,
     Divider,
     FormControl,
+    IconButton,
     InputAdornment,
     InputLabel,
+    ListItem,
     OutlinedInput,
     Paper,
     Stack,
@@ -12,7 +14,7 @@ import {
     useMediaQuery,
 } from "@mui/material";
 
-import { Clear } from "@mui/icons-material";
+import { Clear, Delete } from "@mui/icons-material";
 import { calculateLoanEMI, currencyFormatter } from "../../App";
 import Theme from "../../Theme";
 
@@ -79,119 +81,131 @@ const LoanForm = (props) => {
         setLoans(loansCopy);
     };
 
-    return (
-        <Paper elevation={0} sx={{ p: 4 }}>
-            <Stack
-                direction={{ xs: "column", lg: "row" }}
-                justifyContent="space-evenly"
-                alignItems="flex-start"
-                divider={
-                    <Divider orientation={formDividerOrientation} flexItem />
-                }
-                spacing={4}
-            >
-                <Stack width={formItemWidth} spacing={4}>
-                    <FormControl fullWidth>
-                        <InputLabel>Principal</InputLabel>
-                        <OutlinedInput
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    $
-                                </InputAdornment>
-                            }
-                            label="Principal"
-                            value={loan.principal}
-                            onChange={(e) => {
-                                handlePrincipalChange(e);
-                            }}
-                        />
-                    </FormControl>
+    const formInput = () => (
+        <Stack width={formItemWidth} spacing={4}>
+            <FormControl fullWidth>
+                <InputLabel>Principal</InputLabel>
+                <OutlinedInput
+                    startAdornment={
+                        <InputAdornment position="start">$</InputAdornment>
+                    }
+                    label="Principal"
+                    value={loan.principal}
+                    onChange={(e) => {
+                        handlePrincipalChange(e);
+                    }}
+                />
+            </FormControl>
 
-                    <FormControl fullWidth>
-                        <InputLabel>Months</InputLabel>
-                        <OutlinedInput
-                            endAdornment={
-                                <InputAdornment position="start">
-                                    months
-                                </InputAdornment>
-                            }
-                            label="Months"
-                            value={loan.termMonths}
-                            onChange={(e) => {
-                                handleTermMonthsChange(e);
-                            }}
-                        />
-                    </FormControl>
+            <FormControl fullWidth>
+                <InputLabel>Months</InputLabel>
+                <OutlinedInput
+                    endAdornment={
+                        <InputAdornment position="start">months</InputAdornment>
+                    }
+                    label="Months"
+                    value={loan.termMonths}
+                    onChange={(e) => {
+                        handleTermMonthsChange(e);
+                    }}
+                />
+            </FormControl>
 
-                    <FormControl fullWidth>
-                        <InputLabel>APR</InputLabel>
-                        <OutlinedInput
-                            endAdornment={
-                                <InputAdornment position="start">
-                                    %
-                                </InputAdornment>
-                            }
-                            label="APR"
-                            value={aprFormValue}
-                            error={aprInvalid}
-                            onChange={(e) => {
-                                handleAprChange(e);
-                            }}
-                        />
-                    </FormControl>
-                </Stack>
+            <FormControl fullWidth>
+                <InputLabel>APR</InputLabel>
+                <OutlinedInput
+                    endAdornment={
+                        <InputAdornment position="start">%</InputAdornment>
+                    }
+                    label="APR"
+                    value={aprFormValue}
+                    error={aprInvalid}
+                    onChange={(e) => {
+                        handleAprChange(e);
+                    }}
+                />
+            </FormControl>
+        </Stack>
+    );
 
-                <Stack
-                    width={formItemWidth}
-                    spacing={3}
-                    divider={<Divider flexItem />}
-                >
-                    <Stack {...outputProps}>
-                        <Typography variant="h4">Monthly Payment</Typography>
+    const formOutput = () => (
+        <Stack width={formItemWidth} spacing={3} divider={<Divider flexItem />}>
+            <Stack {...outputProps}>
+                <Typography variant="h4">Monthly Payment</Typography>
 
-                        <Typography variant="h4" color="primary">
-                            {currencyFormatter(loan.emi)}
-                        </Typography>
-                    </Stack>
-
-                    <Stack {...outputProps}>
-                        <Typography variant="h4">
-                            Total Principal Paid
-                        </Typography>
-
-                        <Typography variant="h4" color="primary">
-                            {currencyFormatter(loan.principal)}
-                        </Typography>
-                    </Stack>
-
-                    <Stack {...outputProps}>
-                        <Typography variant="h4">
-                            Total Interest Paid
-                        </Typography>
-
-                        <Typography variant="h4" color="primary">
-                            {currencyFormatter(
-                                loan.emi * loan.termMonths - loan.principal
-                            )}
-                        </Typography>
-                    </Stack>
-
-                    <Stack {...outputProps}>
-                        <Button
-                            variant="contained"
-                            startIcon={<Clear fontSize="large" />}
-                            color="error"
-                            size="large"
-                            onClick={() => {
-                                setLoans(loans.filter((e) => e !== loan));
-                            }}
-                        >
-                            <Typography variant="p">REMOVE</Typography>
-                        </Button>
-                    </Stack>
-                </Stack>
+                <Typography variant="h4" color="primary">
+                    {currencyFormatter(loan.emi)}
+                </Typography>
             </Stack>
-        </Paper>
+
+            <Stack {...outputProps}>
+                <Typography variant="h4">Total Principal Paid</Typography>
+
+                <Typography variant="h4" color="primary">
+                    {currencyFormatter(loan.principal)}
+                </Typography>
+            </Stack>
+
+            <Stack {...outputProps}>
+                <Typography variant="h4">Total Interest Paid</Typography>
+
+                <Typography variant="h4" color="primary">
+                    {currencyFormatter(
+                        loan.emi * loan.termMonths - loan.principal
+                    )}
+                </Typography>
+            </Stack>
+
+            <Stack {...outputProps}>
+                <Button
+                    variant="contained"
+                    startIcon={<Clear fontSize="large" />}
+                    color="error"
+                    size="large"
+                    onClick={() => {
+                        setLoans(loans.filter((e) => e !== loan));
+                    }}
+                >
+                    <Typography variant="p">REMOVE</Typography>
+                </Button>
+            </Stack>
+        </Stack>
+    );
+
+    return (
+        <ListItem
+            sx={{ p: 4 }}
+            secondaryAction={
+                <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    title="Delete"
+                    onClick={() => {
+                        setLoans(loans.filter((e) => e !== loan));
+                    }}
+                >
+                    <Delete />
+                </IconButton>
+            }
+        >
+            <Paper elevation={0} sx={{ p: 4 }}>
+                <Stack
+                    direction={{ xs: "column", lg: "row" }}
+                    justifyContent="space-evenly"
+                    alignItems="flex-start"
+                    divider={
+                        <Divider
+                            orientation={formDividerOrientation}
+                            flexItem
+                        />
+                    }
+                    spacing={4}
+                >
+                    {formInput()}
+                    {formOutput()}
+                </Stack>
+            </Paper>
+        </ListItem>
     );
 };
 

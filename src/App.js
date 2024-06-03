@@ -56,7 +56,7 @@ const App = () => {
             <TaxChart salary={salary} taxes={taxes} />
 
             <LoansInfo loans={loans} setLoans={setLoans} />
-            {loans.length > 0 && <Loans loans={loans} setLoans={setLoans} />}
+            <Loans loans={loans} setLoans={setLoans} />
 
             <InsuranceInfo />
 
