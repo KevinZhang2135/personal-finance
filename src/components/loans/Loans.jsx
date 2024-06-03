@@ -11,7 +11,7 @@ const Loans = (props) => {
 
     return (
         <Box className="loan-forms" sx={{ bgcolor: blue[50], px: "10vw" }}>
-            <List p={4}>
+            <List sx={{p: 0}}>
                 <TransitionGroup>
                     {loans.map((loan, index) => (
                         <Collapse key={"loan-form-" + loan.id}>

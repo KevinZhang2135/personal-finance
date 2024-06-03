@@ -173,7 +173,7 @@ const LoanForm = (props) => {
 
     return (
         <ListItem>
-            <Paper elevation={0} sx={{ p: 4 }}>
+            <Paper elevation={0} sx={{ width: 1, p: 4 }}>
                 <Stack
                     direction={{ xs: "column", lg: "row" }}
                     justifyContent="space-evenly"
