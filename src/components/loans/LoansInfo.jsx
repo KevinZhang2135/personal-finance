@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { AddCircle, Clear } from "@mui/icons-material";
 import { ParallaxBanner } from "react-scroll-parallax";
+import { v4 as uuid } from "uuid";
+
 
 const LoansInfo = (props) => {
     const { loans, setLoans } = props;
@@ -52,7 +54,7 @@ const LoansInfo = (props) => {
                         <Typography variant="p">
                             Loans are frequently borrowed to help finance for
                             large expenses which cannot be paid out of pocket.
-                            Whether financing a car, mortgage, post-  secondary
+                            Whether financing a car, mortgage, post- secondary
                             education, or other personal reasons, loans required
                             that portion of its total cost over time, typically
                             on monthly intervals.
@@ -73,14 +75,15 @@ const LoansInfo = (props) => {
                             startIcon={<AddCircle fontSize="large" />}
                             size="large"
                             sx={{ mt: 4 }}
-                            onClick={(e) => {
+                            disabled={loans.length >= 4}
+                            onClick={() => {
                                 const newLoan = {
+                                    id: uuid(),
                                     principal: 0,
                                     termMonths: 60,
                                     apr: 0.06,
                                     emi: 0,
                                 };
-
                                 setLoans([...loans, newLoan]);
                             }}
                         >
@@ -94,7 +97,7 @@ const LoansInfo = (props) => {
                                 color="error"
                                 size="large"
                                 sx={{ mt: 4 }}
-                                onClick={(e) => {
+                                onClick={() => {
                                     setLoans([]);
                                 }}
                             >

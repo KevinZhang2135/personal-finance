@@ -3,7 +3,6 @@ import {
     Button,
     Divider,
     FormControl,
-    IconButton,
     InputAdornment,
     InputLabel,
     ListItem,
@@ -14,7 +13,7 @@ import {
     useMediaQuery,
 } from "@mui/material";
 
-import { Clear, Delete } from "@mui/icons-material";
+import { Clear } from "@mui/icons-material";
 import { calculateLoanEMI, currencyFormatter } from "../../App";
 import Theme from "../../Theme";
 
@@ -81,7 +80,7 @@ const LoanForm = (props) => {
         setLoans(loansCopy);
     };
 
-    const formInput = () => (
+    const formInput = (
         <Stack width={formItemWidth} spacing={4}>
             <FormControl fullWidth>
                 <InputLabel>Principal</InputLabel>
@@ -128,7 +127,7 @@ const LoanForm = (props) => {
         </Stack>
     );
 
-    const formOutput = () => (
+    const formOutput = (
         <Stack width={formItemWidth} spacing={3} divider={<Divider flexItem />}>
             <Stack {...outputProps}>
                 <Typography variant="h4">Monthly Payment</Typography>
@@ -162,9 +161,9 @@ const LoanForm = (props) => {
                     startIcon={<Clear fontSize="large" />}
                     color="error"
                     size="large"
-                    onClick={() => {
-                        setLoans(loans.filter((e) => e !== loan));
-                    }}
+                    onClick={() => 
+                        setLoans(loans.filter((e) => e.id !== loan.id))
+                    }
                 >
                     <Typography variant="p">REMOVE</Typography>
                 </Button>
@@ -173,21 +172,7 @@ const LoanForm = (props) => {
     );
 
     return (
-        <ListItem
-            sx={{ p: 4 }}
-            secondaryAction={
-                <IconButton
-                    edge="end"
-                    aria-label="delete"
-                    title="Delete"
-                    onClick={() => {
-                        setLoans(loans.filter((e) => e !== loan));
-                    }}
-                >
-                    <Delete />
-                </IconButton>
-            }
-        >
+        <ListItem>
             <Paper elevation={0} sx={{ p: 4 }}>
                 <Stack
                     direction={{ xs: "column", lg: "row" }}
@@ -201,8 +186,8 @@ const LoanForm = (props) => {
                     }
                     spacing={4}
                 >
-                    {formInput()}
-                    {formOutput()}
+                    {formInput}
+                    {formOutput}
                 </Stack>
             </Paper>
         </ListItem>

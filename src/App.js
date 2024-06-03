@@ -41,6 +41,7 @@ const App = () => {
     return (
         <React.Fragment>
             <MenuBar />
+
             <Banner />
             <CallToAction />
 
@@ -57,6 +58,7 @@ const App = () => {
 
             <LoansInfo loans={loans} setLoans={setLoans} />
             <Loans loans={loans} setLoans={setLoans} />
+            
 
             <InsuranceInfo />
 
