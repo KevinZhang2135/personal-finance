@@ -4,7 +4,6 @@ import { AddCircle, Clear } from "@mui/icons-material";
 import { ParallaxBanner } from "react-scroll-parallax";
 import { v4 as uuid } from "uuid";
 
-
 const LoansInfo = (props) => {
     const { loans, setLoans } = props;
 
@@ -84,6 +83,7 @@ const LoansInfo = (props) => {
                                     apr: 0.06,
                                     emi: 0,
                                 };
+
                                 setLoans([...loans, newLoan]);
                             }}
                         >

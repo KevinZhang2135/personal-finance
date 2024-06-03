@@ -161,7 +161,7 @@ const LoanForm = (props) => {
                     startIcon={<Clear fontSize="large" />}
                     color="error"
                     size="large"
-                    onClick={() => 
+                    onClick={() =>
                         setLoans(loans.filter((e) => e.id !== loan.id))
                     }
                 >

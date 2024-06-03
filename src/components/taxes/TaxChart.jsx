@@ -20,7 +20,7 @@ const TaxChart = (props) => {
         <Box
             className="tax-chart"
             sx={{
-                display: {xs: "none", md: "flex"},
+                display: { xs: "none", md: "flex" },
                 bgcolor: blue[50],
                 px: "10vw",
                 pb: "5vh",
@@ -39,7 +39,12 @@ const TaxChart = (props) => {
                     grid={{ vertical: true }}
                     colors={mangoFusionPalette}
                     xAxis={[{ label: "Monthy Salary Breakdown in USD" }]}
-                    yAxis={[{ scaleType: "band", data: ["Monthly Salary Breakdown"] }]}
+                    yAxis={[
+                        {
+                            scaleType: "band",
+                            data: ["Monthly Salary Breakdown"],
+                        },
+                    ]}
                     leftAxis={null}
                     mb={4}
                 />

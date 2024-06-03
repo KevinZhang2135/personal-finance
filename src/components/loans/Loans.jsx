@@ -1,10 +1,5 @@
 import React from "react";
-import {
-    Box,
-    Divider,
-    Fade,
-    List,
-} from "@mui/material";
+import { Box, Collapse, Divider, List } from "@mui/material";
 
 import { blue } from "@mui/material/colors";
 import { TransitionGroup } from "react-transition-group";
@@ -16,10 +11,10 @@ const Loans = (props) => {
 
     return (
         <Box className="loan-forms" sx={{ bgcolor: blue[50], px: "10vw" }}>
-            <List>
+            <List p={4}>
                 <TransitionGroup>
                     {loans.map((loan, index) => (
-                        <Fade key={"loan-form-" + loan.id}>
+                        <Collapse key={"loan-form-" + loan.id}>
                             <div>
                                 <LoanForm
                                     loan={loan}
@@ -31,7 +26,7 @@ const Loans = (props) => {
                                     <Divider variant="inset" component="li" />
                                 )}
                             </div>
-                        </Fade>
+                        </Collapse>
                     ))}
                 </TransitionGroup>
             </List>
