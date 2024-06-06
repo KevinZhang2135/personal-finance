@@ -128,7 +128,7 @@ const LoanForm = (props) => {
     );
 
     const formOutput = (
-        <Stack width={formItemWidth} spacing={3} divider={<Divider flexItem />}>
+        <Stack width={formItemWidth} spacing={4} divider={<Divider flexItem />}>
             <Stack {...outputProps}>
                 <Typography variant="h4">Monthly Payment</Typography>
 

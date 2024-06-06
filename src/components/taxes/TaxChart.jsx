@@ -26,7 +26,7 @@ const TaxChart = (props) => {
                 pb: "5vh",
             }}
         >
-            <Paper elevation={0} sx={{ p: 4, width: 1 }}>
+            <Paper elevation={0} sx={{ width: 1, p: 4 }}>
                 <BarChart
                     className="salary-breakdown"
                     height={300}

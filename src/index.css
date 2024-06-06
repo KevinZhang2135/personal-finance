@@ -13,7 +13,23 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body::-webkit-scrollbar {
+    width: 4px;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #2196f3;
+}
+
 em {
-	color: #2196f3;
-	font-style: normal;
+    color: #2196f3;
+    font-style: normal;
+}
+
+sup {
+    font-size: 0.8rem;
 }

@@ -12,13 +12,10 @@ import {
 } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
 
-const MobileMenu = (props) => {
-    const anchorLinks = [
-        { name: "Taxes", id: "tax-info" },
-        { name: "Loans", id: "loan-info" },
-        { name: "Insurance", id: "insurance-info" },
-    ];
+import { anchorLinks } from "../../App";
 
+
+const MobileMenu = (props) => {
     // Styling
     const black20a = "rgba(0, 0, 0, 0.2)";
     const black60a = "rgba(0, 0, 0, 0.6)";

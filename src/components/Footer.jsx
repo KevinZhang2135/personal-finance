@@ -18,10 +18,10 @@ const Footer = (props) => {
 				<Link
 					target="_blank"
 					rel="noopener noreferrer"
-					href="https://github.com/KevinZhang2135/Personal-Finance"
+					href="https://www.github.com/KevinZhang2135/Personal-Finance"
 					sx={{ color: "whiteSmoke" }}
 				>
-					github.com/KevinZhang2135/Personal-Finance
+					https://www.github.com/KevinZhang2135/Personal-Finance
 				</Link>
 				.
 			</Typography>

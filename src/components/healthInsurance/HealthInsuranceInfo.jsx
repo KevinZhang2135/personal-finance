@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { blue } from "@mui/material/colors";
 
-const InsuranceInfo = () => {
+const HealthInsuranceInfo = () => {
     return (
         <Box
             id="insurance-info"
@@ -40,4 +40,4 @@ const InsuranceInfo = () => {
     );
 };
 
-export default InsuranceInfo;
+export default HealthInsuranceInfo;

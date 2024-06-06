@@ -2,19 +2,26 @@ import "./App.css";
 
 import React, { useState } from "react";
 
+import MenuBar from "./components/menu/MenuBar.jsx";
 import Banner from "./components/Banner.jsx";
 import CallToAction from "./components/CallToAction.jsx";
 
+// Taxes
 import TaxInfo from "./components/taxes/TaxInfo.jsx";
 import TaxForm from "./components/taxes/TaxForm.jsx";
 import TaxChart from "./components/taxes/TaxChart.jsx";
 
-import LoansInfo from "./components/loans/LoansInfo.jsx";
+// Student Loans
 import Loans from "./components/loans/Loans.jsx";
-import Footer from "./components/Footer.jsx";
-import InsuranceInfo from "./components/insurance/InsuranceInfo.jsx";
-import MenuBar from "./components/menu/MenuBar.jsx";
+import LoansInfo from "./components/loans/StudentLoansInfo.jsx";
 
+
+import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInfo.jsx";
+
+import Citations from "./components/Citations.jsx";
+import Footer from "./components/Footer.jsx";
+
+// JSON resources
 const taxBrackets = await (
     await fetch("taxBrackets.json", {
         headers: {
@@ -23,6 +30,12 @@ const taxBrackets = await (
         },
     })
 ).json();
+
+const anchorLinks = [
+    { name: "Taxes", id: "tax-info" },
+    { name: "Student Loans", id: "loan-info" },
+    { name: "Insurance", id: "insurance-info" },
+];
 
 const App = () => {
     // $15,000 is the minimum wage salary set by US as of 2023
@@ -60,8 +73,9 @@ const App = () => {
             <Loans loans={loans} setLoans={setLoans} />
             
 
-            <InsuranceInfo />
+            <HealthInsuranceInfo />
 
+            <Citations />
             <Footer />
         </React.Fragment>
     );
@@ -118,6 +132,7 @@ const calculateLoanEMI = (principal, apr, termMonths) => {
 export default App;
 export {
     taxBrackets,
+    anchorLinks,
     currencyFormatter,
     toTitleCase,
     calculateTax,

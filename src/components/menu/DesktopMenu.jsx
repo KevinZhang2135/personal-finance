@@ -8,19 +8,18 @@ import {
     useScrollTrigger,
 } from "@mui/material";
 
-const DesktopMenu = (props) => {
-    const anchorLinks = [
-        { name: "Taxes", id: "tax-info" },
-        { name: "Loans", id: "loan-info" },
-        { name: "Insurance", id: "insurance-info" },
-    ];
+import { anchorLinks } from "../../App";
 
+const DesktopMenu = (props) => {
     // Hide menu upon scroll
-    const trigger = useScrollTrigger()
+    const trigger = useScrollTrigger();
 
     return (
         <Slide appear={false} direction="down" in={!trigger}>
-            <AppBar elevation={0} sx={{ bgcolor: "transparent" }}>
+            <AppBar
+                elevation={0}
+                sx={{ bgcolor: "transparent", width: "fit-content", left: 0 }}
+            >
                 <Toolbar className="menu-buttons">
                     {anchorLinks.map((anchor) => (
                         <Button
@@ -35,6 +34,7 @@ const DesktopMenu = (props) => {
                                     bgcolor: "rgba(0, 0, 0, 0.8)",
                                 },
                                 mr: 4,
+                                px: 2
                             }}
                         >
                             <Typography variant="h5" color="whitesmoke">

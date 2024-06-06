@@ -1,11 +1,11 @@
 .main-banner {
-	min-height: 100vh;
+    min-height: 100vh;
 }
 
 .loan-info-banner {
-	min-height: 40vh;
+    min-height: 40vh;
 }
 
 .menu-btn .MuiTouchRipple-rippleVisible {
-	color: black;
-  }
+    color: black;
+}

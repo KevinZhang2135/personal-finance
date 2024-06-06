@@ -82,7 +82,7 @@ const TaxForm = (props) => {
                             flexItem
                         />
                     }
-                    spacing={4}
+                    spacing={3}
                 >
                     <Stack width={formItemWidth} spacing={4}>
                         <FormControl fullWidth>
@@ -125,14 +125,15 @@ const TaxForm = (props) => {
                         <Box display="flex" justifyContent="center">
                             <Typography>
                                 *Calculations are done assuming a single-filing
-                                status without any other exemptions.
+                                status without any other exemptions based on
+                                2023 tax brackets.
                             </Typography>
                         </Box>
                     </Stack>
                     <Stack
                         width={formItemWidth}
                         spacing={3}
-                        divider={<Divider flexItem />}
+                        divider={<Divider />}
                     >
                         <Stack {...outputProps}>
                             <Typography variant="h4">
@@ -146,7 +147,7 @@ const TaxForm = (props) => {
 
                         <Stack {...outputProps}>
                             <Typography variant="h4">
-                                Monthy Federal Tax
+                                Monthy Federal Tax<sup>3</sup>
                             </Typography>
 
                             <Typography variant="h4" color="primary">
@@ -156,7 +157,7 @@ const TaxForm = (props) => {
 
                         <Stack {...outputProps}>
                             <Typography variant="h4">
-                                Monthly FICA Tax
+                                Monthly FICA Tax<sup>4</sup>
                             </Typography>
 
                             <Typography variant="h4" color="primary">
@@ -166,7 +167,7 @@ const TaxForm = (props) => {
 
                         <Stack {...outputProps}>
                             <Typography variant="h4">
-                                Monthly State Tax
+                                Monthly State Tax<sup>5</sup>
                             </Typography>
 
                             <Typography variant="h4" color="primary">
