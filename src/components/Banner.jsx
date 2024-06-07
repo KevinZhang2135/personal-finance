@@ -31,7 +31,7 @@ const Banner = (props) => {
             <Box sx={{ px: "10vw" }}>
                 <Typography
                     textAlign="center"
-                    color="whitesmoke"
+                    color="white"
                     fontSize="10vmin"
                     fontWeight={500}
                 >

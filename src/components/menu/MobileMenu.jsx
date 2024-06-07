@@ -14,13 +14,7 @@ import { Menu as MenuIcon } from "@mui/icons-material";
 
 import { anchorLinks } from "../../App";
 
-
 const MobileMenu = (props) => {
-    // Styling
-    const black20a = "rgba(0, 0, 0, 0.2)";
-    const black60a = "rgba(0, 0, 0, 0.6)";
-    const black80a = "rgba(0, 0, 0, 0.6)";
-
     // Hide menu upon scroll
     const trigger = useScrollTrigger();
 
@@ -38,7 +32,7 @@ const MobileMenu = (props) => {
 
     return (
         <Slide appear={false} direction="down" in={!trigger}>
-            <AppBar elevation={0} sx={{ bgcolor: "transparent" }}>
+            <AppBar elevation={0} sx={{ bgcolor: "#07020d" }}>
                 <Toolbar className="menu-buttons">
                     <Button
                         className="menu-btn"
@@ -47,14 +41,10 @@ const MobileMenu = (props) => {
                         startIcon={
                             <MenuIcon
                                 fontSize="large"
-                                sx={{ color: "whitesmoke" }}
+                                sx={{ color: "white" }}
                             />
                         }
-                        sx={{
-                            bgcolor: black60a,
-                            "&:hover": { bgcolor: black80a },
-                            mr: 4,
-                        }}
+                        sx={{ bgcolor: "inherit", mr: 4 }}
                         onClick={handleClick}
                     >
                         <Typography variant="h5" color="whitesmoke">
@@ -70,7 +60,7 @@ const MobileMenu = (props) => {
                         sx={{
                             "& .MuiMenu-paper": {
                                 color: "whitesmoke",
-                                backgroundColor: black60a,
+                                bgcolor: "#07020d",
                             },
                         }}
                     >
@@ -78,7 +68,7 @@ const MobileMenu = (props) => {
                             <MenuItem
                                 key={`#${anchor.id}-menu-item`}
                                 href={`#${anchor.id}`}
-                                sx={{ "&:hover": { bgcolor: black20a } }}
+                                sx={{ "&:hover": { bgcolor: "inherit" } }}
                                 onClick={handleClose}
                                 component={Link}
                             >

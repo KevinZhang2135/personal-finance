@@ -16,11 +16,11 @@ const DesktopMenu = (props) => {
 
     return (
         <Slide appear={false} direction="down" in={!trigger}>
-            <AppBar
-                elevation={0}
-                sx={{ bgcolor: "transparent", width: "fit-content", left: 0 }}
-            >
+            <AppBar elevation={0} sx={{ bgcolor: "#07020d" }}>
                 <Toolbar className="menu-buttons">
+                    <Typography variant="h5" sx={{ flexGrow: 1 }}>
+                        Personal Finance
+                    </Typography>
                     {anchorLinks.map((anchor) => (
                         <Button
                             className="menu-btn"
@@ -29,15 +29,13 @@ const DesktopMenu = (props) => {
                             variant="text"
                             size="large"
                             sx={{
-                                bgcolor: "rgba(0, 0, 0, 0.6)",
-                                "&:hover": {
-                                    bgcolor: "rgba(0, 0, 0, 0.8)",
-                                },
-                                mr: 4,
-                                px: 2
+                                bgcolor: "inherit",
+                                "&:hover": {bgcolor: "#38343d"},
+                                textTransform: "capitalize",
+                                ml: 4,
                             }}
                         >
-                            <Typography variant="h5" color="whitesmoke">
+                            <Typography variant="h5" color="white">
                                 {anchor.name}
                             </Typography>
                         </Button>

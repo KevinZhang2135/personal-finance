@@ -161,11 +161,12 @@ const LoanForm = (props) => {
                     startIcon={<Clear fontSize="large" />}
                     color="error"
                     size="large"
+                    sx={{ textTransform: "capitalize" }}
                     onClick={() =>
                         setLoans(loans.filter((e) => e.id !== loan.id))
                     }
                 >
-                    <Typography variant="p">REMOVE</Typography>
+                    <Typography variant="p">Remove</Typography>
                 </Button>
             </Stack>
         </Stack>

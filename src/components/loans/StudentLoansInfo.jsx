@@ -102,7 +102,7 @@ const LoansInfo = (props) => {
                 variant="contained"
                 startIcon={<AddCircle fontSize="large" />}
                 size="large"
-                sx={{ mt: 4 }}
+                sx={{ textTransform: "capitalize", mt: 4 }}
                 disabled={loans.length >= 4}
                 onClick={() => {
                     const newLoan = {
@@ -116,7 +116,7 @@ const LoansInfo = (props) => {
                     setLoans([...loans, newLoan]);
                 }}
             >
-                <Typography variant="p">ADD LOAN</Typography>
+                <Typography variant="p">Add Loan</Typography>
             </Button>
 
             <Button
@@ -124,13 +124,13 @@ const LoansInfo = (props) => {
                 startIcon={<Clear fontSize="large" />}
                 color="error"
                 size="large"
-                sx={{ mt: 4 }}
+                sx={{ textTransform: "capitalize", mt: 4 }}
                 disabled={loans.length === 0}
                 onClick={() => {
                     setLoans([]);
                 }}
             >
-                <Typography variant="p">REMOVE ALL</Typography>
+                <Typography variant="p">Remove All</Typography>
             </Button>
         </Stack>
     );
@@ -170,12 +170,11 @@ const LoansInfo = (props) => {
 
                         <Divider sx={{ my: 3 }} />
                         <Typography variant="p">
-                            Hence, many pursuing college education often take
-                            out student loans to finance the exorbitant cost.
-                            However, consider the type of loan as well as the
-                            its annual interest rate before applying for such
-                            loans:
+                            Hence, many pursuing college education often borrow
+                            student loans to finance the exorbitant cost. Before
+                            applying for such loans, consider the type of loan:
                         </Typography>
+
                         {studentLoanTypeList}
                         {addLoanButtons}
                     </Box>
