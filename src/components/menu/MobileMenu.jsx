@@ -15,24 +15,26 @@ import { Menu as MenuIcon } from "@mui/icons-material";
 import { anchorLinks } from "../../App";
 
 const MobileMenu = (props) => {
+    const { handleSummaryOpen } = props;
+
     // Hide menu upon scroll
-    const trigger = useScrollTrigger();
+    const scrollTrigger = useScrollTrigger();
 
     // Pop over menu
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
-    const handleClick = (event) => {
+    const handleMenuClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = () => {
+    const handleMenuClose = () => {
         setAnchorEl(null);
     };
 
     return (
-        <Slide appear={false} direction="down" in={!trigger}>
-            <AppBar elevation={0} sx={{ bgcolor: "#07020d" }}>
+        <Slide appear={false} direction="down" in={!scrollTrigger}>
+            <AppBar elevation={0} sx={{ bgcolor: "black.dark" }}>
                 <Toolbar className="menu-buttons">
                     <Button
                         className="menu-btn"
@@ -45,9 +47,9 @@ const MobileMenu = (props) => {
                             />
                         }
                         sx={{ bgcolor: "inherit", mr: 4 }}
-                        onClick={handleClick}
+                        onClick={handleMenuClick}
                     >
-                        <Typography variant="h5" color="whitesmoke">
+                        <Typography variant="h5" color="white">
                             Menu
                         </Typography>
                     </Button>
@@ -56,11 +58,11 @@ const MobileMenu = (props) => {
                         className="mobile-menu"
                         anchorEl={anchorEl}
                         open={open}
-                        onClose={handleClose}
+                        onClose={handleMenuClose}
                         sx={{
                             "& .MuiMenu-paper": {
-                                color: "whitesmoke",
-                                bgcolor: "#07020d",
+                                color: "white",
+                                bgcolor: "black.dark",
                             },
                         }}
                     >
@@ -69,12 +71,20 @@ const MobileMenu = (props) => {
                                 key={`#${anchor.id}-menu-item`}
                                 href={`#${anchor.id}`}
                                 sx={{ "&:hover": { bgcolor: "inherit" } }}
-                                onClick={handleClose}
+                                onClick={handleMenuClose}
                                 component={Link}
                             >
                                 {anchor.name}
                             </MenuItem>
                         ))}
+
+                        <MenuItem
+                            sx={{ "&:hover": { bgcolor: "inherit" } }}
+                            onClick={handleSummaryOpen}
+                            component={Link}
+                        >
+                            Summary
+                        </MenuItem>
                     </Menu>
                 </Toolbar>
             </AppBar>

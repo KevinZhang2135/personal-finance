@@ -5,7 +5,7 @@ const Footer = (props) => {
     return (
         <Box
             sx={{
-                bgcolor: "#07020d",
+                bgcolor: "black.dark",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
