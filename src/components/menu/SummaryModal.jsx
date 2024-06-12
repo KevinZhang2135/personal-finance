@@ -13,16 +13,23 @@ import { currencyFormatter, toTitleCase } from "../../App";
 const SummaryModal = (props) => {
     const { salary, expenditures, summaryOpen, handleSummaryClose } = props;
 
+    
+
     //Styling
+    const scrollGutterWidth = 2;
     const modalBoxSx = {
         position: "absolute",
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
         bgcolor: "background.paper",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
         width: 0.8,
         height: 0.8,
         p: 4,
+        pl: 4 + scrollGutterWidth,
     };
 
     const rowProps = {
@@ -30,6 +37,12 @@ const SummaryModal = (props) => {
         justifyContent: "space-between",
         alignItems: "center",
     };
+
+    const netSalary =
+        salary -
+        Object.values(expenditures).reduce((sum, cost) => sum + cost, 0);
+
+    const divider = <Divider sx={{ my: 3, mr: scrollGutterWidth }} />;
 
     return (
         <Modal open={summaryOpen} onClose={handleSummaryClose}>
@@ -41,30 +54,59 @@ const SummaryModal = (props) => {
                         size="large"
                         onClick={handleSummaryClose}
                     >
-                        <Close fontSize="large" />
+                        <Close fontSize="normal" />
                     </IconButton>
                 </Stack>
 
-                <Stack spacing={3} divider={<Divider />}>
-                    <Stack {...rowProps}>
-                        <Typography variant="h4">Monthly Salary</Typography>
+                <Stack {...rowProps}>
+                    <Typography variant="h4">Monthly Salary</Typography>
 
-                        <Typography variant="h4" color="primary">
-                            {currencyFormatter(salary)}
-                        </Typography>
-                    </Stack>
+                    <Typography
+                        variant="h4"
+                        color="primary"
+                        mr={scrollGutterWidth}
+                    >
+                        {currencyFormatter(salary)}
+                    </Typography>
+                </Stack>
 
-                    {Object.keys(expenditures).map((key) => (
-                        <Stack key={`summary-${key}`} {...rowProps}>
-                            <Typography variant="h4">
-                                {formatTitle(key)}
-                            </Typography>
+                {divider}
+                <Stack
+                    spacing={3}
+                    divider={<Divider />}
+                    sx={{
+                        overflow: "auto",
+                        flexGrow: 1,
+                        pr: scrollGutterWidth,
+                    }}
+                >
+                    {Object.keys(expenditures).map(
+                        (key) =>
+                            expenditures[key] > 0 && (
+                                <Stack key={`summary-${key}`} {...rowProps}>
+                                    <Typography variant="h4">
+                                        {formatTitle(key)}
+                                    </Typography>
 
-                            <Typography variant="h4" color="primary">
-                                {currencyFormatter(-expenditures[key])}
-                            </Typography>
-                        </Stack>
-                    ))}
+                                    <Typography variant="h4">
+                                        {currencyFormatter(-expenditures[key])}
+                                    </Typography>
+                                </Stack>
+                            )
+                    )}
+                </Stack>
+
+                {divider}
+                <Stack {...rowProps}>
+                    <Typography variant="h3">Net</Typography>
+
+                    <Typography
+                        variant="h3"
+                        color={netSalary >= 0 ? "success.main" : "error.main"}
+                        mr={scrollGutterWidth}
+                    >
+                        {currencyFormatter(netSalary)}
+                    </Typography>
                 </Stack>
             </Paper>
         </Modal>

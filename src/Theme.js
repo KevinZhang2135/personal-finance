@@ -7,6 +7,7 @@ const Theme = createTheme({
             main: "#47444b",
             dark: "#2a272e",
             contrastText: "#fff",
+            
         },
     },
 
@@ -51,5 +52,7 @@ const Theme = createTheme({
         },
     },
 });
+
+
 
 export default Theme;

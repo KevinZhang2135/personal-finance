@@ -13,16 +13,30 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Main body scrollbar*/
 body::-webkit-scrollbar {
-    width: 4px;
+    width: 8px;
 }
 
 body::-webkit-scrollbar-track {
-    background: #38343d;
+    background: #5a565e;
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #07020d;
+    background-color: #2a272e;
+}
+
+/* Miscellaneous overflow scrollbar*/
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #5a565e;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #2a272e;
 }
 
 em {

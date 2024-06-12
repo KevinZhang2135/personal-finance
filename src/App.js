@@ -64,8 +64,6 @@ const App = () => {
         studentLoans: studentLoans.reduce((sum, loan) => sum + loan.emi, 0),
     };
 
-    console.log(expenditures.loans);
-
     return (
         <React.Fragment>
             <MenuBar handleSummaryOpen={handleSummaryOpen} />
