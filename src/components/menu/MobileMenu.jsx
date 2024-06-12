@@ -24,14 +24,9 @@ const MobileMenu = (props) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
-    const handleMenuClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-    };
-
+    const handleMenuClick = (event) => setAnchorEl(event.currentTarget);
+    const handleMenuClose = () => setAnchorEl(null);
+    
     return (
         <Slide appear={false} direction="down" in={!scrollTrigger}>
             <AppBar elevation={0} sx={{ bgcolor: "black.dark" }}>

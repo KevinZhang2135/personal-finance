@@ -2,7 +2,10 @@ import "./App.css";
 
 import React, { useState } from "react";
 
+// UI
 import MenuBar from "./components/menu/MenuBar.jsx";
+import SummaryModal from "./components/menu/SummaryModal.jsx";
+
 import Banner from "./components/Banner.jsx";
 import CallToAction from "./components/CallToAction.jsx";
 
@@ -13,8 +16,7 @@ import TaxChart from "./components/taxes/TaxChart.jsx";
 
 // Student Loans
 import Loans from "./components/loans/Loans.jsx";
-import LoansInfo from "./components/loans/StudentLoansInfo.jsx";
-
+import StudentLoansInfo from "./components/loans/StudentLoansInfo.jsx";
 
 import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInfo.jsx";
 
@@ -38,6 +40,7 @@ const anchorLinks = [
 ];
 
 const App = () => {
+    // Expenditures
     // $15,000 is the minimum wage salary set by US as of 2023
     const [salary, setSalary] = useState(15000);
 
@@ -49,11 +52,29 @@ const App = () => {
         fica: salary * 0.0765,
     });
 
-    const [loans, setLoans] = useState([]);
+    const [studentLoans, setStudentLoans] = useState([]);
+
+    // Summary modal
+    const [summaryOpen, setSummaryOpen] = React.useState(false);
+    const handleSummaryOpen = () => setSummaryOpen(true);
+    const handleSummaryClose = () => setSummaryOpen(false);
+
+    const expenditures = {
+        taxes: (taxes.federal + taxes.state + taxes.fica) / 12,
+        studentLoans: studentLoans.reduce((sum, loan) => sum + loan.emi, 0),
+    };
+
+    console.log(expenditures.loans);
 
     return (
         <React.Fragment>
-            <MenuBar />
+            <MenuBar handleSummaryOpen={handleSummaryOpen} />
+            <SummaryModal
+                salary={salary / 12}
+                expenditures={expenditures}
+                summaryOpen={summaryOpen}
+                handleSummaryClose={handleSummaryClose}
+            />
 
             <Banner />
             <CallToAction />
@@ -69,9 +90,14 @@ const App = () => {
             />
             <TaxChart salary={salary} taxes={taxes} />
 
-            <LoansInfo loans={loans} setLoans={setLoans} />
-            <Loans loans={loans} setLoans={setLoans} />
-            
+            <StudentLoansInfo
+                studentLoans={studentLoans}
+                setStudentLoans={setStudentLoans}
+            />
+            <Loans
+                loans={studentLoans}
+                setLoans={setStudentLoans}
+            />
 
             <HealthInsuranceInfo />
 

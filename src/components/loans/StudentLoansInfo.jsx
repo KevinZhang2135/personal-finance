@@ -13,8 +13,8 @@ import { AddCircle, Clear } from "@mui/icons-material";
 import { ParallaxBanner } from "react-scroll-parallax";
 import { v4 as uuid } from "uuid";
 
-const LoansInfo = (props) => {
-    const { loans, setLoans } = props;
+const StudentLoansInfo = (props) => {
+    const { studentLoans, setStudentLoans } = props;
 
     // Parallax layers
     const background = {
@@ -103,7 +103,7 @@ const LoansInfo = (props) => {
                 startIcon={<AddCircle fontSize="large" />}
                 size="large"
                 sx={{ textTransform: "capitalize", mt: 4 }}
-                disabled={loans.length >= 4}
+                disabled={studentLoans.length >= 4}
                 onClick={() => {
                     const newLoan = {
                         id: uuid(),
@@ -113,7 +113,7 @@ const LoansInfo = (props) => {
                         emi: 0,
                     };
 
-                    setLoans([...loans, newLoan]);
+                    setStudentLoans([...studentLoans, newLoan]);
                 }}
             >
                 <Typography variant="p">Add Loan</Typography>
@@ -125,9 +125,9 @@ const LoansInfo = (props) => {
                 color="error"
                 size="large"
                 sx={{ textTransform: "capitalize", mt: 4 }}
-                disabled={loans.length === 0}
+                disabled={studentLoans.length === 0}
                 onClick={() => {
-                    setLoans([]);
+                    setStudentLoans([]);
                 }}
             >
                 <Typography variant="p">Remove All</Typography>
@@ -184,4 +184,4 @@ const LoansInfo = (props) => {
     );
 };
 
-export default LoansInfo;
+export default StudentLoansInfo;

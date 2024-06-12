@@ -29,7 +29,7 @@ const TaxForm = (props) => {
 
     // Styling
     const formItemWidth = { xs: 1, lg: 0.5 };
-    const outputProps = {
+    const rowProps = {
         direction: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -135,7 +135,7 @@ const TaxForm = (props) => {
                         spacing={3}
                         divider={<Divider />}
                     >
-                        <Stack {...outputProps}>
+                        <Stack {...rowProps}>
                             <Typography variant="h4">
                                 Gross Monthly Salary
                             </Typography>
@@ -145,7 +145,7 @@ const TaxForm = (props) => {
                             </Typography>
                         </Stack>
 
-                        <Stack {...outputProps}>
+                        <Stack {...rowProps}>
                             <Typography variant="h4">
                                 Monthy Federal Tax<sup>3</sup>
                             </Typography>
@@ -155,7 +155,7 @@ const TaxForm = (props) => {
                             </Typography>
                         </Stack>
 
-                        <Stack {...outputProps}>
+                        <Stack {...rowProps}>
                             <Typography variant="h4">
                                 Monthly FICA Tax<sup>4</sup>
                             </Typography>
@@ -165,7 +165,7 @@ const TaxForm = (props) => {
                             </Typography>
                         </Stack>
 
-                        <Stack {...outputProps}>
+                        <Stack {...rowProps}>
                             <Typography variant="h4">
                                 Monthly State Tax<sup>5</sup>
                             </Typography>
@@ -175,7 +175,7 @@ const TaxForm = (props) => {
                             </Typography>
                         </Stack>
 
-                        <Stack {...outputProps}>
+                        <Stack {...rowProps}>
                             <Typography variant="h4">
                                 Net Monthly Salary
                             </Typography>
