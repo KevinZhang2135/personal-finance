@@ -158,9 +158,10 @@ const LoanForm = (props) => {
             <Stack {...outputProps}>
                 <Button
                     variant="contained"
-                    startIcon={<Clear fontSize="large" />}
                     color="error"
                     size="large"
+                    disableElevation
+                    startIcon={<Clear fontSize="large" />}
                     sx={{ textTransform: "capitalize" }}
                     onClick={() =>
                         setLoans(loans.filter((e) => e.id !== loan.id))
@@ -173,8 +174,8 @@ const LoanForm = (props) => {
     );
 
     return (
-        <ListItem>
-            <Paper elevation={0} sx={{ width: 1, p: 4 }}>
+        <ListItem sx={{px: 0}}>
+            <Paper variant="outlined" sx={{ width: 1, p: 4 }}>
                 <Stack
                     direction={{ xs: "column", lg: "row" }}
                     justifyContent="space-evenly"

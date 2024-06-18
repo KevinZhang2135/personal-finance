@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Divider, Stack, Typography, useMediaQuery } from "@mui/material";
-import { blue } from "@mui/material/colors";
+import { lightBlue } from "@mui/material/colors";
 
 import Theme from "../../Theme";
 
@@ -8,7 +8,7 @@ const TaxInfo = (props) => {
     const infoItemWidth = { xs: 1, lg: 0.33 };
 
     return (
-        <Box id="tax-info" sx={{ bgcolor: blue[50], px: "10vw", py: "5vh" }}>
+        <Box id="tax-info" sx={{ bgcolor: lightBlue[50], px: "10vw", py: "5vh" }}>
             <Typography variant="h1" textAlign="center" mb={4}>
                 Taxes
             </Typography>

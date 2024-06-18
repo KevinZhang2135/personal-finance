@@ -39,11 +39,6 @@ body::-webkit-scrollbar-thumb {
     background-color: #2a272e;
 }
 
-em {
-    color: #2196f3;
-    font-style: normal;
-}
-
 sup {
     font-size: 0.8rem;
 }

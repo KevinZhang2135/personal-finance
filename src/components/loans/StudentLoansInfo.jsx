@@ -9,9 +9,10 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
+
 import { AddCircle, Clear } from "@mui/icons-material";
-import { ParallaxBanner } from "react-scroll-parallax";
 import { v4 as uuid } from "uuid";
+
 
 const StudentLoansInfo = (props) => {
     const { studentLoans, setStudentLoans } = props;
@@ -100,10 +101,11 @@ const StudentLoansInfo = (props) => {
         <Stack direction="row" spacing={4}>
             <Button
                 variant="contained"
-                startIcon={<AddCircle fontSize="large" />}
                 size="large"
-                sx={{ textTransform: "capitalize", mt: 4 }}
+                disableElevation
                 disabled={studentLoans.length >= 4}
+                startIcon={<AddCircle fontSize="large" />}
+                sx={{ textTransform: "capitalize", mt: 4 }}
                 onClick={() => {
                     const newLoan = {
                         id: uuid(),
@@ -121,11 +123,12 @@ const StudentLoansInfo = (props) => {
 
             <Button
                 variant="contained"
-                startIcon={<Clear fontSize="large" />}
                 color="error"
                 size="large"
-                sx={{ textTransform: "capitalize", mt: 4 }}
+                disableElevation
                 disabled={studentLoans.length === 0}
+                startIcon={<Clear fontSize="large" />}
+                sx={{ textTransform: "capitalize", mt: 4 }}
                 onClick={() => {
                     setStudentLoans([]);
                 }}
@@ -137,15 +140,8 @@ const StudentLoansInfo = (props) => {
 
     return (
         <Stack id="loan-info" direction={{ xs: "column", lg: "row" }}>
-            <Box
-                className="loan-info-banner"
-                display="flex"
-                width={{ xs: 1, lg: 0.5 }}
-            >
-                <ParallaxBanner layers={[background, backgroundOverlay]} />
-            </Box>
 
-            <Box display="flex" width={{ xs: 1, lg: 0.5 }}>
+            <Box display="flex">
                 <Stack
                     direction="column"
                     justifyContent="space-between"

@@ -26,7 +26,7 @@ const MobileMenu = (props) => {
 
     const handleMenuClick = (event) => setAnchorEl(event.currentTarget);
     const handleMenuClose = () => setAnchorEl(null);
-    
+
     return (
         <Slide appear={false} direction="down" in={!scrollTrigger}>
             <AppBar elevation={0} sx={{ bgcolor: "black.dark" }}>

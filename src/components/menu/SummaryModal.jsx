@@ -13,9 +13,7 @@ import { currencyFormatter, toTitleCase } from "../../App";
 const SummaryModal = (props) => {
     const { salary, expenditures, summaryOpen, handleSummaryClose } = props;
 
-    
-
-    //Styling
+    // Styling
     const scrollGutterWidth = 2;
     const modalBoxSx = {
         position: "absolute",
@@ -42,11 +40,11 @@ const SummaryModal = (props) => {
         salary -
         Object.values(expenditures).reduce((sum, cost) => sum + cost, 0);
 
-    const divider = <Divider sx={{ my: 3, mr: scrollGutterWidth }} />;
+    const divider = <Divider sx={{ my: 4, mr: scrollGutterWidth }} />;
 
     return (
         <Modal open={summaryOpen} onClose={handleSummaryClose}>
-            <Paper sx={modalBoxSx}>
+            <Paper elevation={0} sx={modalBoxSx}>
                 <Stack {...rowProps} mb={4}>
                     <Typography variant="h2">Summary</Typography>
                     <IconButton
@@ -72,7 +70,7 @@ const SummaryModal = (props) => {
 
                 {divider}
                 <Stack
-                    spacing={3}
+                    spacing={4}
                     divider={<Divider />}
                     sx={{
                         overflow: "auto",
@@ -82,7 +80,7 @@ const SummaryModal = (props) => {
                 >
                     {Object.keys(expenditures).map(
                         (key) =>
-                            expenditures[key] > 0 && (
+                            expenditures[key] !== 0 && (
                                 <Stack key={`summary-${key}`} {...rowProps}>
                                     <Typography variant="h4">
                                         {formatTitle(key)}

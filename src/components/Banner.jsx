@@ -1,30 +1,9 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import { ParallaxBanner } from "react-scroll-parallax";
 
 const Banner = (props) => {
-    // Parallax layers
-    const background = {
-        image: process.env.PUBLIC_URL + "/mountainRoad.png",
-        translateY: [0, 30],
-    };
-
-    const backgroundOverlay = {
-        children: (
-            <Box
-                className="main-banner"
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    bgcolor: "rgba(0, 0, 0, 0.2)",
-                }}
-            />
-        ),
-    };
-
     const title = {
-        translateY: ["50vh", "0vh"],
+        translateY: ["35vh", "0vh"],
         scale: [1, 0.75],
         easing: "easeInCubic",
         children: (
@@ -42,10 +21,40 @@ const Banner = (props) => {
     };
 
     return (
-        <ParallaxBanner
-            className="main-banner"
-            layers={[background, backgroundOverlay, title]}
-        />
+        <Box
+            sx={{
+                backgroundImage: `url(${
+                    process.env.PUBLIC_URL + "/mountainRoad.png"
+                })`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                display: "flex",
+                flexDirection: "column",
+                color: "white",
+                minHeight: "60vh",
+                px: "10vw",
+                py: "10vh",
+            }}
+        >
+            <Typography
+                gutterBottom
+                sx={{
+                    fontSize: { xs: "3rem", lg: "5rem" },
+                    pt: "10vh",
+                }}
+            >
+                Personal finance done easy.
+            </Typography>
+
+            <Typography variant="h3" gutterBottom>
+                According to CNBC and Forbes, more than 60% of Americans live
+                paycheck to paycheck in 2023.<sup>1-2</sup>
+            </Typography>
+
+            <Typography variant="h2" color="primary.light">
+                Let's change that.
+            </Typography>
+        </Box>
     );
 };
 

@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
-import { blue } from "@mui/material/colors";
+import { lightBlue } from "@mui/material/colors";
 import { BarChart, mangoFusionPalette } from "@mui/x-charts";
 
 import { currencyFormatter } from "../../App";
+
 
 const TaxChart = (props) => {
     const { salary, taxes } = props;
@@ -21,12 +22,12 @@ const TaxChart = (props) => {
             className="tax-chart"
             sx={{
                 display: { xs: "none", md: "flex" },
-                bgcolor: blue[50],
+                bgcolor: lightBlue[50],
                 px: "10vw",
                 pb: "5vh",
             }}
         >
-            <Paper elevation={0} sx={{ width: 1, p: 4 }}>
+            <Paper elevation={3} sx={{ width: 1, p: 4 }}>
                 <BarChart
                     className="salary-breakdown"
                     height={300}

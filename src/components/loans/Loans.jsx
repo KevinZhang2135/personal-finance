@@ -7,14 +7,14 @@ import { TransitionGroup } from "react-transition-group";
 import LoanForm from "./LoanForm";
 
 const Loans = (props) => {
-    const { loans, setLoans } = props;
+    const { loans, setLoans, bgcolor } = props;
 
     return (
-        <Box className="loan-forms" sx={{ bgcolor: blue[50], px: "10vw" }}>
+        <Box className="loan-forms" sx={{ bgcolor: bgcolor, px: "10vw" }}>
             <List sx={{ pt: loans.length > 0, pb: 0 }}>
                 <TransitionGroup>
                     {loans.map((loan) => (
-                        <Collapse key={"loan-form-" + loan.id}>
+                        <Collapse key={"loan-form-" + loan.id} >
                             <LoanForm
                                 loan={loan}
                                 loans={loans}

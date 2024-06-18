@@ -5,11 +5,11 @@ import { blue } from "@mui/material/colors";
 const HealthInsuranceInfo = () => {
     return (
         <Box
-            id="insurance-info"
+            id="health-insurance-info"
             sx={{ bgcolor: blue[50], px: "10vw", py: "5vh" }}
         >
             <Typography variant="h1" textAlign="center" mb={4}>
-                Insurance
+                Health Insurance
             </Typography>
 
             <Typography variant="p">

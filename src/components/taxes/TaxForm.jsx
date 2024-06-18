@@ -1,5 +1,6 @@
 import React from "react";
 import {
+    Alert,
     Box,
     Divider,
     FormControl,
@@ -13,7 +14,9 @@ import {
     Typography,
     useMediaQuery,
 } from "@mui/material";
-import { blue } from "@mui/material/colors";
+
+import { lightBlue } from "@mui/material/colors";
+import { Error } from "@mui/icons-material";
 
 import {
     toTitleCase,
@@ -21,6 +24,7 @@ import {
     calculateTax,
     taxBrackets,
 } from "./../../App";
+
 import Theme from "../../Theme";
 
 const TaxForm = (props) => {
@@ -69,9 +73,9 @@ const TaxForm = (props) => {
     return (
         <Box
             className="tax-form"
-            sx={{ bgcolor: blue[50], px: "10vw", pb: "5vh" }}
+            sx={{ bgcolor: lightBlue[50], px: "10vw", pb: "5vh" }}
         >
-            <Paper elevation={0} sx={{ p: 4 }}>
+            <Paper elevation={3} sx={{ p: 4 }}>
                 <Stack
                     direction={{ xs: "column", lg: "row" }}
                     justifyContent="space-evenly"
@@ -82,7 +86,7 @@ const TaxForm = (props) => {
                             flexItem
                         />
                     }
-                    spacing={3}
+                    spacing={4}
                 >
                     <Stack width={formItemWidth} spacing={4}>
                         <FormControl fullWidth>
@@ -123,16 +127,19 @@ const TaxForm = (props) => {
                         </FormControl>
 
                         <Box display="flex" justifyContent="center">
-                            <Typography>
-                                *Calculations are done assuming a single-filing
+                        <Alert
+                                icon={<Error fontSize="inherit" />}
+                                severity="warning"
+                            >
+                                Calculations are done assuming a single-filing
                                 status without any other exemptions based on
                                 2023 tax brackets.
-                            </Typography>
+                            </Alert>
                         </Box>
                     </Stack>
                     <Stack
                         width={formItemWidth}
-                        spacing={3}
+                        spacing={4}
                         divider={<Divider />}
                     >
                         <Stack {...rowProps}>

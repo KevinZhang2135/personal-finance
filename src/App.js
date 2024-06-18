@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import MenuBar from "./components/menu/MenuBar.jsx";
 import SummaryModal from "./components/menu/SummaryModal.jsx";
 
+// Call-to-action
 import Banner from "./components/Banner.jsx";
 import CallToAction from "./components/CallToAction.jsx";
 
@@ -15,13 +16,18 @@ import TaxForm from "./components/taxes/TaxForm.jsx";
 import TaxChart from "./components/taxes/TaxChart.jsx";
 
 // Student Loans
-import Loans from "./components/loans/Loans.jsx";
 import StudentLoansInfo from "./components/loans/StudentLoansInfo.jsx";
+import Loans from "./components/loans/Loans.jsx";
+
+// Retirement
+import RetirementInfo from "./components/retirement/RetirementInfo.jsx";
 
 import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInfo.jsx";
 
 import Citations from "./components/Citations.jsx";
 import Footer from "./components/Footer.jsx";
+import Retirement from "./components/retirement/Retirement.jsx";
+
 
 // JSON resources
 const taxBrackets = await (
@@ -36,14 +42,14 @@ const taxBrackets = await (
 const anchorLinks = [
     { name: "Taxes", id: "tax-info" },
     { name: "Student Loans", id: "loan-info" },
-    { name: "Insurance", id: "insurance-info" },
+    { name: "Retirement", id: "retirement-info" },
 ];
 
 const App = () => {
-    // Expenditures
     // $15,000 is the minimum wage salary set by US as of 2023
     const [salary, setSalary] = useState(15000);
 
+    /* Expenditures */
     // California is the most populous US state as of 2023
     const [state, setState] = useState("california");
     const [taxes, setTaxes] = useState({
@@ -52,17 +58,27 @@ const App = () => {
         fica: salary * 0.0765,
     });
 
+    // Education
     const [studentLoans, setStudentLoans] = useState([]);
+    const [retirement, setRetirement] = useState(0);
 
-    // Summary modal
-    const [summaryOpen, setSummaryOpen] = React.useState(false);
-    const handleSummaryOpen = () => setSummaryOpen(true);
-    const handleSummaryClose = () => setSummaryOpen(false);
+    // Housing
+    const [housingCost, setHousingCost] = useState(0);
+    const [housingInsurance, setHousingInsurance] = useState(0);
 
+    // Misc expenditures
+    const [loans, setLoans] = useState([]);
+
+    // Totals
     const expenditures = {
         taxes: (taxes.federal + taxes.state + taxes.fica) / 12,
         studentLoans: studentLoans.reduce((sum, loan) => sum + loan.emi, 0),
     };
+
+    /* Summary modal */
+    const [summaryOpen, setSummaryOpen] = React.useState(false);
+    const handleSummaryOpen = () => setSummaryOpen(true);
+    const handleSummaryClose = () => setSummaryOpen(false);
 
     return (
         <React.Fragment>
@@ -75,7 +91,6 @@ const App = () => {
             />
 
             <Banner />
-            <CallToAction />
 
             <TaxInfo />
             <TaxForm
@@ -92,12 +107,9 @@ const App = () => {
                 studentLoans={studentLoans}
                 setStudentLoans={setStudentLoans}
             />
-            <Loans
-                loans={studentLoans}
-                setLoans={setStudentLoans}
-            />
+            <Loans loans={studentLoans} setLoans={setStudentLoans}/>
 
-            <HealthInsuranceInfo />
+            <Retirement retirement={retirement} setRetirement={setRetirement} />
 
             <Citations />
             <Footer />
