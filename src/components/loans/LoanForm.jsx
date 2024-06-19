@@ -49,7 +49,7 @@ const LoanForm = (props) => {
 
     const handleTermMonthsChange = (e) => {
         let termMonths = parseInt(e.target.value);
-        (isNaN(termMonths) || termMonths <= 0) && (termMonths = 1);
+        (isNaN(termMonths) || termMonths < 0) && (termMonths = 0);
 
         const emi = calculateLoanEMI(loan.principal, loan.apr, termMonths);
 
@@ -62,7 +62,6 @@ const LoanForm = (props) => {
 
     const handleAprChange = (e) => {
         setAprFormValue(e.target.value);
-
         const apr = parseFloat(e.target.value) / 100;
 
         // Does not continue if apr is invalid
@@ -90,28 +89,25 @@ const LoanForm = (props) => {
                     }
                     label="Principal"
                     value={loan.principal}
-                    onChange={(e) => {
-                        handlePrincipalChange(e);
-                    }}
+                    onChange={handlePrincipalChange}
                 />
             </FormControl>
 
             <FormControl fullWidth>
-                <InputLabel>Months</InputLabel>
+                <InputLabel error={loan.termMonths <= 0}>Months</InputLabel>
                 <OutlinedInput
                     endAdornment={
                         <InputAdornment position="start">months</InputAdornment>
                     }
                     label="Months"
                     value={loan.termMonths}
-                    onChange={(e) => {
-                        handleTermMonthsChange(e);
-                    }}
+                    error={loan.termMonths <= 0}
+                    onChange={handleTermMonthsChange}
                 />
             </FormControl>
 
             <FormControl fullWidth>
-                <InputLabel>APR</InputLabel>
+                <InputLabel error={aprInvalid}>APR</InputLabel>
                 <OutlinedInput
                     endAdornment={
                         <InputAdornment position="start">%</InputAdornment>
@@ -119,9 +115,7 @@ const LoanForm = (props) => {
                     label="APR"
                     value={aprFormValue}
                     error={aprInvalid}
-                    onChange={(e) => {
-                        handleAprChange(e);
-                    }}
+                    onChange={handleAprChange}
                 />
             </FormControl>
         </Stack>
@@ -174,8 +168,8 @@ const LoanForm = (props) => {
     );
 
     return (
-        <ListItem sx={{px: 0}}>
-            <Paper variant="outlined" sx={{ width: 1, p: 4 }}>
+        <ListItem sx={{ p: 0, pb: 4 }}>
+            <Paper elevation={3} sx={{ width: 1, p: 4 }}>
                 <Stack
                     direction={{ xs: "column", lg: "row" }}
                     justifyContent="space-evenly"

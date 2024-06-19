@@ -15,7 +15,6 @@ import {
     useMediaQuery,
 } from "@mui/material";
 
-import { lightBlue } from "@mui/material/colors";
 import { Error } from "@mui/icons-material";
 
 import {
@@ -73,7 +72,7 @@ const TaxForm = (props) => {
     return (
         <Box
             className="tax-form"
-            sx={{ bgcolor: lightBlue[50], px: "10vw", pb: "5vh" }}
+            sx={{ bgcolor: "beige.main", px: "10vw", pb: "5vh" }}
         >
             <Paper elevation={3} sx={{ p: 4 }}>
                 <Stack
@@ -102,7 +101,7 @@ const TaxForm = (props) => {
                                 }
                                 label="Gross Annual Salary"
                                 value={salary}
-                                onChange={(e) => handleSalaryChange(e)}
+                                onChange={handleSalaryChange}
                             />
                         </FormControl>
 
@@ -111,9 +110,7 @@ const TaxForm = (props) => {
                             <Select
                                 label="State"
                                 value={state}
-                                onChange={(e) => {
-                                    handleStateChange(e);
-                                }}
+                                onChange={handleStateChange}
                             >
                                 {states.map((inputState) => (
                                     <MenuItem

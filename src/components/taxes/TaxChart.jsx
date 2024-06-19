@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
-import { lightBlue } from "@mui/material/colors";
 import { BarChart, mangoFusionPalette } from "@mui/x-charts";
 
 import { currencyFormatter } from "../../App";
@@ -22,7 +21,7 @@ const TaxChart = (props) => {
             className="tax-chart"
             sx={{
                 display: { xs: "none", md: "flex" },
-                bgcolor: lightBlue[50],
+                bgcolor: "beige.main",
                 px: "10vw",
                 pb: "5vh",
             }}

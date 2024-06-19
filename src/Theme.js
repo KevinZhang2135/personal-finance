@@ -8,6 +8,8 @@ const Theme = createTheme({
             dark: "#2a272e",
             contrastText: "#fff",
         },
+
+        beige: { main: "#f9f6f0" },
     },
 
     typography: {
@@ -34,13 +36,13 @@ const Theme = createTheme({
 
         h5: {
             fontSize: "1.2rem",
-            fontWeight: 600,
+            fontWeight: 400,
             letterSpacing: 1.4,
         },
 
         h6: {
-            fontSize: "1rem",
-            fontWeight: 600,
+            fontSize: "0.8rem",
+            fontWeight: 400,
             letterSpacing: 1.2,
         },
 
@@ -51,7 +53,5 @@ const Theme = createTheme({
         },
     },
 });
-
-
 
 export default Theme;

@@ -2,24 +2,6 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 
 const Banner = (props) => {
-    const title = {
-        translateY: ["35vh", "0vh"],
-        scale: [1, 0.75],
-        easing: "easeInCubic",
-        children: (
-            <Box sx={{ px: "10vw" }}>
-                <Typography
-                    textAlign="center"
-                    color="white"
-                    fontSize="10vmin"
-                    fontWeight={500}
-                >
-                    Personal finance done easy.
-                </Typography>
-            </Box>
-        ),
-    };
-
     return (
         <Box
             sx={{
@@ -28,8 +10,6 @@ const Banner = (props) => {
                 })`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
-                display: "flex",
-                flexDirection: "column",
                 color: "white",
                 minHeight: "60vh",
                 px: "10vw",

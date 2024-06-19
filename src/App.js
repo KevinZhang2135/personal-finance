@@ -8,7 +8,6 @@ import SummaryModal from "./components/menu/SummaryModal.jsx";
 
 // Call-to-action
 import Banner from "./components/Banner.jsx";
-import CallToAction from "./components/CallToAction.jsx";
 
 // Taxes
 import TaxInfo from "./components/taxes/TaxInfo.jsx";
@@ -20,14 +19,12 @@ import StudentLoansInfo from "./components/loans/StudentLoansInfo.jsx";
 import Loans from "./components/loans/Loans.jsx";
 
 // Retirement
-import RetirementInfo from "./components/retirement/RetirementInfo.jsx";
+import Retirement from "./components/retirement/Retirement.jsx";
 
 import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInfo.jsx";
 
 import Citations from "./components/Citations.jsx";
 import Footer from "./components/Footer.jsx";
-import Retirement from "./components/retirement/Retirement.jsx";
-
 
 // JSON resources
 const taxBrackets = await (
@@ -72,7 +69,10 @@ const App = () => {
     // Totals
     const expenditures = {
         taxes: (taxes.federal + taxes.state + taxes.fica) / 12,
-        studentLoans: studentLoans.reduce((sum, loan) => sum + loan.emi, 0),
+        studentLoans: studentLoans
+            .filter((loan) => isFinite(loan.emi))
+            .reduce((sum, loan) => sum + loan.emi, 0),
+        retirement
     };
 
     /* Summary modal */
@@ -107,9 +107,13 @@ const App = () => {
                 studentLoans={studentLoans}
                 setStudentLoans={setStudentLoans}
             />
-            <Loans loans={studentLoans} setLoans={setStudentLoans}/>
+            <Loans loans={studentLoans} setLoans={setStudentLoans} />
 
-            <Retirement retirement={retirement} setRetirement={setRetirement} />
+            <Retirement
+                retirement={retirement}
+                setRetirement={setRetirement}
+                salary={salary}
+            />
 
             <Citations />
             <Footer />

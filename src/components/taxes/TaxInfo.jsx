@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Divider, Stack, Typography, useMediaQuery } from "@mui/material";
-import { lightBlue } from "@mui/material/colors";
 
 import Theme from "../../Theme";
 
@@ -8,16 +7,17 @@ const TaxInfo = (props) => {
     const infoItemWidth = { xs: 1, lg: 0.33 };
 
     return (
-        <Box id="tax-info" sx={{ bgcolor: lightBlue[50], px: "10vw", py: "5vh" }}>
-            <Typography variant="h1" textAlign="center" mb={4}>
+        <Box
+            id="tax-info"
+            sx={{ bgcolor: "beige.main", px: "10vw", py: "5vh" }}
+        >
+            <Typography variant="h1" gutterBottom>
                 Taxes
             </Typography>
 
             <Stack
                 direction={{ xs: "column", lg: "row" }}
-                alignItems="stretch"
                 justifyContent="space-between"
-                useFlexGap
                 divider={
                     <Divider
                         orientation={
