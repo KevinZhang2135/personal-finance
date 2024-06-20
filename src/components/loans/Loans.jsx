@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Collapse, List } from "@mui/material";
+import { Box, Collapse, List, ListItem, Paper } from "@mui/material";
 import { TransitionGroup } from "react-transition-group";
 
 import LoanForm from "./LoanForm";
@@ -13,11 +13,15 @@ const Loans = (props) => {
                 <TransitionGroup>
                     {loans.map((loan) => (
                         <Collapse key={"loan-form-" + loan.id}>
-                            <LoanForm
-                                loan={loan}
-                                loans={loans}
-                                setLoans={setLoans}
-                            />
+                            <ListItem sx={{ p: 0, pb: 4 }}>
+                                <Paper elevation={3} sx={{ width: 1, p: 4 }}>
+                                    <LoanForm
+                                        loan={loan}
+                                        loans={loans}
+                                        setLoans={setLoans}
+                                    />
+                                </Paper>
+                            </ListItem>
                         </Collapse>
                     ))}
                 </TransitionGroup>

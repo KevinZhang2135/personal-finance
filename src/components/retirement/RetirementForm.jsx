@@ -5,6 +5,7 @@ import {
     InputLabel,
     OutlinedInput,
     Paper,
+    Stack,
 } from "@mui/material";
 
 const RetirementForm = (props) => {
@@ -34,37 +35,35 @@ const RetirementForm = (props) => {
             id="retirement-info"
             elevation={3}
             sx={{
-                display: "flex",
-                flexDirection: "horizontal",
                 width: { xs: 1, lg: 0.5 },
                 p: 4,
             }}
         >
-            <FormControl sx={{ flexGrow: 1, mr: 2 }}>
-                <InputLabel>Monthly Retirement Investment</InputLabel>
-                <OutlinedInput
-                    startAdornment={
-                        <InputAdornment position="start">$</InputAdornment>
-                    }
-                    label="Retirement Investment per Month"
-                    value={Math.round(retirement)}
-                    onChange={handleInvestmentChange}
-                />
-            </FormControl>
+            <Stack direction="column" spacing={4}>
+                <FormControl fullWidth>
+                    <InputLabel>Monthly Retirement Investment</InputLabel>
+                    <OutlinedInput
+                        startAdornment={
+                            <InputAdornment position="start">$</InputAdornment>
+                        }
+                        label="Retirement Investment per Month"
+                        value={Math.round(retirement)}
+                        onChange={handleInvestmentChange}
+                    />
+                </FormControl>
 
-            <FormControl>
-                <InputLabel>
-                    Percentage of Monthly Salary
-                </InputLabel>
-                <OutlinedInput
-                    endAdornment={
-                        <InputAdornment position="start">%</InputAdornment>
-                    }
-                    label="Percentage of Monthly Salary"
-                    value={Math.round(salaryPercent * 100)}
-                    onChange={handlePercentChange}
-                />
-            </FormControl>
+                <FormControl fullWidth>
+                    <InputLabel>Percentage of Monthly Salary</InputLabel>
+                    <OutlinedInput
+                        endAdornment={
+                            <InputAdornment position="start">%</InputAdornment>
+                        }
+                        label="Percentage of Monthly Salary"
+                        value={Math.round(salaryPercent * 100)}
+                        onChange={handlePercentChange}
+                    />
+                </FormControl>
+            </Stack>
         </Paper>
     );
 };

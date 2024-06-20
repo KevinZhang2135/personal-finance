@@ -21,10 +21,17 @@ import Loans from "./components/loans/Loans.jsx";
 // Retirement
 import Retirement from "./components/retirement/Retirement.jsx";
 
+// Housing
+import HousingInfo from "./components/housing/HousingInfo.jsx";
+import HousingForm from "./components/housing/HousingForm.jsx";
+
+// Health Insurance
 import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInfo.jsx";
 
 import Citations from "./components/Citations.jsx";
 import Footer from "./components/Footer.jsx";
+
+
 
 // JSON resources
 const taxBrackets = await (
@@ -57,6 +64,8 @@ const App = () => {
 
     // Education
     const [studentLoans, setStudentLoans] = useState([]);
+
+    // Retirement
     const [retirement, setRetirement] = useState(0);
 
     // Housing
@@ -72,7 +81,7 @@ const App = () => {
         studentLoans: studentLoans
             .filter((loan) => isFinite(loan.emi))
             .reduce((sum, loan) => sum + loan.emi, 0),
-        retirement
+        retirement,
     };
 
     /* Summary modal */
@@ -114,6 +123,9 @@ const App = () => {
                 setRetirement={setRetirement}
                 salary={salary}
             />
+
+            <HousingInfo />
+            <HousingForm />
 
             <Citations />
             <Footer />

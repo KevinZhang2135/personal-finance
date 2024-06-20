@@ -18,6 +18,7 @@ const Citations = (props) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
+                bgcolor: "beige.main",
                 p: "5vh 10vw",
                 wordWrap: "break-word",
             }}

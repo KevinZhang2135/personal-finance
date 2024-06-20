@@ -5,9 +5,7 @@ import {
     FormControl,
     InputAdornment,
     InputLabel,
-    ListItem,
     OutlinedInput,
-    Paper,
     Stack,
     Typography,
     useMediaQuery,
@@ -18,7 +16,7 @@ import { calculateLoanEMI, currencyFormatter } from "../../App";
 import Theme from "../../Theme";
 
 const LoanForm = (props) => {
-    const { loan, loans, setLoans } = props;
+    const { loan, setLoan, loans, setLoans, single } = props;
     const [aprFormValue, setAprFormValue] = useState(loan.apr * 100);
     const [aprInvalid, setAprInvalid] = useState(false);
 
@@ -39,10 +37,14 @@ const LoanForm = (props) => {
         (isNaN(principal) || principal < 0) && (principal = 0);
 
         const emi = calculateLoanEMI(principal, loan.apr, loan.termMonths);
+        if (single) {
+            setLoan({ ...loan, principal, emi });
+            return;
+        }
 
         const loanIndex = loans.indexOf(loan);
         const loansCopy = [...loans];
-        loansCopy[loanIndex] = { ...loan, principal: principal, emi: emi };
+        loansCopy[loanIndex] = { ...loan, principal, emi };
 
         setLoans(loansCopy);
     };
@@ -52,10 +54,14 @@ const LoanForm = (props) => {
         (isNaN(termMonths) || termMonths < 0) && (termMonths = 0);
 
         const emi = calculateLoanEMI(loan.principal, loan.apr, termMonths);
+        if (single) {
+            setLoan({ ...loan, termMonths, emi });
+            return;
+        }
 
         const loanIndex = loans.indexOf(loan);
         const loansCopy = [...loans];
-        loansCopy[loanIndex] = { ...loan, termMonths: termMonths, emi: emi };
+        loansCopy[loanIndex] = { ...loan, termMonths, emi };
 
         setLoans(loansCopy);
     };
@@ -72,9 +78,14 @@ const LoanForm = (props) => {
 
         const emi = calculateLoanEMI(loan.principal, apr, loan.termMonths);
 
+        if (single) {
+            setLoan({ ...loan, apr, emi });
+            return;
+        }
+
         const loanIndex = loans.indexOf(loan);
         const loansCopy = [...loans];
-        loansCopy[loanIndex] = { ...loan, apr: apr, emi: emi };
+        loansCopy[loanIndex] = { ...loan, apr, emi };
 
         setLoans(loansCopy);
     };
@@ -149,44 +160,37 @@ const LoanForm = (props) => {
                 </Typography>
             </Stack>
 
-            <Stack {...outputProps}>
-                <Button
-                    variant="contained"
-                    color="error"
-                    size="large"
-                    disableElevation
-                    startIcon={<Clear fontSize="large" />}
-                    sx={{ textTransform: "capitalize" }}
-                    onClick={() =>
-                        setLoans(loans.filter((e) => e.id !== loan.id))
-                    }
-                >
-                    <Typography variant="p">Remove</Typography>
-                </Button>
-            </Stack>
+            {!single && (
+                <Stack {...outputProps}>
+                    <Button
+                        variant="contained"
+                        color="error"
+                        size="large"
+                        disableElevation
+                        startIcon={<Clear fontSize="large" />}
+                        sx={{ textTransform: "capitalize" }}
+                        onClick={() =>
+                            setLoans(loans.filter((e) => e.id !== loan.id))
+                        }
+                    >
+                        <Typography variant="p">Remove</Typography>
+                    </Button>
+                </Stack>
+            )}
         </Stack>
     );
 
     return (
-        <ListItem sx={{ p: 0, pb: 4 }}>
-            <Paper elevation={3} sx={{ width: 1, p: 4 }}>
-                <Stack
-                    direction={{ xs: "column", lg: "row" }}
-                    justifyContent="space-evenly"
-                    alignItems="flex-start"
-                    divider={
-                        <Divider
-                            orientation={formDividerOrientation}
-                            flexItem
-                        />
-                    }
-                    spacing={4}
-                >
-                    {formInput}
-                    {formOutput}
-                </Stack>
-            </Paper>
-        </ListItem>
+        <Stack
+            direction={{ xs: "column", lg: "row" }}
+            justifyContent="space-evenly"
+            alignItems="flex-start"
+            divider={<Divider orientation={formDividerOrientation} flexItem />}
+            spacing={4}
+        >
+            {formInput}
+            {formOutput}
+        </Stack>
     );
 };
 
