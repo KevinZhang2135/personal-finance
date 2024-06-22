@@ -31,8 +31,6 @@ import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInf
 import Citations from "./components/Citations.jsx";
 import Footer from "./components/Footer.jsx";
 
-
-
 // JSON resources
 const taxBrackets = await (
     await fetch("taxBrackets.json", {
@@ -47,6 +45,7 @@ const anchorLinks = [
     { name: "Taxes", id: "tax-info" },
     { name: "Student Loans", id: "loan-info" },
     { name: "Retirement", id: "retirement-info" },
+    { name: "Housing", id: "housing-info" },
 ];
 
 const App = () => {
@@ -69,8 +68,15 @@ const App = () => {
     const [retirement, setRetirement] = useState(0);
 
     // Housing
-    const [housingCost, setHousingCost] = useState(0);
-    const [housingInsurance, setHousingInsurance] = useState(0);
+    const [housingType, setHousingType] = useState("rent");
+    const [housingCost, setHousingCost] = useState({
+        rent: { cost: 0, insurance: 0 },
+        mortgage: {
+            cost: { principal: 0, termMonths: 360, apr: 0.06, emi: 0 },
+            insurance: 0,
+        },
+        utilities: 0,
+    });
 
     // Misc expenditures
     const [loans, setLoans] = useState([]);
@@ -125,7 +131,12 @@ const App = () => {
             />
 
             <HousingInfo />
-            <HousingForm />
+            <HousingForm
+                housingType={housingType}
+                setHousingType={setHousingType}
+                housingCost={housingCost}
+                setHousingCost={setHousingCost}
+            />
 
             <Citations />
             <Footer />

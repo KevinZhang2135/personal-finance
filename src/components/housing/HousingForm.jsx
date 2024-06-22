@@ -1,27 +1,31 @@
-import React, { useState } from "react";
-import { Box, Paper, Tab } from "@mui/material";
+import React, { Fragment, useState } from "react";
+import {
+    Box,
+    FormControl,
+    Grid,
+    InputAdornment,
+    InputLabel,
+    OutlinedInput,
+    Paper,
+    Tab,
+    Typography,
+} from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 
 import LoanForm from "../loans/LoanForm";
+import MortgageTab from "./MortgageTab";
+import RentTab from "./RentTab";
 
 const HousingForm = (props) => {
-    const [housingType, setHousingType] = useState("rent");
-    const handleTabChange = (e, newValue) => setHousingType(newValue);
-
-    const [mortgageLoan, setMortageLoan] = useState({
-        principal: 0,
-        termMonths: 360,
-        apr: 0.06,
-        emi: 0,
-    });
+    const { housingType, setHousingType, housingCost, setHousingCost } = props;
 
     return (
-        <Box id="tax-info" sx={{ px: "10vw", py: "5vh" }}>
+        <Box id="tax-info" sx={{ px: "10vw", pb: "5vh" }}>
             <Paper elevation={3} sx={{ p: 4 }}>
                 <TabContext value={housingType}>
                     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                         <TabList
-                            onChange={handleTabChange}
+                            onChange={(e, type) => setHousingType(type)}
                             aria-label="lab API tabs example"
                         >
                             <Tab label="Rent" value="rent" />
@@ -29,14 +33,8 @@ const HousingForm = (props) => {
                         </TabList>
                     </Box>
 
-                    <TabPanel value="rent">PAY RENT</TabPanel>
-                    <TabPanel value="mortgage">
-                        <LoanForm
-                            loan={mortgageLoan}
-                            setLoan={setMortageLoan}
-                            single={true}
-                        />
-                    </TabPanel>
+                    <RentTab />
+                    <MortgageTab />
                 </TabContext>
             </Paper>
         </Box>
