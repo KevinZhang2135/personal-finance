@@ -7,6 +7,7 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
+
 import { Close } from "@mui/icons-material";
 import { currencyFormatter, toTitleCase } from "../../App";
 

@@ -16,7 +16,6 @@ import {
 } from "@mui/material";
 
 import { Error } from "@mui/icons-material";
-
 import {
     toTitleCase,
     currencyFormatter,
@@ -124,7 +123,7 @@ const TaxForm = (props) => {
                         </FormControl>
 
                         <Box display="flex" justifyContent="center">
-                        <Alert
+                            <Alert
                                 icon={<Error fontSize="inherit" />}
                                 severity="warning"
                             >

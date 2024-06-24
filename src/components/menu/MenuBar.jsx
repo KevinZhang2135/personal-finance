@@ -1,8 +1,8 @@
 import React from "react";
 
 import { useMediaQuery } from "@mui/material";
-import Theme from "../../Theme";
 
+import Theme from "../../Theme";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 

@@ -19,7 +19,8 @@ const Footer = (props) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.github.com/KevinZhang2135/Personal-Finance"
-                    sx={{ color: "white", wordWrap: "break-word" }}
+                    color="inherit"
+                    sx={{ wordWrap: "break-word" }}
                 >
                     https://www.github.com/KevinZhang2135/Personal-Finance
                 </Link>

@@ -12,7 +12,37 @@ import {
 import { TabPanel } from "@mui/lab";
 
 const RentTab = (props) => {
-    const {} = props;
+    const { housingCost, setHousingCost } = props;
+
+    const handleRentCostChange = (e) => {
+        let rentCost = parseInt(e.target.value);
+        (isNaN(rentCost) || rentCost < 0) && (rentCost = 0);
+
+        setHousingCost({
+            ...housingCost,
+            rent: { ...housingCost.rent, cost: rentCost },
+        });
+    };
+
+    const handleInsurancePremiumChange = (e) => {
+        let premium = parseInt(e.target.value);
+        (isNaN(premium) || premium < 0) && (premium = 0);
+
+        setHousingCost({
+            ...housingCost,
+            rent: { ...housingCost.rent, insurance: premium },
+        });
+    };
+
+    const handleUtilitiesChange = (e) => {
+        let utilities = parseInt(e.target.value);
+        (isNaN(utilities) || utilities < 0) && (utilities = 0);
+
+        setHousingCost({
+            ...housingCost,
+            rent: { ...housingCost.rent, utilities },
+        });
+    };
 
     return (
         <TabPanel value="rent">
@@ -31,8 +61,8 @@ const RentTab = (props) => {
                                     </InputAdornment>
                                 }
                                 label="Monthly Rent"
-                                value={"todo"}
-                                onChange={() => {}}
+                                value={housingCost.rent.cost}
+                                onChange={handleRentCostChange}
                             />
                         </FormControl>
                     </Paper>
@@ -52,8 +82,8 @@ const RentTab = (props) => {
                                     </InputAdornment>
                                 }
                                 label="Monthly Insurance Premium"
-                                value={"todo"}
-                                onChange={() => {}}
+                                value={housingCost.rent.insurance}
+                                onChange={handleInsurancePremiumChange}
                             />
                         </FormControl>
                     </Paper>
@@ -73,8 +103,8 @@ const RentTab = (props) => {
                                     </InputAdornment>
                                 }
                                 label="Monthly Utilities Fee"
-                                value={"todo"}
-                                onChange={() => {}}
+                                value={housingCost.rent.utilities}
+                                onChange={handleUtilitiesChange}
                             />
                         </FormControl>
                     </Paper>

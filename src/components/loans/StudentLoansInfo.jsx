@@ -26,7 +26,7 @@ const StudentLoansInfo = (props) => {
                 who demonstrate financial need.
                 <sup>7</sup>
             </Typography>
-            
+
             <Typography variant="p" display="block" gutterBottom>
                 Direct unsubsidized loans are federal student loans that
                 immediately begins accruing interest after receiving the money.
@@ -83,10 +83,7 @@ const StudentLoansInfo = (props) => {
     );
 
     return (
-        <Box
-            id="loan-info"
-            sx={{ px: "10vw", py: "5vh" }}
-        >
+        <Box id="loan-info" sx={{ px: "10vw", py: "5vh" }}>
             <Typography variant="h1" gutterBottom>
                 Student Loans
             </Typography>

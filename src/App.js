@@ -70,12 +70,12 @@ const App = () => {
     // Housing
     const [housingType, setHousingType] = useState("rent");
     const [housingCost, setHousingCost] = useState({
-        rent: { cost: 0, insurance: 0 },
+        rent: { cost: 0, insurance: 0, utilities: 0 },
         mortgage: {
             cost: { principal: 0, termMonths: 360, apr: 0.06, emi: 0 },
             insurance: 0,
+            utilities: 0,
         },
-        utilities: 0,
     });
 
     // Misc expenditures
@@ -88,6 +88,12 @@ const App = () => {
             .filter((loan) => isFinite(loan.emi))
             .reduce((sum, loan) => sum + loan.emi, 0),
         retirement,
+        housing:
+            (housingType === "rent"
+                ? housingCost.rent.cost
+                : housingCost.mortgage.cost.emi) +
+            housingCost[housingType].insurance +
+            housingCost[housingType].utilities,
     };
 
     /* Summary modal */

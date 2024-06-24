@@ -13,7 +13,34 @@ import { TabPanel } from "@mui/lab";
 import LoanForm from "../loans/LoanForm";
 
 const MortgageTab = (props) => {
-    const {} = props;
+    const { housingCost, setHousingCost } = props;
+
+    const handleMortgageChange = (newLoan) => {
+        setHousingCost({
+            ...housingCost,
+            mortgage: { ...housingCost.mortgage, cost: newLoan },
+        });
+    };
+
+    const handleInsurancePremiumChange = (e) => {
+        let premium = parseInt(e.target.value);
+        (isNaN(premium) || premium < 0) && (premium = 0);
+
+        setHousingCost({
+            ...housingCost,
+            mortgage: { ...housingCost.mortgage, insurance: premium },
+        });
+    };
+
+    const handleUtilitiesChange = (e) => {
+        let utilities = parseInt(e.target.value);
+        (isNaN(utilities) || utilities < 0) && (utilities = 0);
+
+        setHousingCost({
+            ...housingCost,
+            mortgage: { ...housingCost.mortgage, utilities },
+        });
+    };
 
     return (
         <TabPanel value="mortgage">
@@ -24,8 +51,8 @@ const MortgageTab = (props) => {
                             Mortgage Payment
                         </Typography>
                         <LoanForm
-                            loan={"todo"}
-                            setLoan={() => {}}
+                            loan={housingCost.mortgage.cost}
+                            setLoan={handleMortgageChange}
                             single={true}
                         />
                     </Paper>
@@ -45,8 +72,8 @@ const MortgageTab = (props) => {
                                     </InputAdornment>
                                 }
                                 label="Monthly Insurance Premium"
-                                value={"todo"}
-                                onChange={() => {}}
+                                value={housingCost.mortgage.insurance}
+                                onChange={handleInsurancePremiumChange}
                             />
                         </FormControl>
                     </Paper>
@@ -65,8 +92,8 @@ const MortgageTab = (props) => {
                                     </InputAdornment>
                                 }
                                 label="Monthly Utilities Fee"
-                                value={"todo"}
-                                onChange={() => {}}
+                                value={housingCost.mortgage.utilities}
+                                onChange={handleUtilitiesChange}
                             />
                         </FormControl>
                     </Paper>

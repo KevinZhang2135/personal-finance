@@ -1,18 +1,8 @@
-import React, { Fragment, useState } from "react";
-import {
-    Box,
-    FormControl,
-    Grid,
-    InputAdornment,
-    InputLabel,
-    OutlinedInput,
-    Paper,
-    Tab,
-    Typography,
-} from "@mui/material";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
+import React from "react";
+import { Alert, Box, Link, Paper, Tab } from "@mui/material";
 
-import LoanForm from "../loans/LoanForm";
+import { TabContext, TabList } from "@mui/lab";
+
 import MortgageTab from "./MortgageTab";
 import RentTab from "./RentTab";
 
@@ -33,9 +23,23 @@ const HousingForm = (props) => {
                         </TabList>
                     </Box>
 
-                    <RentTab />
-                    <MortgageTab />
+                    <RentTab
+                        housingCost={housingCost}
+                        setHousingCost={setHousingCost}
+                    />
+                    <MortgageTab
+                        housingCost={housingCost}
+                        setHousingCost={setHousingCost}
+                    />
                 </TabContext>
+
+                <Alert severity="info">
+                    For financing furniture, appliances, and household supplies,
+                    use the{" "}
+                    <Link href="#misc-info">
+                        miscellaneous loans and expenses section.
+                    </Link>
+                </Alert>
             </Paper>
         </Box>
     );

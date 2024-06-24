@@ -4,7 +4,6 @@ import { BarChart, mangoFusionPalette } from "@mui/x-charts";
 
 import { currencyFormatter } from "../../App";
 
-
 const TaxChart = (props) => {
     const { salary, taxes } = props;
 
