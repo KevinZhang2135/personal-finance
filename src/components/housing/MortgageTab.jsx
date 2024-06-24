@@ -43,7 +43,7 @@ const MortgageTab = (props) => {
     };
 
     return (
-        <TabPanel value="mortgage">
+        <TabPanel value="mortgage" sx={{ px: 0 }}>
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
@@ -78,6 +78,7 @@ const MortgageTab = (props) => {
                         </FormControl>
                     </Paper>
                 </Grid>
+
                 <Grid item xs>
                     <Paper variant="outlined" sx={{ p: 4 }}>
                         <Typography variant="h3" sx={{ mb: 4 }}>
