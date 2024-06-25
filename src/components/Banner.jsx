@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 const Banner = (props) => {
     return (
         <Box
+            className="content-container"
             sx={{
                 backgroundImage: `url(${
                     process.env.PUBLIC_URL + "/mountainRoad.png"
@@ -12,8 +13,6 @@ const Banner = (props) => {
                 backgroundSize: "cover",
                 color: "white",
                 minHeight: "60vh",
-                pl: "10vw",
-                pr: "calc(10vw - 8px)",
                 py: "10vh",
             }}
         >

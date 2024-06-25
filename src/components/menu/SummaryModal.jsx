@@ -73,11 +73,9 @@ const SummaryModal = (props) => {
                 <Stack
                     spacing={4}
                     divider={<Divider />}
-                    sx={{
-                        overflow: "auto",
-                        flexGrow: 1,
-                        pr: scrollGutterWidth,
-                    }}
+                    overflow="auto"
+                    flexGrow={1}
+                    pr={scrollGutterWidth}
                 >
                     {Object.keys(expenditures).map(
                         (key) =>

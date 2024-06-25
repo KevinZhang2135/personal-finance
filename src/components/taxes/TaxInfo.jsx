@@ -9,12 +9,9 @@ const TaxInfo = (props) => {
     return (
         <Box
             id="tax-info"
-            sx={{
-                bgcolor: "beige.main",
-                pl: "10vw",
-                pr: "calc(10vw - 8px)",
-                py: "5vh",
-            }}
+            className="content-container"
+            bgcolor="beige.main"
+            py="5vh"
         >
             <Typography variant="h1" gutterBottom>
                 Taxes

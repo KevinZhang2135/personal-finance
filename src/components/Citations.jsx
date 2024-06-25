@@ -13,14 +13,12 @@ const amaCitations = await (
 const Citations = (props) => {
     return (
         <Box
-            className="citations"
+            className="citations content-container"
             sx={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 bgcolor: "beige.main",
-                pl: "10vw",
-                pr: "calc(10vw - 8px)",
                 py: "5vh",
                 wordWrap: "break-word",
             }}

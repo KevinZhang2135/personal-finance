@@ -49,7 +49,7 @@ const RentTab = (props) => {
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" sx={{ mb: 4 }}>
+                        <Typography variant="h3" mb={4}>
                             Rent Payment
                         </Typography>
                         <FormControl fullWidth>
@@ -70,7 +70,7 @@ const RentTab = (props) => {
 
                 <Grid item xs>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" sx={{ mb: 4 }}>
+                        <Typography variant="h3" mb={4}>
                             Renters Insurance
                         </Typography>
                         <FormControl fullWidth>
@@ -91,7 +91,7 @@ const RentTab = (props) => {
 
                 <Grid item xs>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" sx={{ mb: 4 }}>
+                        <Typography variant="h3" mb={4}>
                             Utilities
                         </Typography>
                         <FormControl fullWidth>

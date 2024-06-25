@@ -47,7 +47,7 @@ const MortgageTab = (props) => {
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" sx={{ mb: 4 }}>
+                        <Typography variant="h3" mb={4}>
                             Mortgage Payment
                         </Typography>
                         <LoanForm
@@ -60,7 +60,7 @@ const MortgageTab = (props) => {
 
                 <Grid item xs>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" sx={{ mb: 4 }}>
+                        <Typography variant="h3" mb={4}>
                             House Insurance
                         </Typography>
                         <FormControl fullWidth>
@@ -81,7 +81,7 @@ const MortgageTab = (props) => {
 
                 <Grid item xs>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" sx={{ mb: 4 }}>
+                        <Typography variant="h3" mb={4}>
                             Utilities
                         </Typography>
                         <FormControl fullWidth>

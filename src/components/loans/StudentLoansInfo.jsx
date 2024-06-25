@@ -83,10 +83,7 @@ const StudentLoansInfo = (props) => {
     );
 
     return (
-        <Box
-            id="loan-info"
-            sx={{ pl: "10vw", pr: "calc(10vw - 8px)", py: "5vh" }}
-        >
+        <Box id="loan-info" className="content-container" py="5vh">
             <Typography variant="h1" gutterBottom>
                 Student Loans
             </Typography>

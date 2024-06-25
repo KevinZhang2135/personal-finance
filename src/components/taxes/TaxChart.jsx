@@ -17,13 +17,10 @@ const TaxChart = (props) => {
 
     return (
         <Box
-            className="tax-chart"
-            sx={{
-                display: { xs: "none", md: "flex" },
-                bgcolor: "beige.main",
-                px: "10vw",
-                pb: "5vh",
-            }}
+            className="tax-chart content-container"
+            display={{ xs: "none", md: "flex" }}
+            bgcolor="beige.main"
+            pb="5vh"
         >
             <Paper elevation={3} sx={{ width: 1, p: 4 }}>
                 <BarChart

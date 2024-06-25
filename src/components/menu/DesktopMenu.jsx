@@ -27,7 +27,7 @@ const DesktopMenu = (props) => {
         <Slide appear={false} direction="down" in={!scrollTrigger}>
             <AppBar elevation={0} sx={{ bgcolor: "black.dark" }}>
                 <Toolbar className="menu-buttons">
-                    <Typography variant="h5" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h5" flexGrow={1}>
                         Personal Finance
                     </Typography>
 

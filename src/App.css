@@ -1,9 +1,6 @@
-.main-banner {
-    min-height: 60vh;
-}
-
-.loan-info-banner {
-    min-height: 40vh;
+.content-container {
+    padding-left: 10vw;
+    padding-right: calc(10vw - 8px);
 }
 
 .menu-btn .MuiTouchRipple-rippleVisible {

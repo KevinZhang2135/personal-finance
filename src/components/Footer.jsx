@@ -4,15 +4,12 @@ import { Box, Link, Typography } from "@mui/material";
 const Footer = (props) => {
     return (
         <Box
-            sx={{
-                bgcolor: "black.dark",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                pl: "10vw",
-                pr: "calc(10vw - 8px)",
-                py: "5vh",
-            }}
+            className="content-container"
+            bgcolor="black.dark"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            py="5vh"
         >
             <Typography variant="p" color="white" align="center">
                 For the sake of transparency and open-source code, read the
