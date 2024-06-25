@@ -71,7 +71,12 @@ const TaxForm = (props) => {
     return (
         <Box
             className="tax-form"
-            sx={{ bgcolor: "beige.main", px: "10vw", pb: "5vh" }}
+            sx={{
+                bgcolor: "beige.main",
+                pl: "10vw",
+                pr: "calc(10vw - 8px)",
+                pb: "5vh",
+            }}
         >
             <Paper elevation={3} sx={{ p: 4 }}>
                 <Stack

@@ -114,6 +114,7 @@ const SummaryModal = (props) => {
 
 const formatTitle = (string) => {
     string = toTitleCase(string);
+    if (string.length === 1) return string;
     return string.match(/[A-Z][a-z]+/g).join(" ");
 };
 

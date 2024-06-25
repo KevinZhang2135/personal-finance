@@ -12,7 +12,8 @@ const Banner = (props) => {
                 backgroundSize: "cover",
                 color: "white",
                 minHeight: "60vh",
-                px: "10vw",
+                pl: "10vw",
+                pr: "calc(10vw - 8px)",
                 py: "10vh",
             }}
         >

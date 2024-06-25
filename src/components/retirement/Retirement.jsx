@@ -9,7 +9,14 @@ const Retirement = (props) => {
     const { retirement, setRetirement, salary } = props;
 
     return (
-        <Box sx={{ bgcolor: blue[50], px: "10vw", py: "5vh" }}>
+        <Box
+            sx={{
+                bgcolor: blue[50],
+                pl: "10vw",
+                pr: "calc(10vw - 8px)",
+                py: "5vh",
+            }}
+        >
             <Stack direction={{ xs: "column", lg: "row" }} spacing={4}>
                 <RetirementInfo />
                 <RetirementForm

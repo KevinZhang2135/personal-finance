@@ -7,7 +7,7 @@ const HousingInfo = (props) => {
     const infoItemWidth = { xs: 1, lg: 0.33 };
 
     return (
-        <Box id="housing-info" sx={{ px: "10vw", py: "5vh" }}>
+        <Box id="housing-info" sx={{ pl: "10vw", pr:"calc(10vw - 8px)", py: "5vh" }}>
             <Typography variant="h1" gutterBottom>
                 Housing
             </Typography>

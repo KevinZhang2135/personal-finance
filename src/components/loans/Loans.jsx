@@ -8,7 +8,10 @@ const Loans = (props) => {
     const { loans, setLoans, bgcolor } = props;
 
     return (
-        <Box className="loan-forms" sx={{ bgcolor: bgcolor, px: "10vw" }}>
+        <Box
+            className="loan-forms"
+            sx={{ bgcolor: bgcolor, pl: "10vw", pr: "calc(10vw - 8px)" }}
+        >
             <List sx={{ py: 0 }}>
                 <TransitionGroup>
                     {loans.map((loan) => (

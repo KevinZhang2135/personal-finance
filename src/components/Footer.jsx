@@ -9,7 +9,9 @@ const Footer = (props) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                p: "5vh 10vw",
+                pl: "10vw",
+                pr: "calc(10vw - 8px)",
+                py: "5vh",
             }}
         >
             <Typography variant="p" color="white" align="center">

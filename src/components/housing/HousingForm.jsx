@@ -10,7 +10,7 @@ const HousingForm = (props) => {
     const { housingType, setHousingType, housingCost, setHousingCost } = props;
 
     return (
-        <Box id="tax-info" sx={{ px: "10vw", pb: "5vh" }}>
+        <Box id="tax-info" sx={{ pl: "10vw", pr:"calc(10vw - 8px)", pb: "5vh" }}>
             <Paper elevation={3} sx={{ p: 4 }}>
                 <TabContext value={housingType}>
                     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
