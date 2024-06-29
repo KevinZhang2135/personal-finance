@@ -42,7 +42,7 @@ const TaxInfo = (props) => {
                         as income increases. Hence, to help the impoverished,
                         they deduct $13,850 of the taxable income as a tax break
                         and levy an additional tax of $90 per $10,000 of gross
-                        income earned above $200,000.
+                        income earned above $200,000.<sup>3</sup>
                     </Typography>
                 </Box>
 
@@ -54,7 +54,7 @@ const TaxInfo = (props) => {
                         To fund Social Security and Medicaid, the government
                         also automatically deducts a combined flat rate 7.65% of
                         the payroll known as the Federal Insurance Contributions
-                        Act.
+                        Act.<sup>4</sup>
                     </Typography>
                 </Box>
 
@@ -67,7 +67,7 @@ const TaxInfo = (props) => {
                         though it varies from state to state. While some states
                         imitate the federal tax and create progressive brackets
                         on their own, others implement a flat income tax rate or
-                        none at all.
+                        none at all.<sup>5</sup>
                     </Typography>
                 </Box>
             </Stack>

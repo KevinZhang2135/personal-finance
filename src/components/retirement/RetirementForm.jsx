@@ -32,7 +32,7 @@ const RetirementForm = (props) => {
 
     return (
         <Paper
-            id="retirement-info"
+            id="retirement-form"
             elevation={3}
             sx={{
                 width: { xs: 1, lg: 0.5 },

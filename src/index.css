@@ -41,4 +41,5 @@ body::-webkit-scrollbar-thumb {
 
 sup {
     font-size: 0.8rem;
+    line-height: 0;
 }

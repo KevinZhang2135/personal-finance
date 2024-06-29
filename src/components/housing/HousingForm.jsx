@@ -10,14 +10,11 @@ const HousingForm = (props) => {
     const { housingType, setHousingType, housingCost, setHousingCost } = props;
 
     return (
-        <Box id="tax-info" className="content-container" pb="5vh">
+        <Box id="housing-form" className="content-container" pb="5vh">
             <Paper elevation={3} sx={{ p: 4 }}>
                 <TabContext value={housingType}>
                     <Box borderBottom={1} borderColor="divider">
-                        <TabList
-                            onChange={(e, type) => setHousingType(type)}
-                            aria-label="lab API tabs example"
-                        >
+                        <TabList onChange={(e, type) => setHousingType(type)}>
                             <Tab label="Rent" value="rent" />
                             <Tab label="Mortgage" value="mortgage" />
                         </TabList>

@@ -123,16 +123,14 @@ const TaxForm = (props) => {
                             </Select>
                         </FormControl>
 
-                        <Box display="flex" justifyContent="center">
-                            <Alert
-                                icon={<Error fontSize="inherit" />}
-                                severity="warning"
-                            >
-                                Calculations are done assuming a single-filing
-                                status without any other exemptions based on
-                                2023 tax brackets.
-                            </Alert>
-                        </Box>
+                        <Alert
+                            icon={<Error fontSize="inherit" />}
+                            severity="warning"
+                        >
+                            Calculations are done assuming a single-filing
+                            status without any other exemptions based on 2023
+                            tax brackets.
+                        </Alert>
                     </Stack>
                     <Stack
                         width={formItemWidth}
@@ -151,7 +149,7 @@ const TaxForm = (props) => {
 
                         <Stack {...rowProps}>
                             <Typography variant="h4">
-                                Monthy Federal Tax<sup>3</sup>
+                                Monthy Federal Tax
                             </Typography>
 
                             <Typography variant="h4" color="primary">
@@ -161,7 +159,7 @@ const TaxForm = (props) => {
 
                         <Stack {...rowProps}>
                             <Typography variant="h4">
-                                Monthly FICA Tax<sup>4</sup>
+                                Monthly FICA Tax
                             </Typography>
 
                             <Typography variant="h4" color="primary">
@@ -171,7 +169,7 @@ const TaxForm = (props) => {
 
                         <Stack {...rowProps}>
                             <Typography variant="h4">
-                                Monthly State Tax<sup>5</sup>
+                                Monthly State Tax
                             </Typography>
 
                             <Typography variant="h4" color="primary">

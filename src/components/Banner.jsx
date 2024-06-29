@@ -6,9 +6,7 @@ const Banner = (props) => {
         <Box
             className="content-container"
             sx={{
-                backgroundImage: `url(${
-                    process.env.PUBLIC_URL + "/mountainRoad.png"
-                })`,
+                backgroundImage: `url(${process.env.PUBLIC_URL}/mountainRoad.png)`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 color: "white",

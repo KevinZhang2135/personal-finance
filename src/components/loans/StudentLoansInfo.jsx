@@ -17,29 +17,6 @@ const StudentLoansInfo = (props) => {
     const { studentLoans, setStudentLoans } = props;
 
     const infoItemWidth = { xs: 1, lg: 0.5 };
-    const studentLoanTypesInfo = (
-        <Box>
-            <Typography variant="p" display="block" gutterBottom>
-                Direct subsidized loans are federal student loans that do not
-                accumulate interest during enrollment or the six-month grace
-                period after graduation. They are typically rewarded to those
-                who demonstrate financial need.
-                <sup>7</sup>
-            </Typography>
-
-            <Typography variant="p" display="block" gutterBottom>
-                Direct unsubsidized loans are federal student loans that
-                immediately begins accruing interest after receiving the money.
-                <sup>7</sup>
-            </Typography>
-
-            <Typography variant="p" display="block" gutterBottom>
-                Private loans are student loans that immediately begins accruing
-                interest after receiving the money.
-                <sup>8</sup>
-            </Typography>
-        </Box>
-    );
 
     const addLoanButtons = (
         <Stack direction="row" spacing={4}>
@@ -104,26 +81,48 @@ const StudentLoansInfo = (props) => {
                 spacing={4}
             >
                 <Box width={infoItemWidth}>
-                    <Typography variant="p" display="block" gutterBottom>
+                    <Typography variant="h3" gutterBottom>
+                        Overview
+                    </Typography>
+                    <Typography variant="p">
                         Post-secondary education in the US is expensive.
                         According to CollegeBoard, the average published annual
                         tuition and fees for full-time students attending public
                         four-year in-state universities is $11,260 while the
                         cost of tuition for public four-year out-of-state
                         universities is more than 2.5 times greater at $29,150
-                        per year.
-                        <sup>6</sup>
-                    </Typography>
-
-                    <Typography variant="p">
-                        Hence, many pursuing college education often borrow
-                        student loans to finance the exorbitant cost. Before
-                        applying for such loans, consider the type of loan:
+                        per year.<sup>6</sup> Hence, many pursuing college
+                        education often borrow student loans to finance the
+                        exorbitant cost.
                     </Typography>
                 </Box>
 
                 <Box width={infoItemWidth}>
-                    {studentLoanTypesInfo}
+                    <Typography variant="h3" gutterBottom>
+                        Student Loan Types
+                    </Typography>
+                    <Typography variant="p" display="block" gutterBottom>
+                        Direct subsidized loans are federal student loans that
+                        do not accumulate interest during enrollment or the
+                        six-month grace period after graduation. They are
+                        typically rewarded to those who demonstrate financial
+                        need.
+                        <sup>7</sup>
+                    </Typography>
+
+                    <Typography variant="p" display="block" gutterBottom>
+                        Direct unsubsidized loans are federal student loans that
+                        immediately begins accruing interest after receiving the
+                        money.
+                        <sup>7</sup>
+                    </Typography>
+
+                    <Typography variant="p" display="block" gutterBottom>
+                        Private loans are student loans that immediately begins
+                        accruing interest after receiving the money.
+                        <sup>8</sup>
+                    </Typography>
+
                     {addLoanButtons}
                 </Box>
             </Stack>

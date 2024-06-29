@@ -35,7 +35,12 @@ const MobileMenu = (props) => {
                         className="menu-btn"
                         variant="text"
                         size="large"
-                        startIcon={<MenuIcon fontSize="large" color="white" />}
+                        startIcon={
+                            <MenuIcon
+                                fontSize="large"
+                                sx={{ color: "white" }}
+                            />
+                        }
                         sx={{ bgcolor: "inherit", mr: 4 }}
                         onClick={handleMenuClick}
                     >

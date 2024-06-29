@@ -27,31 +27,24 @@ const HousingInfo = (props) => {
                 }
                 spacing={4}
             >
-                <Box width={infoItemWidth}>
-                    <Typography variant="p">
-                        orem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Iaculis eu non diam phasellus vestibulum
-                        lorem sed risus ultricies.
-                    </Typography>
-                </Box>
+                <Typography variant="p" width={infoItemWidth}>
+                    orem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Iaculis eu non diam phasellus vestibulum lorem sed
+                    risus ultricies.
+                </Typography>
 
-                <Box width={infoItemWidth}>
-                    <Typography variant="p">
-                        Sed sed risus pretium quam vulputate dignissim
-                        suspendisse in. Lorem ipsum dolor sit amet consectetur
-                        adipiscing elit pellentesque habitant. Sit amet luctus
-                        venenatis lectus.
-                    </Typography>
-                </Box>
+                <Typography variant="p" width={infoItemWidth}>
+                    Sed sed risus pretium quam vulputate dignissim suspendisse
+                    in. Lorem ipsum dolor sit amet consectetur adipiscing elit
+                    pellentesque habitant. Sit amet luctus venenatis lectus.
+                </Typography>
 
-                <Box width={infoItemWidth}>
-                    <Typography variant="p">
-                        Facilisis mauris sit amet massa vitae tortor. Commodo
-                        quis imperdiet massa tincidunt. Velit dignissim sodales
-                        ut eu sem integer vitae justo eget.
-                    </Typography>
-                </Box>
+                <Typography variant="p" width={infoItemWidth}>
+                    Facilisis mauris sit amet massa vitae tortor. Commodo quis
+                    imperdiet massa tincidunt. Velit dignissim sodales ut eu sem
+                    integer vitae justo eget.
+                </Typography>
             </Stack>
         </Box>
     );

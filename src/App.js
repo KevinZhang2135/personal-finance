@@ -25,6 +25,10 @@ import Retirement from "./components/retirement/Retirement.jsx";
 import HousingInfo from "./components/housing/HousingInfo.jsx";
 import HousingForm from "./components/housing/HousingForm.jsx";
 
+// Transportation
+import TransportationInfo from "./components/transportation/TransportationInfo.jsx";
+import TransportationForm from "./components/transportation/TransportationForm.jsx";
+
 // Health Insurance
 import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInfo.jsx";
 
@@ -46,6 +50,7 @@ const anchorLinks = [
     { name: "Student Loans", id: "loan-info" },
     { name: "Retirement", id: "retirement-info" },
     { name: "Housing", id: "housing-info" },
+    { name: "Transportation", id: "transportation-info" },
 ];
 
 const App = () => {
@@ -78,6 +83,26 @@ const App = () => {
         },
     });
 
+    // Transportation
+    const [carPlanType, setCarPlanType] = useState("loan");
+    const [carCost, setCarCost] = useState({
+        loan: {
+            cost: { principal: 0, termMonths: 60, apr: 0.06, emi: 0 },
+            insurance: 0,
+            maintainence: 0,
+            gas: 0,
+        },
+        lease: {
+            cost: 0,
+            insurance: 0,
+            maintainence: 0,
+            gas: 0,
+        },
+    });
+
+    const [publicTransitCost, setPublicTransitCost] = useState(0);
+
+
     // Misc expenditures
     const [loans, setLoans] = useState([]);
 
@@ -94,12 +119,6 @@ const App = () => {
                 : housingCost.mortgage.cost.emi) +
             housingCost[housingType].insurance +
             housingCost[housingType].utilities,
-        a: 1,
-        b: 1,
-        c: 1,
-        d: 1,
-        e: 1,
-        f: 1,
     };
 
     /* Summary modal */
@@ -148,6 +167,16 @@ const App = () => {
                 setHousingType={setHousingType}
                 housingCost={housingCost}
                 setHousingCost={setHousingCost}
+            />
+
+            <TransportationInfo />
+            <TransportationForm
+                carPlanType={carPlanType}
+                setCarPlanType={setCarPlanType}
+                carCost={carCost}
+                setCarCost={setCarCost}
+                publicTransitCost={publicTransitCost}
+                setPublicTransitCost={setPublicTransitCost}
             />
 
             <Citations />
