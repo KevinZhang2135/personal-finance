@@ -11,6 +11,7 @@ import {
 
 import { TabPanel } from "@mui/lab";
 import LoanForm from "../loans/LoanForm";
+import { positiveClamp } from "../../App";
 
 const MortgageTab = (props) => {
     const { housingCost, setHousingCost } = props;
@@ -22,25 +23,23 @@ const MortgageTab = (props) => {
         });
     };
 
-    const handleInsurancePremiumChange = (e) => {
-        let premium = parseInt(e.target.value);
-        (isNaN(premium) || premium < 0) && (premium = 0);
-
+    const handleInsurancePremiumChange = (e) =>
         setHousingCost({
             ...housingCost,
-            mortgage: { ...housingCost.mortgage, insurance: premium },
+            mortgage: {
+                ...housingCost.mortgage,
+                insurance: positiveClamp(e.target.value),
+            },
         });
-    };
 
-    const handleUtilitiesChange = (e) => {
-        let utilities = parseInt(e.target.value);
-        (isNaN(utilities) || utilities < 0) && (utilities = 0);
-
+    const handleUtilitiesChange = (e) =>
         setHousingCost({
             ...housingCost,
-            mortgage: { ...housingCost.mortgage, utilities },
+            mortgage: {
+                ...housingCost.mortgage,
+                utilities: positiveClamp(e.target.value),
+            },
         });
-    };
 
     return (
         <TabPanel value="mortgage" sx={{ px: 0, py: 4 }}>

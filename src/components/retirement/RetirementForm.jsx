@@ -7,6 +7,7 @@ import {
     Paper,
     Stack,
 } from "@mui/material";
+import { positiveClamp } from "../../App";
 
 const RetirementForm = (props) => {
     const { retirement, setRetirement, salary } = props;
@@ -15,17 +16,13 @@ const RetirementForm = (props) => {
     const [salaryPercent, setSalaryPercent] = useState(0);
 
     const handleInvestmentChange = (e) => {
-        let investment = parseInt(e.target.value);
-        (isNaN(investment) || investment < 0) && (investment = 0);
-
+        const investment = positiveClamp(e.target.value)
         setRetirement(investment);
         setSalaryPercent(investment / monthlySalary);
     };
 
     const handlePercentChange = (e) => {
-        let percent = parseInt(e.target.value) / 100;
-        (isNaN(percent) || percent < 0) && (percent = 0);
-
+        const percent = positiveClamp(e.target.value) / 100;
         setRetirement(monthlySalary * percent);
         setSalaryPercent(percent);
     };

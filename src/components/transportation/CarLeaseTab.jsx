@@ -10,55 +10,13 @@ import {
 } from "@mui/material";
 
 import { TabPanel } from "@mui/lab";
-import LoanForm from "../loans/LoanForm";
-import { positiveClamp } from "../../App";
 
-const CarLoanTab = (props) => {
+const CarLeaseTab = (props) => {
     const { carCost, setCarCost } = props;
 
-    const handleCarLoanChange = (newLoan) =>
-        setCarCost({
-            ...carCost,
-            loan: { ...carCost.loan, cost: newLoan },
-        });
-
-    const handleGasChange = (e) =>
-        setCarCost({
-            ...carCost,
-            loan: { ...carCost.loan, gas: positiveClamp(e.target.value) },
-        });
-
-    const handleMaintenanceChange = (e) =>
-        setCarCost({
-            ...carCost,
-            loan: {
-                ...carCost.loan,
-                maintenance: positiveClamp(e.target.value),
-            },
-        });
-
-    const handleInsuranceChange = (e) =>
-        setCarCost({
-            ...carCost,
-            loan: { ...carCost.loan, insurance: positiveClamp(e.target.value) },
-        });
-
     return (
-        <TabPanel value="loan" sx={{ px: 0, py: 4 }}>
+        <TabPanel value="lease" sx={{ px: 0, py: 4 }}>
             <Grid container spacing={4}>
-                <Grid item xs={12}>
-                    <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" mb={4}>
-                            Car Loan Payment
-                        </Typography>
-                        <LoanForm
-                            loan={carCost.loan.cost}
-                            setLoan={handleCarLoanChange}
-                            single={true}
-                        />
-                    </Paper>
-                </Grid>
-
                 <Grid item xs>
                     <Paper variant="outlined" sx={{ p: 4 }}>
                         <Typography variant="h3" mb={4}>
@@ -73,13 +31,14 @@ const CarLoanTab = (props) => {
                                     </InputAdornment>
                                 }
                                 label="Monthly Gas Expenses"
-                                value={carCost.loan.gas}
-                                onChange={handleGasChange}
+                                value={"todo"}
+                                onChange={(e) => {
+                                    console.log(e.target.value);
+                                }}
                             />
                         </FormControl>
                     </Paper>
                 </Grid>
-
                 <Grid item xs>
                     <Paper variant="outlined" sx={{ p: 4 }}>
                         <Typography variant="h3" mb={4}>
@@ -94,13 +53,14 @@ const CarLoanTab = (props) => {
                                     </InputAdornment>
                                 }
                                 label="Monthly Maintenance Savings"
-                                value={carCost.loan.maintenance}
-                                onChange={handleMaintenanceChange}
+                                value={"todo"}
+                                onChange={(e) => {
+                                    console.log(e.target.value);
+                                }}
                             />
                         </FormControl>
                     </Paper>
                 </Grid>
-
                 <Grid item xs>
                     <Paper variant="outlined" sx={{ p: 4 }}>
                         <Typography variant="h3" mb={4}>
@@ -115,15 +75,17 @@ const CarLoanTab = (props) => {
                                     </InputAdornment>
                                 }
                                 label="Monthly Premium"
-                                value={carCost.loan.insurance}
-                                onChange={handleInsuranceChange}
+                                value={"todo"}
+                                onChange={(e) => {
+                                    console.log(e.target.value);
+                                }}
                             />
                         </FormControl>
                     </Paper>
-                </Grid>
+                </Grid>{" "}
             </Grid>
         </TabPanel>
     );
 };
 
-export default CarLoanTab;
+export default CarLeaseTab;

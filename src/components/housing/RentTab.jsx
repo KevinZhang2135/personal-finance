@@ -10,40 +10,35 @@ import {
 } from "@mui/material";
 
 import { TabPanel } from "@mui/lab";
+import { positiveClamp } from "../../App";
 
 const RentTab = (props) => {
     const { housingCost, setHousingCost } = props;
 
-    const handleRentCostChange = (e) => {
-        let rentCost = parseInt(e.target.value);
-        (isNaN(rentCost) || rentCost < 0) && (rentCost = 0);
-
+    const handleRentCostChange = (e) =>
         setHousingCost({
             ...housingCost,
-            rent: { ...housingCost.rent, cost: rentCost },
+            rent: { ...housingCost.rent, cost: positiveClamp(e.target.value) },
         });
-    };
 
-    const handleInsurancePremiumChange = (e) => {
-        let premium = parseInt(e.target.value);
-        (isNaN(premium) || premium < 0) && (premium = 0);
-
+    const handleInsurancePremiumChange = (e) =>
         setHousingCost({
             ...housingCost,
-            rent: { ...housingCost.rent, insurance: premium },
+            rent: {
+                ...housingCost.rent,
+                insurance: positiveClamp(e.target.value),
+            },
         });
-    };
 
-    const handleUtilitiesChange = (e) => {
-        let utilities = parseInt(e.target.value);
-        (isNaN(utilities) || utilities < 0) && (utilities = 0);
-
+    const handleUtilitiesChange = (e) =>
         setHousingCost({
             ...housingCost,
-            rent: { ...housingCost.rent, utilities },
+            rent: {
+                ...housingCost.rent,
+                utilities: positiveClamp(e.target.value),
+            },
         });
-    };
-
+        
     return (
         <TabPanel value="rent" sx={{ px: 0, py: 4 }}>
             <Grid container spacing={4}>

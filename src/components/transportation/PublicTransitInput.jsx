@@ -7,24 +7,27 @@ import {
     Paper,
     Typography,
 } from "@mui/material";
+import { positiveClamp } from "../../App";
 
-const PublicTransitInput = () => {
+const PublicTransitInput = (props) => {
+    const { publicTransitCost, setPublicTransitCost } = props;
+
     return (
         <Paper variant="outlined" sx={{ p: 4 }}>
             <Typography variant="h3" mb={4}>
-                Maintenance
+                Public Transportation
             </Typography>
             <FormControl fullWidth>
-                <InputLabel>Monthly Maintenance Savings</InputLabel>
+                <InputLabel>Monthly Public Transit Fee</InputLabel>
                 <OutlinedInput
                     startAdornment={
                         <InputAdornment position="start">$</InputAdornment>
                     }
-                    label="Monthly Maintenance Savings"
-                    value={"todo"}
-                    onChange={(e) => {
-                        console.log(e.target.value);
-                    }}
+                    label="Monthly Public Transit Fee"
+                    value={publicTransitCost}
+                    onChange={(e) =>
+                        setPublicTransitCost(positiveClamp(e.target.value))
+                    }
                 />
             </FormControl>
         </Paper>

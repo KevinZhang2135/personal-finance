@@ -21,6 +21,7 @@ import {
     currencyFormatter,
     calculateTax,
     taxBrackets,
+    positiveClamp,
 } from "./../../App";
 
 import Theme from "../../Theme";
@@ -43,9 +44,7 @@ const TaxForm = (props) => {
 
     // Handling input
     const handleSalaryChange = (e) => {
-        let annualSalary = parseInt(e.target.value);
-        (isNaN(annualSalary) || annualSalary < 0) && (annualSalary = 0);
-
+        const annualSalary = positiveClamp(e.target.value)
         const federalTax = calculateTax(annualSalary, "federal");
         const stateTax = calculateTax(annualSalary, state);
         const fica = annualSalary * 0.0765;

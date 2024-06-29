@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, Paper, Tab } from "@mui/material";
 import { teal } from "@mui/material/colors";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
+import { TabContext, TabList } from "@mui/lab";
 
 import CarLoanTab from "./CarLoanTab";
+import CarLeaseTab from "./CarLeaseTab";
 import PublicTransitInput from "./PublicTransitInput";
 
 const TransportationForm = (props) => {
@@ -34,9 +35,7 @@ const TransportationForm = (props) => {
 
                     <CarLoanTab carCost={carCost} setCarCost={setCarCost} />
 
-                    <TabPanel value="lease" sx={{ px: 0, py: 4 }}>
-                        lease car
-                    </TabPanel>
+                    <CarLeaseTab />
                 </TabContext>
 
                 <PublicTransitInput

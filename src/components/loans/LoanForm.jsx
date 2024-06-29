@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 
 import { Clear } from "@mui/icons-material";
-import { calculateLoanEMI, currencyFormatter } from "../../App";
+import { calculateLoanEMI, currencyFormatter, positiveClamp } from "../../App";
 import Theme from "../../Theme";
 
 const LoanForm = (props) => {
@@ -33,9 +33,7 @@ const LoanForm = (props) => {
         : "vertical";
 
     const handlePrincipalChange = (e) => {
-        let principal = parseInt(e.target.value);
-        (isNaN(principal) || principal < 0) && (principal = 0);
-
+        const principal = positiveClamp(e.target.value)
         const emi = calculateLoanEMI(principal, loan.apr, loan.termMonths);
         if (single) {
             setLoan({ ...loan, principal, emi });
@@ -50,9 +48,7 @@ const LoanForm = (props) => {
     };
 
     const handleTermMonthsChange = (e) => {
-        let termMonths = parseInt(e.target.value);
-        (isNaN(termMonths) || termMonths < 0) && (termMonths = 0);
-
+        const termMonths = positiveClamp(e.target.value)
         const emi = calculateLoanEMI(loan.principal, loan.apr, termMonths);
         if (single) {
             setLoan({ ...loan, termMonths, emi });

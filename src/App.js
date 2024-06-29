@@ -88,20 +88,21 @@ const App = () => {
     const [carCost, setCarCost] = useState({
         loan: {
             cost: { principal: 0, termMonths: 60, apr: 0.06, emi: 0 },
-            insurance: 0,
-            maintainence: 0,
             gas: 0,
+            maintenance: 0,
+            insurance: 0,
+            
         },
         lease: {
             cost: 0,
-            insurance: 0,
-            maintainence: 0,
             gas: 0,
+            maintenance: 0,
+            insurance: 0,
+            
         },
     });
 
     const [publicTransitCost, setPublicTransitCost] = useState(0);
-
 
     // Misc expenditures
     const [loans, setLoans] = useState([]);
@@ -195,6 +196,15 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
     currency: "USD",
 }).format;
 
+const positiveClamp = (value) => {
+    const clampedInteger = Math.min(
+        Math.max(0, value),
+        Number.MAX_SAFE_INTEGER
+    );
+
+    return Number.isNaN(clampedInteger) ? 0 : clampedInteger;
+};
+
 const calculateTax = (annualSalary, type) => {
     // Determines the total taxes for a region with a single filing status
     let totalTax = 0;
@@ -237,8 +247,9 @@ export default App;
 export {
     taxBrackets,
     anchorLinks,
-    currencyFormatter,
     toTitleCase,
+    currencyFormatter,
+    positiveClamp,
     calculateTax,
     calculateLoanEMI,
 };
