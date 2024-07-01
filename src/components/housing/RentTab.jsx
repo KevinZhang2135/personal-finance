@@ -40,7 +40,7 @@ const RentTab = (props) => {
         });
         
     return (
-        <TabPanel value="rent" sx={{ px: 0, py: 4 }}>
+        <TabPanel value="rent" sx={{ p: 0, pt: 4 }}>
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
@@ -63,7 +63,7 @@ const RentTab = (props) => {
                     </Paper>
                 </Grid>
 
-                <Grid item xs>
+                <Grid item xs={12} md={6}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
                         <Typography variant="h3" mb={4}>
                             Renters Insurance
@@ -84,7 +84,7 @@ const RentTab = (props) => {
                     </Paper>
                 </Grid>
 
-                <Grid item xs>
+                <Grid item xs={12} md={6}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
                         <Typography variant="h3" mb={4}>
                             Utilities

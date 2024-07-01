@@ -44,7 +44,7 @@ const CarLoanTab = (props) => {
         });
 
     return (
-        <TabPanel value="loan" sx={{ px: 0, py: 4 }}>
+        <TabPanel value="loan" sx={{ p: 0, pt: 4 }}>
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
@@ -59,7 +59,7 @@ const CarLoanTab = (props) => {
                     </Paper>
                 </Grid>
 
-                <Grid item xs>
+                <Grid item xs={12} lg={4}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
                         <Typography variant="h3" mb={4}>
                             Gas
@@ -80,7 +80,7 @@ const CarLoanTab = (props) => {
                     </Paper>
                 </Grid>
 
-                <Grid item xs>
+                <Grid item xs={12} lg={4}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
                         <Typography variant="h3" mb={4}>
                             Maintenance
@@ -101,7 +101,7 @@ const CarLoanTab = (props) => {
                     </Paper>
                 </Grid>
 
-                <Grid item xs>
+                <Grid item xs={12} lg={4}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
                         <Typography variant="h3" mb={4}>
                             Car Insurance

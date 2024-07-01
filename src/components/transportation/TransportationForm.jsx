@@ -24,7 +24,7 @@ const TransportationForm = (props) => {
             bgcolor={teal[50]}
             pb="5vh"
         >
-            <Paper elevation={3} sx={{ p: 4 }}>
+            <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
                 <TabContext value={carPlanType}>
                     <Box borderBottom={1} borderColor="divider">
                         <TabList onChange={(e, type) => setCarPlanType(type)}>
@@ -35,14 +35,14 @@ const TransportationForm = (props) => {
 
                     <CarLoanTab carCost={carCost} setCarCost={setCarCost} />
 
-                    <CarLeaseTab />
+                    <CarLeaseTab carCost={carCost} setCarCost={setCarCost} />
                 </TabContext>
+            </Paper>
 
-                <PublicTransitInput
+            <PublicTransitInput
                     publicTransitCost={publicTransitCost}
                     setPublicTransitCost={setPublicTransitCost}
                 />
-            </Paper>
         </Box>
     );
 };

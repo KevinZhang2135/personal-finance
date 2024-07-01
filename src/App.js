@@ -91,14 +91,12 @@ const App = () => {
             gas: 0,
             maintenance: 0,
             insurance: 0,
-            
         },
         lease: {
             cost: 0,
             gas: 0,
             maintenance: 0,
             insurance: 0,
-            
         },
     });
 
@@ -120,6 +118,14 @@ const App = () => {
                 : housingCost.mortgage.cost.emi) +
             housingCost[housingType].insurance +
             housingCost[housingType].utilities,
+        transportation:
+            (carPlanType === "loan"
+                ? carCost.loan.cost.emi
+                : carCost.lease.cost) +
+            carCost[carPlanType].gas +
+            carCost[carPlanType].maintenance +
+            carCost[carPlanType].insurance +
+            publicTransitCost,
     };
 
     /* Summary modal */

@@ -13,7 +13,7 @@ const PublicTransitInput = (props) => {
     const { publicTransitCost, setPublicTransitCost } = props;
 
     return (
-        <Paper variant="outlined" sx={{ p: 4 }}>
+        <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h3" mb={4}>
                 Public Transportation
             </Typography>

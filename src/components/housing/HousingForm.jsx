@@ -11,6 +11,14 @@ const HousingForm = (props) => {
 
     return (
         <Box id="housing-form" className="content-container" pb="5vh">
+            <Alert severity="info" sx={{ mb: 4 }}>
+                For financing furniture, appliances, and household supplies, use
+                the{" "}
+                <Link href="#misc-info">
+                    miscellaneous loans and expenses section.
+                </Link>
+            </Alert>
+
             <Paper elevation={3} sx={{ p: 4 }}>
                 <TabContext value={housingType}>
                     <Box borderBottom={1} borderColor="divider">
@@ -29,14 +37,6 @@ const HousingForm = (props) => {
                         setHousingCost={setHousingCost}
                     />
                 </TabContext>
-
-                <Alert severity="info">
-                    For financing furniture, appliances, and household supplies,
-                    use the{" "}
-                    <Link href="#misc-info">
-                        miscellaneous loans and expenses section.
-                    </Link>
-                </Alert>
             </Paper>
         </Box>
     );
