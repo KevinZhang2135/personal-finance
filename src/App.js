@@ -12,7 +12,6 @@ import Banner from "./components/Banner.jsx";
 // Taxes
 import TaxInfo from "./components/taxes/TaxInfo.jsx";
 import TaxForm from "./components/taxes/TaxForm.jsx";
-import TaxChart from "./components/taxes/TaxChart.jsx";
 
 // Student Loans
 import StudentLoansInfo from "./components/loans/StudentLoansInfo.jsx";
@@ -154,7 +153,6 @@ const App = () => {
                 taxes={taxes}
                 setTaxes={setTaxes}
             />
-            <TaxChart salary={salary} taxes={taxes} />
 
             <StudentLoansInfo
                 studentLoans={studentLoans}

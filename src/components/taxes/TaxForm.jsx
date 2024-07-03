@@ -22,16 +22,16 @@ import {
     calculateTax,
     taxBrackets,
     positiveClamp,
-} from "./../../App";
+} from "../../App";
 
 import Theme from "../../Theme";
+import TaxChart from "./TaxChart";
 
 const TaxForm = (props) => {
     const { salary, setSalary, state, setState, taxes, setTaxes } = props;
     const netSalary = salary - taxes.federal - taxes.fica - taxes.state;
 
     // Styling
-    const formItemWidth = { xs: 1, lg: 0.5 };
     const rowProps = {
         direction: "row",
         justifyContent: "space-between",
@@ -44,7 +44,7 @@ const TaxForm = (props) => {
 
     // Handling input
     const handleSalaryChange = (e) => {
-        const annualSalary = positiveClamp(e.target.value)
+        const annualSalary = positiveClamp(e.target.value);
         const federalTax = calculateTax(annualSalary, "federal");
         const stateTax = calculateTax(annualSalary, state);
         const fica = annualSalary * 0.0765;
@@ -68,11 +68,7 @@ const TaxForm = (props) => {
     };
 
     return (
-        <Box
-            className="tax-form content-container"
-            bgcolor="beige.main"
-            pb="5vh"
-        >
+        <Box className="tax-form content-container" bgcolor="beige.main" pb="5vh">
             <Paper elevation={3} sx={{ p: 4 }}>
                 <Stack
                     direction={{ xs: "column", lg: "row" }}
@@ -86,7 +82,7 @@ const TaxForm = (props) => {
                     }
                     spacing={4}
                 >
-                    <Stack width={formItemWidth} spacing={4}>
+                    <Stack width={{ xs: 1, lg: 0.5 }} spacing={4}>
                         <FormControl fullWidth>
                             <InputLabel htmlFor="annual-salary">
                                 Gross Annual Salary
@@ -130,9 +126,11 @@ const TaxForm = (props) => {
                             status without any other exemptions based on 2023
                             tax brackets.
                         </Alert>
+
+                        <TaxChart salary={salary} taxes={taxes} />
                     </Stack>
                     <Stack
-                        width={formItemWidth}
+                        width={{ xs: 1, lg: 0.5 }}
                         spacing={4}
                         divider={<Divider />}
                     >

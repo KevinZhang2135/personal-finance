@@ -11,7 +11,8 @@ const TaxInfo = (props) => {
             id="tax-info"
             className="content-container"
             bgcolor="beige.main"
-            py="5vh"
+            pt="5vh"
+            pb={4}
         >
             <Typography variant="h1" gutterBottom>
                 Taxes

@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Paper } from "@mui/material";
-import { BarChart, mangoFusionPalette } from "@mui/x-charts";
+import { Box } from "@mui/material";
+import { PieChart, mangoFusionPalette } from "@mui/x-charts";
 
 import { currencyFormatter } from "../../App";
 
@@ -8,43 +8,30 @@ const TaxChart = (props) => {
     const { salary, taxes } = props;
 
     const netSalary = salary - taxes.federal - taxes.fica - taxes.state;
-    const chartSeries = [
-        { data: [taxes.federal / 12], label: "Federal" },
-        { data: [taxes.fica / 12], label: "FICA" },
-        { data: [taxes.state / 12], label: "State" },
-        { data: [netSalary / 12], label: "Net Salary" },
+    const data = [
+        { value: taxes.federal / 12, label: "Federal" },
+        { value: taxes.fica / 12, label: "FICA" },
+        { value: taxes.state / 12, label: "State" },
+        { value: netSalary / 12, label: "Net Salary" },
     ];
 
     return (
-        <Box
-            className="tax-chart content-container"
-            display={{ xs: "none", md: "flex" }}
-            bgcolor="beige.main"
-            pb="5vh"
-        >
-            <Paper elevation={3} sx={{ width: 1, p: 4 }}>
-                <BarChart
-                    className="salary-breakdown"
-                    height={300}
-                    series={chartSeries.map((series, i) => ({
-                        ...series,
-                        stack: "total",
-                        valueFormatter: (value) => currencyFormatter(value),
-                    }))}
-                    layout="horizontal"
-                    grid={{ vertical: true }}
-                    colors={mangoFusionPalette}
-                    xAxis={[{ label: "Monthy Salary Breakdown in USD" }]}
-                    yAxis={[
-                        {
-                            scaleType: "band",
-                            data: ["Monthly Salary Breakdown"],
-                        },
-                    ]}
-                    leftAxis={null}
-                    mb={4}
-                />
-            </Paper>
+        <Box display={{xs: "none", md:"flex"}} justifyContent="center">
+            <PieChart
+                colors={mangoFusionPalette}
+                series={[
+                    {
+                        data,
+                        innerRadius: 30,
+                        outerRadius: 100,
+                        paddingAngle: 0.5,
+                        cornerRadius: 5,
+                        valueFormatter: ({ value }) => currencyFormatter(value),
+                    },
+                ]}
+                width={400}
+                height={200}
+            />
         </Box>
     );
 };

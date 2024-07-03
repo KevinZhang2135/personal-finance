@@ -10,8 +10,9 @@ import {
 } from "@mui/material";
 
 import { TabPanel } from "@mui/lab";
-import LoanForm from "../loans/LoanForm";
 import { positiveClamp } from "../../App";
+import LoanForm from "../loans/LoanForm";
+
 
 const MortgageTab = (props) => {
     const { housingCost, setHousingCost } = props;

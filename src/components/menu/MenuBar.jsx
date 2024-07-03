@@ -10,7 +10,7 @@ const MenuBar = (props) => {
     const { handleSummaryOpen } = props;
 
     // Menu dynamically changes according to screen size
-    return useMediaQuery(Theme.breakpoints.up("md")) ? (
+    return useMediaQuery(Theme.breakpoints.up("lg")) ? (
         <DesktopMenu handleSummaryOpen={handleSummaryOpen} />
     ) : (
         <MobileMenu handleSummaryOpen={handleSummaryOpen} />

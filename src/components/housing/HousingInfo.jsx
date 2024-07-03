@@ -1,51 +1,43 @@
 import React from "react";
-import { Box, Divider, Stack, Typography, useMediaQuery } from "@mui/material";
-
-import Theme from "../../Theme";
+import { Alert, Box, Link, Stack, Typography } from "@mui/material";
+import HousingChart from "./HousingChart";
 
 const HousingInfo = (props) => {
-    const infoItemWidth = { xs: 1, lg: 0.33 };
-
     return (
-        <Box id="housing-info" className="content-container" py="5vh">
+        <Box id="housing-info" className="content-container" pt="5vh" pb={4}>
             <Typography variant="h1" gutterBottom>
                 Housing
             </Typography>
 
-            <Stack
-                direction={{ xs: "column", lg: "row" }}
-                justifyContent="space-between"
-                divider={
-                    <Divider
-                        orientation={
-                            useMediaQuery(Theme.breakpoints.down("lg"))
-                                ? "horizontal"
-                                : "vertical"
-                        }
-                        flexItem
-                    />
-                }
-                spacing={4}
-            >
-                <Typography variant="p" width={infoItemWidth}>
-                    orem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Iaculis eu non diam phasellus vestibulum lorem sed
-                    risus ultricies.
-                </Typography>
+            <Stack direction={{ xs: "column", lg: "row" }} spacing={4} mb={4}>
+                <Box width={{ xs: 1, lg: 0.5 }}>
+                    <Typography variant="p">
+                        In last couple years, housing prices have skyrocketed,
+                        especially after the economic shock during the
+                        coronavirus pandemic. The average home sales price in
+                        first fiscal quarter of 2023 is an astonishing $505,300,
+                        a 35% increase from that of 2019.<sup>9</sup>{" "}
+                    </Typography>
 
-                <Typography variant="p" width={infoItemWidth}>
-                    Sed sed risus pretium quam vulputate dignissim suspendisse
-                    in. Lorem ipsum dolor sit amet consectetur adipiscing elit
-                    pellentesque habitant. Sit amet luctus venenatis lectus.
-                </Typography>
+                    <Typography variant="p">
+                        Similarly, rent costs have also been steadily on the
+                        rise after the economic recession. As of January 2023,
+                        the average rent is over 19% more than that of January
+                        2019, outpacing inflation as measured by the consumer
+                        price index (CPI).<sup>10</sup>
+                    </Typography>
+                </Box>
 
-                <Typography variant="p" width={infoItemWidth}>
-                    Facilisis mauris sit amet massa vitae tortor. Commodo quis
-                    imperdiet massa tincidunt. Velit dignissim sodales ut eu sem
-                    integer vitae justo eget.
-                </Typography>
+                <HousingChart />
             </Stack>
+
+            <Alert severity="info">
+                For financing furniture, appliances, and household supplies, use
+                the{" "}
+                <Link href="#misc-info">
+                    miscellaneous loans and expenses section.
+                </Link>
+            </Alert>
         </Box>
     );
 };

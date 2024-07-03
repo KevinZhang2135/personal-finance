@@ -15,18 +15,15 @@ import Theme from "../../Theme";
 
 const StudentLoansInfo = (props) => {
     const { studentLoans, setStudentLoans } = props;
-
-    const infoItemWidth = { xs: 1, lg: 0.5 };
-
     const addLoanButtons = (
-        <Stack direction="row" spacing={4}>
+        <Stack direction="row" spacing={4} justifyContent="center">
             <Button
                 variant="contained"
                 size="large"
                 disableElevation
                 disabled={studentLoans.length >= 4}
                 startIcon={<AddCircle fontSize="large" />}
-                sx={{ textTransform: "capitalize", mt: 4 }}
+                sx={{ textTransform: "capitalize", width: 200, mt: 4 }}
                 onClick={() => {
                     const newLoan = {
                         id: uuid(),
@@ -49,7 +46,7 @@ const StudentLoansInfo = (props) => {
                 disableElevation
                 disabled={studentLoans.length === 0}
                 startIcon={<Clear fontSize="large" />}
-                sx={{ textTransform: "capitalize", mt: 4 }}
+                sx={{ textTransform: "capitalize", width: 200, mt: 4 }}
                 onClick={() => {
                     setStudentLoans([]);
                 }}
@@ -60,7 +57,12 @@ const StudentLoansInfo = (props) => {
     );
 
     return (
-        <Box id="loan-info" className="content-container" py="5vh">
+        <Box
+            id="loan-info"
+            className="content-container"
+            pt="5vh"
+            pb={studentLoans.length > 0 ? 4 : "5vh"}
+        >
             <Typography variant="h1" gutterBottom>
                 Student Loans
             </Typography>
@@ -79,8 +81,9 @@ const StudentLoansInfo = (props) => {
                     />
                 }
                 spacing={4}
+                mb={4}
             >
-                <Box width={infoItemWidth}>
+                <Box width={{ xs: 1, lg: 0.5 }}>
                     <Typography variant="h3" gutterBottom>
                         Overview
                     </Typography>
@@ -97,7 +100,7 @@ const StudentLoansInfo = (props) => {
                     </Typography>
                 </Box>
 
-                <Box width={infoItemWidth}>
+                <Box width={{ xs: 1, lg: 0.5 }}>
                     <Typography variant="h3" gutterBottom>
                         Student Loan Types
                     </Typography>
@@ -117,15 +120,15 @@ const StudentLoansInfo = (props) => {
                         <sup>7</sup>
                     </Typography>
 
-                    <Typography variant="p" display="block" gutterBottom>
+                    <Typography variant="p" display="block">
                         Private loans are student loans that immediately begins
                         accruing interest after receiving the money.
                         <sup>8</sup>
                     </Typography>
-
-                    {addLoanButtons}
                 </Box>
             </Stack>
+
+            {addLoanButtons}
         </Box>
     );
 };

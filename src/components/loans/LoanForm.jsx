@@ -33,7 +33,7 @@ const LoanForm = (props) => {
         : "vertical";
 
     const handlePrincipalChange = (e) => {
-        const principal = positiveClamp(e.target.value)
+        const principal = positiveClamp(e.target.value);
         const emi = calculateLoanEMI(principal, loan.apr, loan.termMonths);
         if (single) {
             setLoan({ ...loan, principal, emi });
@@ -48,7 +48,7 @@ const LoanForm = (props) => {
     };
 
     const handleTermMonthsChange = (e) => {
-        const termMonths = positiveClamp(e.target.value)
+        const termMonths = positiveClamp(e.target.value);
         const emi = calculateLoanEMI(loan.principal, loan.apr, termMonths);
         if (single) {
             setLoan({ ...loan, termMonths, emi });
@@ -157,14 +157,17 @@ const LoanForm = (props) => {
             </Stack>
 
             {!single && (
-                <Stack {...outputProps}>
+                <Stack
+                    {...outputProps}
+                    justifyContent={{ xs: "center", lg: "flex-start" }}
+                >
                     <Button
                         variant="contained"
                         color="error"
                         size="large"
                         disableElevation
                         startIcon={<Clear fontSize="large" />}
-                        sx={{ textTransform: "capitalize" }}
+                        sx={{ textTransform: "capitalize", width: 200 }}
                         onClick={() =>
                             setLoans(loans.filter((e) => e.id !== loan.id))
                         }

@@ -7,6 +7,7 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
+
 import { teal } from "@mui/material/colors";
 
 const TransportationInfo = (props) => {
@@ -15,7 +16,8 @@ const TransportationInfo = (props) => {
             id="transportation-info"
             className="content-container"
             bgcolor={teal[50]}
-            py="5vh"
+            pt="5vh"
+            pb={4}
         >
             <Typography variant="h1" gutterBottom>
                 Transportation
@@ -59,7 +61,7 @@ const TransportationInfo = (props) => {
                                 With 68.66% of Americans driving to work in
                                 2022, commuting to work via car is the most
                                 prominent mode of transportation for US adults.
-                                <sup>9</sup>
+                                <sup>12</sup>
                             </Typography>
                         </CardContent>
                     </Card>
