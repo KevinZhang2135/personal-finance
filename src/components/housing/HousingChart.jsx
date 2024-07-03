@@ -11,7 +11,7 @@ import { currencyFormatter } from "../../App";
 // Parses CSV resources
 const AspusCsv = (
     await (
-        await fetch("ASPUS2019-2023.csv", {
+        await fetch("aspus2019-2023.csv", {
             headers: {
                 "Content-Type": "text/csv",
                 Accept: "text/csv",
