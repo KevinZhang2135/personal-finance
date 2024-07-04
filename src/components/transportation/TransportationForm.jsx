@@ -1,6 +1,8 @@
 import React from "react";
-import { Box, Paper, Tab } from "@mui/material";
-import { teal } from "@mui/material/colors";
+import { Alert, Box, Paper, Tab } from "@mui/material";
+import { blue } from "@mui/material/colors";
+
+import { Error } from "@mui/icons-material";
 import { TabContext, TabList } from "@mui/lab";
 
 import CarLoanTab from "./CarLoanTab";
@@ -21,7 +23,7 @@ const TransportationForm = (props) => {
         <Box
             id="transportation-form"
             className="content-container"
-            bgcolor={teal[50]}
+            bgcolor={blue[50]}
             pb="5vh"
         >
             <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
@@ -33,6 +35,16 @@ const TransportationForm = (props) => {
                         </TabList>
                     </Box>
 
+                    <Alert
+                        icon={<Error fontSize="inherit" />}
+                        severity="warning"
+                        sx={{ my: 4 }}
+                    >
+                        Calculations does not include down payment or any other
+                        additional one-time fees such as license fees or sales
+                        tax.
+                    </Alert>
+
                     <CarLoanTab carCost={carCost} setCarCost={setCarCost} />
 
                     <CarLeaseTab carCost={carCost} setCarCost={setCarCost} />
@@ -40,9 +52,9 @@ const TransportationForm = (props) => {
             </Paper>
 
             <PublicTransitInput
-                    publicTransitCost={publicTransitCost}
-                    setPublicTransitCost={setPublicTransitCost}
-                />
+                publicTransitCost={publicTransitCost}
+                setPublicTransitCost={setPublicTransitCost}
+            />
         </Box>
     );
 };

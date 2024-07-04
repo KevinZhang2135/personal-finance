@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, Box, Link, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import HousingChart from "./HousingChart";
 
 const HousingInfo = (props) => {
@@ -9,7 +9,7 @@ const HousingInfo = (props) => {
                 Housing
             </Typography>
 
-            <Stack direction={{ xs: "column", lg: "row" }} spacing={4} mb={4}>
+            <Stack direction={{ xs: "column", lg: "row" }} spacing={4}>
                 <Box width={{ xs: 1, lg: 0.5 }}>
                     <Typography variant="p">
                         In last couple years, housing prices have skyrocketed,
@@ -31,13 +31,7 @@ const HousingInfo = (props) => {
                 <HousingChart />
             </Stack>
 
-            <Alert severity="info">
-                For financing furniture, appliances, and household supplies, use
-                the{" "}
-                <Link href="#misc-info">
-                    miscellaneous loans and expenses section.
-                </Link>
-            </Alert>
+            
         </Box>
     );
 };

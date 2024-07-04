@@ -45,7 +45,7 @@ const CarLoanTab = (props) => {
         });
 
     return (
-        <TabPanel value="loan" sx={{ p: 0, pt: 4 }}>
+        <TabPanel value="loan" sx={{ p: 0 }}>
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>

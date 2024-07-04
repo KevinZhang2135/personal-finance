@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Paper, Tab } from "@mui/material";
+import { Alert, Box, Link, Paper, Tab } from "@mui/material";
 
 import { TabContext, TabList } from "@mui/lab";
 
@@ -19,6 +19,14 @@ const HousingForm = (props) => {
                             <Tab label="Mortgage" value="mortgage" />
                         </TabList>
                     </Box>
+
+                    <Alert severity="info" sx={{ my: 4 }}>
+                        For financing furniture, appliances, and household
+                        supplies, use the{" "}
+                        <Link href="#misc-info">
+                            miscellaneous loans and expenses section.
+                        </Link>
+                    </Alert>
 
                     <RentTab
                         housingCost={housingCost}

@@ -16,7 +16,7 @@ const TaxChart = (props) => {
     ];
 
     return (
-        <Box display={{xs: "none", md:"flex"}} justifyContent="center">
+        <Box display="flex" justifyContent="center">
             <PieChart
                 colors={mangoFusionPalette}
                 series={[

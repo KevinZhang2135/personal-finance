@@ -4,18 +4,19 @@ import {
     Card,
     CardContent,
     CardMedia,
+    Divider,
     Stack,
     Typography,
 } from "@mui/material";
 
-import { teal } from "@mui/material/colors";
+import { blue } from "@mui/material/colors";
 
 const TransportationInfo = (props) => {
     return (
         <Box
             id="transportation-info"
             className="content-container"
-            bgcolor={teal[50]}
+            bgcolor={blue[50]}
             pt="5vh"
             pb={4}
         >
@@ -29,18 +30,16 @@ const TransportationInfo = (props) => {
                 spacing={4}
             >
                 <Box width={{ xs: 1, lg: 0.6 }}>
-                    <Typography variant="p" display="block" gutterBottom>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Iaculis eu non diam phasellus vestibulum
-                        lorem sed risus ultricies.
+                    <Typography variant="h3" gutterBottom>
+                        Buying a Car
                     </Typography>
-                    <Typography variant="p">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Iaculis eu non diam phasellus vestibulum
-                        lorem sed risus ultricies.
+                    <Typography variant="p">lorem ipsum</Typography>
+
+                    <Divider sx={{ my: 4 }} />
+                    <Typography variant="h3" gutterBottom>
+                        Leasing a Car
                     </Typography>
+                    <Typography variant="p">lorem ipsum</Typography>
                 </Box>
 
                 <Box width={{ xs: 1, lg: 0.4 }}>
