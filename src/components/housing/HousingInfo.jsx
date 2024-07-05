@@ -11,7 +11,7 @@ const HousingInfo = (props) => {
 
             <Stack direction={{ xs: "column", lg: "row" }} spacing={4}>
                 <Box width={{ xs: 1, lg: 0.5 }}>
-                    <Typography variant="p">
+                    <Typography variant="p" display="block" gutterBottom>
                         In last couple years, housing prices have skyrocketed,
                         especially after the economic shock during the
                         coronavirus pandemic. The average home sales price in
