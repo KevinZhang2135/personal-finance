@@ -28,6 +28,9 @@ import HousingForm from "./components/housing/HousingForm.jsx";
 import TransportationInfo from "./components/transportation/TransportationInfo.jsx";
 import TransportationForm from "./components/transportation/TransportationForm.jsx";
 
+// Food
+import Food from "./components/food/Food.jsx";
+
 // Health Insurance
 import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInfo.jsx";
 
@@ -50,6 +53,9 @@ const anchorLinks = [
     { name: "Retirement", id: "retirement-info" },
     { name: "Housing", id: "housing-info" },
     { name: "Transportation", id: "transportation-info" },
+    { name: "Food", id: "food-info" },
+    { name: "Health Insurance", id: "health-insurance-info" },
+    { name: "Misc", id: "misc-info" },
 ];
 
 const App = () => {
@@ -101,6 +107,12 @@ const App = () => {
 
     const [publicTransitCost, setPublicTransitCost] = useState(0);
 
+    // Food
+    const [foodCost, setFoodCost] = useState({
+        groceries: 0,
+        eatingOut: 0,
+    });
+
     // Misc expenditures
     const [loans, setLoans] = useState([]);
 
@@ -125,6 +137,7 @@ const App = () => {
             carCost[carPlanType].maintenance +
             carCost[carPlanType].insurance +
             publicTransitCost,
+        food: foodCost.groceries + foodCost.eatingOut,
     };
 
     /* Summary modal */
@@ -183,6 +196,9 @@ const App = () => {
                 publicTransitCost={publicTransitCost}
                 setPublicTransitCost={setPublicTransitCost}
             />
+
+            <Food foodCost={foodCost} setFoodCost={setFoodCost} />
+            <HealthInsuranceInfo />
 
             <Citations />
             <Footer />

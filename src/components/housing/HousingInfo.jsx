@@ -30,8 +30,6 @@ const HousingInfo = (props) => {
 
                 <HousingChart />
             </Stack>
-
-            
         </Box>
     );
 };

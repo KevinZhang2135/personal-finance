@@ -1,13 +1,11 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import { blue } from "@mui/material/colors";
 
 const HealthInsuranceInfo = () => {
     return (
         <Box
             id="health-insurance-info"
             className="content-container"
-            bgcolor={blue[50]}
             py="5vh"
         >
             <Typography variant="h1" textAlign="center" mb={4}>
