@@ -18,6 +18,8 @@ const TaxChart = (props) => {
     return (
         <Box display="flex" justifyContent="center">
             <PieChart
+                width={400}
+                height={200}
                 colors={mangoFusionPalette}
                 series={[
                     {
@@ -29,8 +31,7 @@ const TaxChart = (props) => {
                         valueFormatter: ({ value }) => currencyFormatter(value),
                     },
                 ]}
-                width={400}
-                height={200}
+                
             />
         </Box>
     );

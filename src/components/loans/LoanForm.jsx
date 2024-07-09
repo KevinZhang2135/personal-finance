@@ -167,7 +167,7 @@ const LoanForm = (props) => {
                         size="large"
                         disableElevation
                         startIcon={<Clear fontSize="large" />}
-                        sx={{ textTransform: "capitalize", width: 200 }}
+                        sx={{ width: 200, textTransform: "capitalize" }}
                         onClick={() =>
                             setLoans(loans.filter((e) => e.id !== loan.id))
                         }

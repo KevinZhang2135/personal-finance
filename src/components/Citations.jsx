@@ -19,8 +19,8 @@ const Citations = (props) => {
                 flexDirection: "column",
                 justifyContent: "center",
                 bgcolor: "beige.main",
-                py: "5vh",
                 wordWrap: "break-word",
+                py: "5vh",
             }}
         >
             <Typography variant="h1" mb={2}>

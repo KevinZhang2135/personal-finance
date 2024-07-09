@@ -46,7 +46,6 @@ const TransportationForm = (props) => {
                     </Alert>
 
                     <CarLoanTab carCost={carCost} setCarCost={setCarCost} />
-
                     <CarLeaseTab carCost={carCost} setCarCost={setCarCost} />
                 </TabContext>
             </Paper>

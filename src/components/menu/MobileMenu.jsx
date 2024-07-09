@@ -64,19 +64,20 @@ const MobileMenu = (props) => {
                         {anchorLinks.map((anchor) => (
                             <MenuItem
                                 key={`#${anchor.id}-menu-item`}
+                                component={Link}
                                 href={`#${anchor.id}`}
                                 sx={{ "&:hover": { bgcolor: "inherit" } }}
                                 onClick={handleMenuClose}
-                                component={Link}
                             >
                                 {anchor.name}
                             </MenuItem>
                         ))}
 
                         <MenuItem
+                            component={Link}
                             sx={{ "&:hover": { bgcolor: "inherit" } }}
                             onClick={handleSummaryOpen}
-                            component={Link}
+                            
                         >
                             Summary
                         </MenuItem>

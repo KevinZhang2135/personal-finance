@@ -18,7 +18,7 @@ import StudentLoansInfo from "./components/loans/StudentLoansInfo.jsx";
 import Loans from "./components/loans/Loans.jsx";
 
 // Retirement
-import Retirement from "./components/retirement/Retirement.jsx";
+import RetirementInfo from "./components/retirement/RetirementInfo.jsx";
 
 // Housing
 import HousingInfo from "./components/housing/HousingInfo.jsx";
@@ -29,7 +29,7 @@ import TransportationInfo from "./components/transportation/TransportationInfo.j
 import TransportationForm from "./components/transportation/TransportationForm.jsx";
 
 // Food
-import Food from "./components/food/Food.jsx";
+import FoodInfo from "./components/food/FoodInfo.jsx";
 
 // Health Insurance
 import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInfo.jsx";
@@ -113,6 +113,12 @@ const App = () => {
         eatingOut: 0,
     });
 
+    // Health Insurance
+    const [healthInsuranceCost, setHealthInsuranceCost] = useState({
+        premium: 0,
+        deductibleSavings: 0,
+    });
+
     // Misc expenditures
     const [loans, setLoans] = useState([]);
 
@@ -173,7 +179,7 @@ const App = () => {
             />
             <Loans loans={studentLoans} setLoans={setStudentLoans} />
 
-            <Retirement
+            <RetirementInfo
                 retirement={retirement}
                 setRetirement={setRetirement}
                 salary={salary}
@@ -197,7 +203,7 @@ const App = () => {
                 setPublicTransitCost={setPublicTransitCost}
             />
 
-            <Food foodCost={foodCost} setFoodCost={setFoodCost} />
+            <FoodInfo foodCost={foodCost} setFoodCost={setFoodCost} />
             <HealthInsuranceInfo />
 
             <Citations />

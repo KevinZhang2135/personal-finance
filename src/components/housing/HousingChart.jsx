@@ -1,10 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import {
-    LineChart,
-    axisClasses,
-    chartsGridClasses,
-} from "@mui/x-charts";
+import { LineChart, axisClasses, chartsGridClasses } from "@mui/x-charts";
 
 import { currencyFormatter } from "../../App";
 
@@ -29,12 +25,11 @@ const aspusPoints = {
 
 const HousingChart = (props) => {
     return (
-        <Box
-            display="flex"
-            justifyContent="center"
-            width={{ xs: 1, lg: 0.5 }}
-        >
+        <Box display="flex" justifyContent="center" width={{ xs: 1, lg: 0.5 }}>
             <LineChart
+                width={600}
+                height={300}
+                margin={{ top: 5, right: 10, bottom: 20, left: 80 }}
                 xAxis={[
                     {
                         data: aspusPoints.x,
@@ -52,9 +47,6 @@ const HousingChart = (props) => {
                 ]}
                 leftAxis={{ label: "Average Home Sales Price in USD" }}
                 grid={{ horizontal: true }}
-                width={600}
-                height={300}
-                margin={{ top: 5, right: 10, bottom: 20, left: 80 }}
                 sx={{
                     [`.${axisClasses.left} .${axisClasses.label}`]: {
                         transform: "translateX(-40px)",

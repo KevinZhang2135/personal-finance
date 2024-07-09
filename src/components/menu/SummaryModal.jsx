@@ -17,6 +17,8 @@ const SummaryModal = (props) => {
     // Styling
     const scrollGutterWidth = 2;
     const modalBoxSx = {
+        width: 0.8,
+        height: 0.8,
         position: "absolute",
         top: "50%",
         left: "50%",
@@ -25,8 +27,6 @@ const SummaryModal = (props) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        width: 0.8,
-        height: 0.8,
         p: 4,
         pl: 4 + scrollGutterWidth,
     };

@@ -75,34 +75,39 @@ const TransportationInfo = (props) => {
                         However, unlike purchasing a vehicle, finishing a lease
                         term does not grant ownership. Leased vehicles also
                         enforce fees and penalties for excessive wear and
-                        mileage. Therefore, it is often more cost effective over time
-                        to buy a vehicle rather than leasing one.<sup>11</sup>
+                        mileage. Therefore, it is often more cost effective over
+                        time to buy a vehicle rather than leasing one.
+                        <sup>11</sup>
                     </Typography>
                 </Box>
 
-                <Box width={{ xs: 1, lg: 0.33 }}>
-                    <Card sx={{ boxShadow: 3 }}>
-                        <CardMedia
-                            component="img"
-                            height="160"
-                            sx={{
-                                backgroundImage: `url(${process.env.PUBLIC_URL}/cityTraffic.jpg)`,
-                            }}
-                        />
+                <Card
+                    sx={{
+                        width: { xs: 1, lg: 0.4 },
+                        height: "fit-content",
+                        boxShadow: 3,
+                    }}
+                >
+                    <CardMedia
+                        component="img"
+                        height="160"
+                        sx={{
+                            backgroundImage: `url(${process.env.PUBLIC_URL}/cityTraffic.jpg)`,
+                        }}
+                    />
 
-                        <CardContent>
-                            <Typography variant="h4" mb={2}>
-                                Car Dependency
-                            </Typography>
-                            <Typography variant="p" color="text.secondary">
-                                With 68.66% of Americans driving to work in
-                                2022, commuting to work via car is the most
-                                prominent mode of transportation for US adults.
-                                <sup>13</sup>
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Box>
+                    <CardContent>
+                        <Typography variant="h4" mb={2}>
+                            Car Dependency
+                        </Typography>
+                        <Typography variant="p" color="text.secondary">
+                            With 68.66% of Americans driving to work in 2022,
+                            commuting to work via car is the most prominent mode
+                            of transportation for US adults.
+                            <sup>13</sup>
+                        </Typography>
+                    </CardContent>
+                </Card>
             </Stack>
         </Box>
     );

@@ -15,6 +15,19 @@ import Theme from "../../Theme";
 
 const StudentLoansInfo = (props) => {
     const { studentLoans, setStudentLoans } = props;
+
+    const addLoan = () => {
+        const newLoan = {
+            id: uuid(),
+            principal: 0,
+            termMonths: 60,
+            apr: 0.06,
+            emi: 0,
+        };
+
+        setStudentLoans([...studentLoans, newLoan]);
+    }
+
     const addLoanButtons = (
         <Stack direction="row" spacing={4} justifyContent="center">
             <Button
@@ -23,18 +36,8 @@ const StudentLoansInfo = (props) => {
                 disableElevation
                 disabled={studentLoans.length >= 4}
                 startIcon={<AddCircle fontSize="large" />}
-                sx={{ textTransform: "capitalize", width: 200, mt: 4 }}
-                onClick={() => {
-                    const newLoan = {
-                        id: uuid(),
-                        principal: 0,
-                        termMonths: 60,
-                        apr: 0.06,
-                        emi: 0,
-                    };
-
-                    setStudentLoans([...studentLoans, newLoan]);
-                }}
+                sx={{ width: 200, textTransform: "capitalize", mt: 4 }}
+                onClick={addLoan}
             >
                 <Typography variant="p">Add Loan</Typography>
             </Button>
@@ -46,10 +49,8 @@ const StudentLoansInfo = (props) => {
                 disableElevation
                 disabled={studentLoans.length === 0}
                 startIcon={<Clear fontSize="large" />}
-                sx={{ textTransform: "capitalize", width: 200, mt: 4 }}
-                onClick={() => {
-                    setStudentLoans([]);
-                }}
+                sx={{ width: 200, textTransform: "capitalize", mt: 4 }}
+                onClick={() => setStudentLoans([])}
             >
                 <Typography variant="p">Remove All</Typography>
             </Button>

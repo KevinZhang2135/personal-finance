@@ -24,7 +24,8 @@ const FoodForm = (props) => {
             id="food-form"
             elevation={3}
             sx={{
-                width: { xs: 1, lg: 0.5 },
+                width: { xs: 1, lg: 0.4 },
+                height: "fit-content",
                 p: 4,
             }}
         >
@@ -40,7 +41,7 @@ const FoodForm = (props) => {
                         onChange={handleGroceryCostChange}
                     />
                 </FormControl>
-
+                
                 <FormControl fullWidth>
                     <InputLabel>Monthly Eating-Out Expenses</InputLabel>
                     <OutlinedInput

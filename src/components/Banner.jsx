@@ -6,19 +6,19 @@ const Banner = (props) => {
         <Box
             className="content-container"
             sx={{
+                height: "60vh",
                 backgroundImage: `url(${process.env.PUBLIC_URL}/mountainRoad.png)`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 color: "white",
-                minHeight: "60vh",
                 py: "10vh",
             }}
         >
             <Typography
                 gutterBottom
                 sx={{
-                    fontSize: { xs: "3rem", lg: "5rem" },
                     pt: "10vh",
+                    fontSize: { xs: "3rem", lg: "5rem" },
                 }}
             >
                 Personal finance done easy.

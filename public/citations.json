@@ -1,10 +1,10 @@
 {
     "1": {
-        "reference": "Malinsky G. More Americans say they are living paycheck to paycheck this year than in 2023—here’s why. CNBC. Published April 9, 2024.",
+        "reference": "Malinsky G. More Americans say They are Living Paycheck to Paycheck this Year Than in 2023—Here's Why. CNBC. Published April 9, 2024.",
         "link": "https://www.cnbc.com/2024/04/09/most-of-americans-are-living-paycheck-to-paycheck-heres-why.html"
     },
     "2": {
-        "reference": "Majority of Americans Live Paycheck To Paycheck – Forbes Advisor. www.forbes.com.",
+        "reference": "Majority of Americans Live Paycheck To Paycheck - Forbes Advisor. www.forbes.com.",
         "link": "https://www.forbes.com/advisor/banking/living-paycheck-to-paycheck-statistics-2024/"
     },
     "3": {
@@ -48,17 +48,27 @@
     },
 
     "11": {
-        "reference": "Lease vs Buy Car Calculator: Which Is Best For You? – Forbes Advisor. www.forbes.com.",
+        "reference": "Lease vs Buy Car Calculator: Which Is Best For You? - Forbes Advisor. www.forbes.com.",
         "link": "https://www.forbes.com/advisor/auto-loans/lease-vs-buy-calculator/"
     },
 
     "12": {
-        "reference": "How Long Should You Finance A Car? – Forbes Advisor. www.forbes.com. Accessed July 5, 2024.",
+        "reference": "How Long Should You Finance A Car? - Forbes Advisor. www.forbes.com. Accessed July 5, 2024.",
         "link": "https://forbes.com/advisor/auto-loans/how-long-should-you-finance-a-car/"
     },
 
     "13": {
         "reference": "Commute Mode | Bureau of Transportation Statistics. www.bts.gov.",
         "link": "https://www.bts.gov/browse-statistical-products-and-data/state-transportation-statistics/commute-mode"
+    },
+
+    "14": {
+        "reference": "How does Health Insurance Work? www.uhc.com.",
+        "link": "https://www.uhc.com/understanding-health-insurance/how-does-health-insurance-work"
+    },
+
+    "15": {
+        "reference": "What's a Deductible? www.uhc.com.",
+        "link": "https://www.uhc.com/understanding-health-insurance/understanding-health-insurance-costs/types-of-health-insurance-costs/what-is-a-deductible"
     }
 }
