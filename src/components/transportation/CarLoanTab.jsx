@@ -43,12 +43,20 @@ const CarLoanTab = (props) => {
             loan: { ...carCost.loan, insurance: positiveClamp(e.target.value) },
         });
 
+    const loanTitleSx = {
+        position: "absolute",
+        transform: "translate(0, calc(-32px - 50% ))",
+        color: "text.secondary",
+        bgcolor: "white",
+        px: 1,
+    };
+
     return (
         <TabPanel value="loan" sx={{ p: 0 }}>
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h4" mb={4} color="text.secondary">
+                        <Typography variant="h5" sx={loanTitleSx}>
                             Car Loan Payment
                         </Typography>
                         <LoanForm

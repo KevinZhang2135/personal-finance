@@ -68,7 +68,11 @@ const TaxForm = (props) => {
     };
 
     return (
-        <Box className="tax-form content-container" bgcolor="beige.main" pb="5vh">
+        <Box
+            className="tax-form content-container"
+            bgcolor="beige.main"
+            pb="5vh"
+        >
             <Paper elevation={3} sx={{ p: 4 }}>
                 <Stack
                     direction={{ xs: "column", lg: "row" }}
@@ -135,50 +139,45 @@ const TaxForm = (props) => {
                         divider={<Divider />}
                     >
                         <Stack {...rowProps}>
-                            <Typography variant="h4">
+                            <Typography variant="h4" color="text.secondary">
                                 Gross Monthly Salary
                             </Typography>
-
                             <Typography variant="h4" color="primary">
                                 {currencyFormatter(salary / 12)}
                             </Typography>
                         </Stack>
 
                         <Stack {...rowProps}>
-                            <Typography variant="h4">
+                            <Typography variant="h4" color="text.secondary">
                                 Monthy Federal Tax
                             </Typography>
-
                             <Typography variant="h4" color="primary">
                                 {currencyFormatter(taxes.federal / 12)}
                             </Typography>
                         </Stack>
 
                         <Stack {...rowProps}>
-                            <Typography variant="h4">
+                            <Typography variant="h4" color="text.secondary">
                                 Monthly FICA Tax
                             </Typography>
-
                             <Typography variant="h4" color="primary">
                                 {currencyFormatter(taxes.fica / 12)}
                             </Typography>
                         </Stack>
 
                         <Stack {...rowProps}>
-                            <Typography variant="h4">
+                            <Typography variant="h4" color="text.secondary">
                                 Monthly State Tax
                             </Typography>
-
                             <Typography variant="h4" color="primary">
                                 {currencyFormatter(taxes.state / 12)}
                             </Typography>
                         </Stack>
 
                         <Stack {...rowProps}>
-                            <Typography variant="h4">
+                            <Typography variant="h4" color="text.secondary">
                                 Net Monthly Salary
                             </Typography>
-
                             <Typography variant="h4" color="primary">
                                 {currencyFormatter(netSalary / 12)}
                             </Typography>

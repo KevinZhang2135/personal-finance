@@ -41,12 +41,20 @@ const MortgageTab = (props) => {
             },
         });
 
+    const mortgageTitleSx = {
+        position: "absolute",
+        transform: "translate(0, calc(-32px - 50% ))",
+        color: "text.secondary",
+        bgcolor: "white",
+        px: 1,
+    };
+
     return (
         <TabPanel value="mortgage" sx={{ p: 0 }}>
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h4" mb={4} color="text.secondary">
+                        <Typography variant="h5" sx={mortgageTitleSx}>
                             Mortgage Payment
                         </Typography>
                         <LoanForm

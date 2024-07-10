@@ -131,24 +131,27 @@ const LoanForm = (props) => {
     const formOutput = (
         <Stack width={formItemWidth} spacing={4} divider={<Divider flexItem />}>
             <Stack {...outputProps}>
-                <Typography variant="h4">Monthly Payment</Typography>
-
+                <Typography variant="h4" color="text.secondary">
+                    Monthly Payment
+                </Typography>
                 <Typography variant="h4" color="primary">
                     {currencyFormatter(loan.emi)}
                 </Typography>
             </Stack>
 
             <Stack {...outputProps}>
-                <Typography variant="h4">Total Principal Paid</Typography>
-
+                <Typography variant="h4" color="text.secondary">
+                    Total Principal Paid
+                </Typography>
                 <Typography variant="h4" color="primary">
                     {currencyFormatter(loan.principal)}
                 </Typography>
             </Stack>
 
             <Stack {...outputProps}>
-                <Typography variant="h4">Total Interest Paid</Typography>
-
+                <Typography variant="h4" color="text.secondary">
+                    Total Interest Paid
+                </Typography>
                 <Typography variant="h4" color="primary">
                     {currencyFormatter(
                         loan.emi * loan.termMonths - loan.principal
