@@ -13,7 +13,6 @@ import { TabPanel } from "@mui/lab";
 import { positiveClamp } from "../../App";
 import LoanForm from "../loans/LoanForm";
 
-
 const MortgageTab = (props) => {
     const { housingCost, setHousingCost } = props;
 
@@ -47,7 +46,7 @@ const MortgageTab = (props) => {
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" mb={4}>
+                        <Typography variant="h4" mb={4} color="text.secondary">
                             Mortgage Payment
                         </Typography>
                         <LoanForm
@@ -59,45 +58,35 @@ const MortgageTab = (props) => {
                 </Grid>
 
                 <Grid item xs={12} md={6}>
-                    <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" mb={4}>
-                            House Insurance
-                        </Typography>
-                        <FormControl fullWidth>
-                            <InputLabel>Monthly Insurance Premium</InputLabel>
-                            <OutlinedInput
-                                startAdornment={
-                                    <InputAdornment position="start">
-                                        $
-                                    </InputAdornment>
-                                }
-                                label="Monthly Insurance Premium"
-                                value={housingCost.mortgage.insurance}
-                                onChange={handleInsurancePremiumChange}
-                            />
-                        </FormControl>
-                    </Paper>
+                    <FormControl fullWidth>
+                        <InputLabel>Monthly House Insurance Premium</InputLabel>
+                        <OutlinedInput
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    $
+                                </InputAdornment>
+                            }
+                            label="Monthly House Insurance Premium"
+                            value={housingCost.mortgage.insurance}
+                            onChange={handleInsurancePremiumChange}
+                        />
+                    </FormControl>
                 </Grid>
 
                 <Grid item xs={12} md={6}>
-                    <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" mb={4}>
-                            Utilities
-                        </Typography>
-                        <FormControl fullWidth>
-                            <InputLabel>Monthly Utilities Fee</InputLabel>
-                            <OutlinedInput
-                                startAdornment={
-                                    <InputAdornment position="start">
-                                        $
-                                    </InputAdornment>
-                                }
-                                label="Monthly Utilities Fee"
-                                value={housingCost.mortgage.utilities}
-                                onChange={handleUtilitiesChange}
-                            />
-                        </FormControl>
-                    </Paper>
+                    <FormControl fullWidth>
+                        <InputLabel>Monthly Utilities Fee</InputLabel>
+                        <OutlinedInput
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    $
+                                </InputAdornment>
+                            }
+                            label="Monthly Utilities Fee"
+                            value={housingCost.mortgage.utilities}
+                            onChange={handleUtilitiesChange}
+                        />
+                    </FormControl>
                 </Grid>
             </Grid>
         </TabPanel>

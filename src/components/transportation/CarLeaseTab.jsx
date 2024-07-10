@@ -55,87 +55,67 @@ const CarLeaseTab = (props) => {
         <TabPanel value="lease" sx={{ p: 0 }}>
             <Grid container spacing={4}>
                 <Grid item xs={12} md={6}>
-                    <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" mb={4}>
-                            Lease Payment
-                        </Typography>
-                        <FormControl fullWidth>
-                            <InputLabel>Monthly Lease Payment</InputLabel>
-                            <OutlinedInput
-                                startAdornment={
-                                    <InputAdornment position="start">
-                                        $
-                                    </InputAdornment>
-                                }
-                                label="Monthly Lease Payment"
-                                value={carCost.lease.cost}
-                                onChange={handleCarLeaseChange}
-                            />
-                        </FormControl>
-                    </Paper>
+                    <FormControl fullWidth>
+                        <InputLabel>Monthly Lease Payment</InputLabel>
+                        <OutlinedInput
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    $
+                                </InputAdornment>
+                            }
+                            label="Monthly Lease Payment"
+                            value={carCost.lease.cost}
+                            onChange={handleCarLeaseChange}
+                        />
+                    </FormControl>
                 </Grid>
 
                 <Grid item xs={12} md={6}>
-                    <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" mb={4}>
-                            Gas
-                        </Typography>
-                        <FormControl fullWidth>
-                            <InputLabel>Monthly Gas Expenses</InputLabel>
-                            <OutlinedInput
-                                startAdornment={
-                                    <InputAdornment position="start">
-                                        $
-                                    </InputAdornment>
-                                }
-                                label="Monthly Gas Expenses"
-                                value={carCost.lease.gas}
-                                onChange={handleGasChange}
-                            />
-                        </FormControl>
-                    </Paper>
+                    <FormControl fullWidth>
+                        <InputLabel>Monthly Gas Expenses</InputLabel>
+                        <OutlinedInput
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    $
+                                </InputAdornment>
+                            }
+                            label="Monthly Gas Expenses"
+                            value={carCost.lease.gas}
+                            onChange={handleGasChange}
+                        />
+                    </FormControl>
                 </Grid>
 
                 <Grid item xs={12} md={6}>
-                    <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" mb={4}>
-                            Maintenance
-                        </Typography>
-                        <FormControl fullWidth>
-                            <InputLabel>Monthly Maintenance Savings</InputLabel>
-                            <OutlinedInput
-                                startAdornment={
-                                    <InputAdornment position="start">
-                                        $
-                                    </InputAdornment>
-                                }
-                                label="Monthly Maintenance Savings"
-                                value={carCost.lease.maintenance}
-                                onChange={handleMaintenanceChange}
-                            />
-                        </FormControl>
-                    </Paper>
+                    <FormControl fullWidth>
+                        <InputLabel>Monthly Maintenance Savings</InputLabel>
+                        <OutlinedInput
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    $
+                                </InputAdornment>
+                            }
+                            label="Monthly Maintenance Savings"
+                            value={carCost.lease.maintenance}
+                            onChange={handleMaintenanceChange}
+                        />
+                    </FormControl>
                 </Grid>
 
                 <Grid item xs={12} md={6}>
-                    <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h3" mb={4}>
-                            Car Insurance
-                        </Typography>
-                        <FormControl fullWidth>
-                            <InputLabel>Monthly Premium</InputLabel>
-                            <OutlinedInput
-                                startAdornment={
-                                    <InputAdornment position="start">
-                                        $
-                                    </InputAdornment>
-                                }
-                                label="Monthly Premium"
-                                value={carCost.lease.insurance}
-                                onChange={handleInsuranceChange}
-                            />
-                        </FormControl>
-                    </Paper>
+                    <FormControl fullWidth>
+                        <InputLabel>Monthly Car Insurance Premium</InputLabel>
+                        <OutlinedInput
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    $
+                                </InputAdornment>
+                            }
+                            label="Monthly Premium"
+                            value={carCost.lease.insurance}
+                            onChange={handleInsuranceChange}
+                        />
+                    </FormControl>
                 </Grid>
             </Grid>
         </TabPanel>

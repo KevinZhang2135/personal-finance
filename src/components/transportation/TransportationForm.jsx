@@ -48,12 +48,14 @@ const TransportationForm = (props) => {
                     <CarLoanTab carCost={carCost} setCarCost={setCarCost} />
                     <CarLeaseTab carCost={carCost} setCarCost={setCarCost} />
                 </TabContext>
-            </Paper>
 
-            <PublicTransitInput
-                publicTransitCost={publicTransitCost}
-                setPublicTransitCost={setPublicTransitCost}
-            />
+                <Box mt={4}>
+                    <PublicTransitInput
+                        publicTransitCost={publicTransitCost}
+                        setPublicTransitCost={setPublicTransitCost}
+                    />
+                </Box>
+            </Paper>
         </Box>
     );
 };
