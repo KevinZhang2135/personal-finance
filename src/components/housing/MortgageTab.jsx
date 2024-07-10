@@ -43,10 +43,10 @@ const MortgageTab = (props) => {
 
     const mortgageTitleSx = {
         position: "absolute",
-        transform: "translate(0, calc(-32px - 50% ))",
+        transform: "translate(-24px, calc(-32px - 50% ))",
         color: "text.secondary",
         bgcolor: "white",
-        px: 1,
+        px: "8px",
     };
 
     return (
@@ -54,7 +54,7 @@ const MortgageTab = (props) => {
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h5" sx={mortgageTitleSx}>
+                        <Typography variant="h4" sx={mortgageTitleSx}>
                             Mortgage Payment
                         </Typography>
                         <LoanForm

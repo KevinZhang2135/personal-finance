@@ -17,7 +17,6 @@ const Citations = (props) => {
             sx={{
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
                 bgcolor: "beige.main",
                 wordWrap: "break-word",
                 py: "5vh",

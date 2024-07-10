@@ -26,7 +26,6 @@ const SummaryModal = (props) => {
         bgcolor: "background.paper",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
         p: 4,
         pl: 4 + scrollGutterWidth,
     };

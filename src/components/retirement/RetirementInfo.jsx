@@ -8,9 +8,14 @@ const RetirementInfo = (props) => {
     const { retirement, setRetirement, salary } = props;
 
     return (
-        <Box className="content-container" bgcolor={blue[50]} py="5vh">
+        <Box
+            id="retirement-info"
+            className="content-container"
+            bgcolor={blue[50]}
+            py="5vh"
+        >
             <Stack direction={{ xs: "column", lg: "row" }} spacing={4}>
-                <Box id="retirement-info" width={{ xs: 1, lg: 0.6 }}>
+                <Box width={{ xs: 1, lg: 0.6 }}>
                     <Typography variant="h1" gutterBottom>
                         Retirement
                     </Typography>

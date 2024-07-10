@@ -76,7 +76,6 @@ const TaxForm = (props) => {
             <Paper elevation={3} sx={{ p: 4 }}>
                 <Stack
                     direction={{ xs: "column", lg: "row" }}
-                    justifyContent="space-evenly"
                     alignItems="flex-start"
                     divider={
                         <Divider

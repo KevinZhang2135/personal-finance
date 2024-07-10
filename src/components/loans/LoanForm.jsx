@@ -185,7 +185,6 @@ const LoanForm = (props) => {
     return (
         <Stack
             direction={{ xs: "column", lg: "row" }}
-            justifyContent="space-evenly"
             alignItems="flex-start"
             divider={<Divider orientation={formDividerOrientation} flexItem />}
             spacing={4}

@@ -63,12 +63,14 @@
     },
 
     "14": {
-        "reference": "How does Health Insurance Work? www.uhc.com.",
-        "link": "https://www.uhc.com/understanding-health-insurance/how-does-health-insurance-work"
+        "reference": "What's a Deductible? www.uhc.com.",
+        "link": "https://www.uhc.com/understanding-health-insurance/understanding-health-insurance-costs/types-of-health-insurance-costs/what-is-a-deductible"
     },
 
     "15": {
-        "reference": "What's a Deductible? www.uhc.com.",
-        "link": "https://www.uhc.com/understanding-health-insurance/understanding-health-insurance-costs/types-of-health-insurance-costs/what-is-a-deductible"
+        "reference": "How does Health Insurance Work? www.uhc.com.",
+        "link": "https://www.uhc.com/understanding-health-insurance/how-does-health-insurance-work"
     }
+
+    
 }

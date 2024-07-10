@@ -45,10 +45,10 @@ const CarLoanTab = (props) => {
 
     const loanTitleSx = {
         position: "absolute",
-        transform: "translate(0, calc(-32px - 50% ))",
+        transform: "translate(-24px, calc(-32px - 50% ))",
         color: "text.secondary",
         bgcolor: "white",
-        px: 1,
+        px: "8px",
     };
 
     return (
@@ -56,7 +56,7 @@ const CarLoanTab = (props) => {
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Paper variant="outlined" sx={{ p: 4 }}>
-                        <Typography variant="h5" sx={loanTitleSx}>
+                        <Typography variant="h4" sx={loanTitleSx}>
                             Car Loan Payment
                         </Typography>
                         <LoanForm

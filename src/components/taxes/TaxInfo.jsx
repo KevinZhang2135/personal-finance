@@ -20,7 +20,6 @@ const TaxInfo = (props) => {
 
             <Stack
                 direction={{ xs: "column", lg: "row" }}
-                justifyContent="space-between"
                 divider={
                     <Divider
                         orientation={

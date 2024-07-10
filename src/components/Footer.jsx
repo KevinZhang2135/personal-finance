@@ -8,7 +8,6 @@ const Footer = (props) => {
             bgcolor="black.dark"
             display="flex"
             flexDirection="column"
-            justifyContent="center"
             py="5vh"
         >
             <Typography variant="p" color="white" align="center">

@@ -70,7 +70,6 @@ const StudentLoansInfo = (props) => {
 
             <Stack
                 direction={{ xs: "column", lg: "row" }}
-                justifyContent="space-between"
                 divider={
                     <Divider
                         orientation={

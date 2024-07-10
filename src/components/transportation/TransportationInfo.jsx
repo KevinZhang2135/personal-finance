@@ -22,13 +22,13 @@ const TransportationInfo = (props) => {
             pt="5vh"
             pb={4}
         >
+
             <Typography variant="h1" gutterBottom>
                 Transportation
             </Typography>
 
             <Stack
                 direction={{ xs: "column", lg: "row" }}
-                justifyContent="space-between"
                 spacing={4}
             >
                 <Box width={{ xs: 1, lg: 0.33 }}>
