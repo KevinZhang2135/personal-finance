@@ -26,7 +26,7 @@ const StudentLoansInfo = (props) => {
         };
 
         setStudentLoans([...studentLoans, newLoan]);
-    }
+    };
 
     const addLoanButtons = (
         <Stack direction="row" spacing={4} justifyContent="center">
@@ -105,25 +105,24 @@ const StudentLoansInfo = (props) => {
                     <Typography variant="h3" gutterBottom>
                         Student Loan Types
                     </Typography>
+
                     <Typography variant="p" display="block" gutterBottom>
-                        Direct subsidized loans are federal student loans that
-                        do not accumulate interest during enrollment or the
+                        <b>Direct subsidized loans</b> are federal student loans
+                        that do not accumulate interest during enrollment or the
                         six-month grace period after graduation. They are
                         typically rewarded to those who demonstrate financial
-                        need.
-                        <sup>7</sup>
+                        need.<sup>7</sup>
                     </Typography>
 
                     <Typography variant="p" display="block" gutterBottom>
-                        Direct unsubsidized loans are federal student loans that
-                        immediately begins accruing interest after receiving the
-                        money.
-                        <sup>7</sup>
+                        <b>Direct unsubsidized loans</b> are federal student
+                        loans that immediately begins accruing interest after
+                        receiving the money.<sup>7</sup>
                     </Typography>
 
                     <Typography variant="p" display="block">
-                        Private loans are student loans that immediately begins
-                        accruing interest after receiving the money.
+                        <b>Private loans</b> are student loans that immediately
+                        begins accruing interest after receiving the money.
                         <sup>8</sup>
                     </Typography>
                 </Box>
