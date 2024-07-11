@@ -7,17 +7,9 @@ import { TabContext, TabList } from "@mui/lab";
 
 import CarLoanTab from "./CarLoanTab";
 import CarLeaseTab from "./CarLeaseTab";
-import PublicTransitInput from "./PublicTransitInput";
 
 const TransportationForm = (props) => {
-    const {
-        carPlanType,
-        setCarPlanType,
-        carCost,
-        setCarCost,
-        publicTransitCost,
-        setPublicTransitCost,
-    } = props;
+    const { carPlanType, setCarPlanType } = props;
 
     return (
         <Box
@@ -45,16 +37,9 @@ const TransportationForm = (props) => {
                         tax.
                     </Alert>
 
-                    <CarLoanTab carCost={carCost} setCarCost={setCarCost} />
-                    <CarLeaseTab carCost={carCost} setCarCost={setCarCost} />
+                    <CarLoanTab {...props} />
+                    <CarLeaseTab {...props} />
                 </TabContext>
-
-                <Box mt={4}>
-                    <PublicTransitInput
-                        publicTransitCost={publicTransitCost}
-                        setPublicTransitCost={setPublicTransitCost}
-                    />
-                </Box>
             </Paper>
         </Box>
     );

@@ -4,8 +4,6 @@ import {
     InputAdornment,
     InputLabel,
     OutlinedInput,
-    Paper,
-    Typography,
 } from "@mui/material";
 
 import { positiveClamp } from "../../App";

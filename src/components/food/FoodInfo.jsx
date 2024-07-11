@@ -3,8 +3,6 @@ import { Box, Stack, Typography } from "@mui/material";
 import FoodForm from "./FoodForm";
 
 const FoodInfo = (props) => {
-    const { foodCost, setFoodCost } = props;
-
     return (
         <Stack
             id="food-info"
@@ -30,7 +28,7 @@ const FoodInfo = (props) => {
                     deserunt mollit anim id est laborum.
                 </Typography>
             </Box>
-            <FoodForm foodCost={foodCost} setFoodCost={setFoodCost} />
+            <FoodForm {...props} />
         </Stack>
     );
 };

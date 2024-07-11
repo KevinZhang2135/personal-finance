@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, CardMedia, Stack, Typography } from "@mui/material";
+import HealthInsuranceForm from "./HealthInsuranceForm";
 
-const HealthInsuranceInfo = () => {
+const HealthInsuranceInfo = (props) => {
     return (
         <Stack
             id="health-insurance-info"
@@ -16,11 +17,11 @@ const HealthInsuranceInfo = () => {
                     Health Insurance
                 </Typography>
                 <Typography variant="p" display="block" gutterBottom>
-                    Injuries and illnesses are inevitable in life. Health insurance
-                    helps alleviate some of the burden of paying medical bill
-                    which are notoriously expensive in the US. Before
-                    subscribing to an insurance plan, it may be astute to become
-                    familiar with how such services work.
+                    Injuries and illnesses are inevitable in life. Health
+                    insurance helps alleviate some of the burden of paying
+                    medical bill which are notoriously expensive in the US.
+                    Before subscribing to an insurance plan, it may be astute to
+                    become familiar with how such services work.
                 </Typography>
 
                 <Typography variant="p" display="block" gutterBottom>
@@ -50,16 +51,18 @@ const HealthInsuranceInfo = () => {
                 </Typography>
             </Box>
 
-            <CardMedia
-                className="mui-paper-shadow-3"
-                component="img"
-                sx={{
-                    width: { xs: 1, lg: 0.4 },
-                    height: 200,
-                    backgroundImage: `url(${process.env.PUBLIC_URL}/ambulance.jpg)`,
-                    borderRadius: 2,
-                }}
-            />
+            <Stack width={{ xs: 1, lg: 0.4 }} spacing={4}>
+                <CardMedia
+                    className="mui-paper-shadow-3"
+                    component="img"
+                    sx={{
+                        height: 200,
+                        backgroundImage: `url(${process.env.PUBLIC_URL}/ambulance.jpg)`,
+                        borderRadius: 2,
+                    }}
+                />
+                <HealthInsuranceForm />
+            </Stack>
         </Stack>
     );
 };

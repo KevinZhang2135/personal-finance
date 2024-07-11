@@ -12,9 +12,11 @@ import {
 import { TabPanel } from "@mui/lab";
 import { positiveClamp } from "../../App";
 import LoanForm from "../loans/LoanForm";
+import PublicTransitInput from "./PublicTransitInput";
 
 const CarLoanTab = (props) => {
-    const { carCost, setCarCost } = props;
+    const { carCost, setCarCost, publicTransitCost, setPublicTransitCost } =
+        props;
 
     const handleCarLoanChange = (newLoan) =>
         setCarCost({
@@ -67,7 +69,7 @@ const CarLoanTab = (props) => {
                     </Paper>
                 </Grid>
 
-                <Grid item xs={12} lg={4}>
+                <Grid item xs={12} md={6} lg={3}>
                     <FormControl fullWidth>
                         <InputLabel>Monthly Gas Expenses</InputLabel>
                         <OutlinedInput
@@ -83,7 +85,7 @@ const CarLoanTab = (props) => {
                     </FormControl>
                 </Grid>
 
-                <Grid item xs={12} lg={4}>
+                <Grid item xs={12} md={6} lg={3}>
                     <FormControl fullWidth>
                         <InputLabel>Monthly Maintenance Savings</InputLabel>
                         <OutlinedInput
@@ -99,7 +101,7 @@ const CarLoanTab = (props) => {
                     </FormControl>
                 </Grid>
 
-                <Grid item xs={12} lg={4}>
+                <Grid item xs={12} md={6} lg={3}>
                     <FormControl fullWidth>
                         <InputLabel>Monthly Car Insurance Premium</InputLabel>
                         <OutlinedInput
@@ -113,6 +115,13 @@ const CarLoanTab = (props) => {
                             onChange={handleInsuranceChange}
                         />
                     </FormControl>
+                </Grid>
+
+                <Grid item xs={12} md={6} lg={3}>
+                    <PublicTransitInput
+                        publicTransitCost={publicTransitCost}
+                        setPublicTransitCost={setPublicTransitCost}
+                    />
                 </Grid>
             </Grid>
         </TabPanel>

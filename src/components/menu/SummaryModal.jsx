@@ -79,7 +79,11 @@ const SummaryModal = (props) => {
                     {Object.keys(expenditures).map(
                         (key) =>
                             expenditures[key] !== 0 && (
-                                <Stack key={`summary-${key}`} {...rowProps}>
+                                <Stack
+                                    key={`summary-${key}`}
+                                    color="text.secondary"
+                                    {...rowProps}
+                                >
                                     <Typography variant="h4">
                                         {formatTitle(key)}
                                     </Typography>

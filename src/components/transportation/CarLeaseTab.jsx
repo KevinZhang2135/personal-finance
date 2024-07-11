@@ -5,27 +5,21 @@ import {
     InputAdornment,
     InputLabel,
     OutlinedInput,
-    Paper,
-    Typography,
 } from "@mui/material";
 
 import { TabPanel } from "@mui/lab";
 import { positiveClamp } from "../../App";
+import PublicTransitInput from "./PublicTransitInput";
 
 const CarLeaseTab = (props) => {
-    const { carCost, setCarCost } = props;
+    const { carCost, setCarCost, publicTransitCost, setPublicTransitCost } =
+        props;
 
-    const handleCarLeaseChange = (e) => {
+    const handleCarLeaseChange = (e) =>
         setCarCost({
             ...carCost,
             lease: { ...carCost.lease, cost: positiveClamp(e.target.value) },
         });
-
-        console.log({
-            ...carCost,
-            lease: { ...carCost.lease, cost: positiveClamp(e.target.value) },
-        });
-    };
 
     const handleGasChange = (e) =>
         setCarCost({
@@ -54,7 +48,7 @@ const CarLeaseTab = (props) => {
     return (
         <TabPanel value="lease" sx={{ p: 0 }}>
             <Grid container spacing={4}>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={6} lg={4}>
                     <FormControl fullWidth>
                         <InputLabel>Monthly Lease Payment</InputLabel>
                         <OutlinedInput
@@ -70,7 +64,7 @@ const CarLeaseTab = (props) => {
                     </FormControl>
                 </Grid>
 
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={6} lg={4}>
                     <FormControl fullWidth>
                         <InputLabel>Monthly Gas Expenses</InputLabel>
                         <OutlinedInput
@@ -86,7 +80,7 @@ const CarLeaseTab = (props) => {
                     </FormControl>
                 </Grid>
 
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={6} lg={4}>
                     <FormControl fullWidth>
                         <InputLabel>Monthly Maintenance Savings</InputLabel>
                         <OutlinedInput
@@ -102,7 +96,7 @@ const CarLeaseTab = (props) => {
                     </FormControl>
                 </Grid>
 
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={6} lg={4}>
                     <FormControl fullWidth>
                         <InputLabel>Monthly Car Insurance Premium</InputLabel>
                         <OutlinedInput
@@ -111,11 +105,18 @@ const CarLeaseTab = (props) => {
                                     $
                                 </InputAdornment>
                             }
-                            label="Monthly Premium"
+                            label="Monthly Car Insurance Premium"
                             value={carCost.lease.insurance}
                             onChange={handleInsuranceChange}
                         />
                     </FormControl>
+                </Grid>
+
+                <Grid item xs={12} md={6} lg={4}>
+                    <PublicTransitInput
+                        publicTransitCost={publicTransitCost}
+                        setPublicTransitCost={setPublicTransitCost}
+                    />
                 </Grid>
             </Grid>
         </TabPanel>
