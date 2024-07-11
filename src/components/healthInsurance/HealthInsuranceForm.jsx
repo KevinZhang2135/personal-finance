@@ -8,17 +8,30 @@ import {
     Stack,
 } from "@mui/material";
 
+import { positiveClamp } from "../../App";
+
 const HealthInsuranceForm = (props) => {
+    const { healthInsuranceCost, setHealthInsuranceCost } = props;
+
+    const handlePremiumChange = (e) =>
+        setHealthInsuranceCost({
+            ...healthInsuranceCost,
+            premium: positiveClamp(e.target.value),
+        });
+
+    const handleDeductibleChange = (e) =>
+        setHealthInsuranceCost({
+            ...healthInsuranceCost,
+            deductibleSavings: positiveClamp(e.target.value),
+        });
+
     return (
         <Paper
             id="health-insurance-form"
             elevation={3}
             sx={{ height: "fit-content", p: 4 }}
         >
-            <Stack
-                direction="column"
-                spacing={4}
-            >
+            <Stack direction="column" spacing={4}>
                 <FormControl fullWidth sx={{ mb: 4 }}>
                     <InputLabel sx={{ fontSize: "1.1rem" }}>
                         Monthly Premium
@@ -28,9 +41,8 @@ const HealthInsuranceForm = (props) => {
                             <InputAdornment position="start">$</InputAdornment>
                         }
                         label="Monthly Premium"
-                        value={"todo"}
-                        sx={{ fontSize: "1.1rem" }}
-                        onChange={() => {}}
+                        value={healthInsuranceCost.premium}
+                        onChange={handlePremiumChange}
                     />
                 </FormControl>
 
@@ -43,9 +55,8 @@ const HealthInsuranceForm = (props) => {
                             <InputAdornment position="start">$</InputAdornment>
                         }
                         label="Monthly Deductible Savings"
-                        value={"todo"}
-                        sx={{ fontSize: "1.1rem" }}
-                        onChange={() => {}}
+                        value={healthInsuranceCost.deductibleSavings}
+                        onChange={handleDeductibleChange}
                     />
                 </FormControl>
             </Stack>

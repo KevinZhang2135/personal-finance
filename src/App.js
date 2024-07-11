@@ -144,6 +144,8 @@ const App = () => {
             carCost[carPlanType].insurance +
             publicTransitCost,
         food: foodCost.groceries + foodCost.eatingOut,
+        healthInsurance:
+            healthInsuranceCost.premium + healthInsuranceCost.deductibleSavings,
     };
 
     /* Summary modal */
@@ -204,7 +206,7 @@ const App = () => {
             />
 
             <FoodInfo foodCost={foodCost} setFoodCost={setFoodCost} />
-            
+
             <HealthInsuranceInfo
                 healthInsuranceCost={healthInsuranceCost}
                 setHealthInsuranceCost={setHealthInsuranceCost}

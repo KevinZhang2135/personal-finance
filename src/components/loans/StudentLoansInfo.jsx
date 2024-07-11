@@ -36,8 +36,9 @@ const StudentLoansInfo = (props) => {
                 disableElevation
                 disabled={studentLoans.length >= 4}
                 startIcon={<AddCircle fontSize="large" />}
-                sx={{ width: 200, textTransform: "capitalize", mt: 4 }}
                 onClick={addLoan}
+                sx={{ width: 200, textTransform: "capitalize", mt: 4 }}
+                
             >
                 <Typography variant="p">Add Loan</Typography>
             </Button>
@@ -49,8 +50,9 @@ const StudentLoansInfo = (props) => {
                 disableElevation
                 disabled={studentLoans.length === 0}
                 startIcon={<Clear fontSize="large" />}
-                sx={{ width: 200, textTransform: "capitalize", mt: 4 }}
                 onClick={() => setStudentLoans([])}
+                sx={{ width: 200, textTransform: "capitalize", mt: 4 }}
+                
             >
                 <Typography variant="p">Remove All</Typography>
             </Button>
@@ -94,9 +96,9 @@ const StudentLoansInfo = (props) => {
                         four-year in-state universities is $11,260 while the
                         cost of tuition for public four-year out-of-state
                         universities is more than 2.5 times greater at $29,150
-                        per year.<sup>6</sup> Hence, many pursuing college
+                        per year. Hence, many pursuing college
                         education often borrow student loans to finance the
-                        exorbitant cost.
+                        exorbitant cost.<sup>6</sup>
                     </Typography>
                 </Box>
 
@@ -110,7 +112,7 @@ const StudentLoansInfo = (props) => {
                         that do not accumulate interest during enrollment or the
                         six-month grace period after graduation. They are
                         typically rewarded to those who demonstrate financial
-                        need.<sup>7</sup>
+                        need.
                     </Typography>
 
                     <Typography variant="p" display="block" gutterBottom>
@@ -119,7 +121,7 @@ const StudentLoansInfo = (props) => {
                         receiving the money.<sup>7</sup>
                     </Typography>
 
-                    <Typography variant="p" display="block">
+                    <Typography variant="p">
                         <b>Private loans</b> are student loans offered by
                         non-government lenders or companies. They typically
                         charge higher interest rates, so they should be

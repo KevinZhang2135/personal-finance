@@ -36,18 +36,19 @@ const HealthInsuranceInfo = (props) => {
                 <Typography variant="p" display="block" gutterBottom>
                     <b>Out-of-Pocket Max</b> is the amount of money subscribers
                     are required to pay before insurance covers all healthcare
-                    costs.<sup>14</sup>
+                    costs.
                 </Typography>
 
+                <Typography variant="p" display="block" gutterBottom>
+                    Oftentimes, insurance plans with low premiums have higher
+                    deductible thresholds to compensate. Thus, it may be
+                    preferable for those who are healthy and do not expect to
+                    visit the doctor frequently.
+                </Typography>
                 <Typography variant="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                    Conversely, other plans may charge relatively higher
+                    premiums for lower deductibles which is favorable for older
+                    adults or those who use medical services regularly.<sup>14</sup>
                 </Typography>
             </Box>
 
@@ -61,7 +62,7 @@ const HealthInsuranceInfo = (props) => {
                         borderRadius: 2,
                     }}
                 />
-                <HealthInsuranceForm />
+                <HealthInsuranceForm {...props}/>
             </Stack>
         </Stack>
     );

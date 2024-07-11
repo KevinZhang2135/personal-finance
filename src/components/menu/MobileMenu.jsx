@@ -41,8 +41,8 @@ const MobileMenu = (props) => {
                                 sx={{ color: "white" }}
                             />
                         }
-                        sx={{ bgcolor: "inherit", mr: 4 }}
                         onClick={handleMenuClick}
+                        sx={{ bgcolor: "inherit", mr: 4 }}
                     >
                         <Typography variant="h5" color="white">
                             Menu
@@ -77,7 +77,6 @@ const MobileMenu = (props) => {
                             component={Link}
                             sx={{ "&:hover": { bgcolor: "inherit" } }}
                             onClick={handleSummaryOpen}
-                            
                         >
                             Summary
                         </MenuItem>

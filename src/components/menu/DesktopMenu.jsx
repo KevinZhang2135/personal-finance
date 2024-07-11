@@ -50,8 +50,8 @@ const DesktopMenu = (props) => {
                         className="menu-btn"
                         variant="text"
                         size="large"
-                        sx={menuButtonSx}
                         onClick={handleSummaryOpen}
+                        sx={menuButtonSx}
                     >
                         <Typography variant="h5" color="inherit">
                             Summary
