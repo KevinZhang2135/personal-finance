@@ -25,7 +25,12 @@ const aspusPoints = {
 
 const HousingChart = (props) => {
     return (
-        <Box display="flex" justifyContent="center" width={{ xs: 1, lg: 0.5 }}>
+        <Box
+            id="housing-chart"
+            display="flex"
+            justifyContent="center"
+            width={{ xs: 1, lg: 0.5 }}
+        >
             <LineChart
                 width={600}
                 height={300}

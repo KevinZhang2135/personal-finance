@@ -36,6 +36,7 @@ import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInf
 
 import Citations from "./components/Citations.jsx";
 import Footer from "./components/Footer.jsx";
+import HealthInsuranceForm from "./components/healthInsurance/HealthInsuranceForm.jsx";
 
 // JSON resources
 const taxBrackets = await (
@@ -205,6 +206,7 @@ const App = () => {
 
             <FoodInfo foodCost={foodCost} setFoodCost={setFoodCost} />
             <HealthInsuranceInfo />
+            <HealthInsuranceForm />
 
             <Citations />
             <Footer />

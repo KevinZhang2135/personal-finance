@@ -89,7 +89,7 @@ const StudentLoansInfo = (props) => {
                     </Typography>
                     <Typography variant="p">
                         Post-secondary education in the US is expensive.
-                        According to CollegeBoard, the average published annual
+                        According to College Board, the average published annual
                         tuition and fees for full-time students attending public
                         four-year in-state universities is $11,260 while the
                         cost of tuition for public four-year out-of-state
@@ -120,8 +120,10 @@ const StudentLoansInfo = (props) => {
                     </Typography>
 
                     <Typography variant="p" display="block">
-                        <b>Private loans</b> are student loans that immediately
-                        begins accruing interest after receiving the money.
+                        <b>Private loans</b> are student loans offered by
+                        non-government lenders or companies. They typically
+                        charge higher interest rates, so they should be
+                        considered only when federal loans are insufficent.
                         <sup>8</sup>
                     </Typography>
                 </Box>

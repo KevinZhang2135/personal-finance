@@ -52,9 +52,9 @@ const TaxInfo = (props) => {
                     </Typography>
                     <Typography variant="p">
                         To fund Social Security and Medicaid, the government
-                        also automatically deducts a combined flat rate 7.65% of
-                        the payroll known as the Federal Insurance Contributions
-                        Act.<sup>4</sup>
+                        also automatically deducts a combined flat tax rate of
+                        7.65% known as the Federal Insurance Contributions Act.
+                        <sup>4</sup>
                     </Typography>
                 </Box>
 
