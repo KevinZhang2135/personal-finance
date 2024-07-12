@@ -18,7 +18,7 @@ const HousingInfo = (props) => {
                 </Typography>
                 <Typography variant="p" display="block" gutterBottom>
                     In last couple years, housing prices have skyrocketed,
-                    especially after the economic shock during the coronavirus
+                    especially after the economic shock during the COVID-19
                     pandemic. The average home sales price in first fiscal
                     quarter of 2023 is an astonishing $505,300, a 35% increase
                     from that of 2019.<sup>9</sup>{" "}

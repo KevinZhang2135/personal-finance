@@ -18,14 +18,13 @@ const FoodInfo = (props) => {
                 </Typography>
 
                 <Typography variant="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                    Recently, food costs have inflated due to a variety of
+                    disruptions in the food supply chain such as animal and
+                    plant diseases and the Russo-Ukrainian War.<sup>14</sup>{" "}
+                    According, budgeting for food expenses becomes ever more
+                    important, especially considering that US consumers spend
+                    about 12.8% of their total household expenditures on food in
+                    2022.<sup>15</sup>
                 </Typography>
             </Box>
             <FoodForm {...props} />

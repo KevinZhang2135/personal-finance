@@ -48,7 +48,7 @@ const HealthInsuranceInfo = (props) => {
                 <Typography variant="p">
                     Conversely, other plans may charge relatively higher
                     premiums for lower deductibles which is favorable for older
-                    adults or those who use medical services regularly.<sup>14</sup>
+                    adults or those who use medical services regularly.<sup>16</sup>
                 </Typography>
             </Box>
 
