@@ -16,11 +16,15 @@ const FoodInfo = (props) => {
                 <Typography variant="h1" gutterBottom>
                     Food
                 </Typography>
-
-                <Typography variant="p">
+        
+                <Typography variant="p" display="block" gutterBottom>
                     Recently, food costs have inflated due to a variety of
-                    disruptions in the food supply chain such as animal and
-                    plant diseases and the Russo-Ukrainian War.<sup>14</sup>{" "}
+                    disruptions in the food supply chain. Due to animal and
+                    plant diseases, weather, the Russo-Ukrainian War, and
+                    numerous other factors, food prices in 2023 are 25% higher
+                    than that in 2018.<sup>14</sup>
+                </Typography>
+                <Typography variant="p">
                     According, budgeting for food expenses becomes ever more
                     important, especially considering that US consumers spend
                     about 12.8% of their total household expenditures on food in
