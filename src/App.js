@@ -14,7 +14,7 @@ import TaxInfo from "./components/taxes/TaxInfo.jsx";
 import TaxForm from "./components/taxes/TaxForm.jsx";
 
 // Student Loans
-import StudentLoansInfo from "./components/loans/StudentLoansInfo.jsx";
+import StudentLoansInfo from "./components/studentLoans/StudentLoansInfo.jsx";
 import Loans from "./components/loans/Loans.jsx";
 
 // Retirement
@@ -33,6 +33,9 @@ import FoodInfo from "./components/food/FoodInfo.jsx";
 
 // Health Insurance
 import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInfo.jsx";
+
+// Misc
+import PersonalExpensesInfo from "./components/misc/PersonalExpensesInfo.jsx";
 
 import Citations from "./components/Citations.jsx";
 import Footer from "./components/Footer.jsx";
@@ -211,6 +214,9 @@ const App = () => {
                 healthInsuranceCost={healthInsuranceCost}
                 setHealthInsuranceCost={setHealthInsuranceCost}
             />
+
+            <PersonalExpensesInfo loans={loans} setLoans={setLoans}/>
+            
 
             <Citations />
             <Footer />

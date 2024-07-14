@@ -14,7 +14,7 @@ const RetirementInfo = (props) => {
             spacing={4}
             py="5vh"
         >
-            <Box width={{ xs: 1, lg: 0.6 }}>
+            <Box width={{ xs: 1, lg: 0.5 }}>
                 <Typography variant="h1" gutterBottom>
                     Retirement
                 </Typography>

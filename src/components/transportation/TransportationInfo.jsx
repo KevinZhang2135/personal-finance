@@ -6,11 +6,17 @@ import {
     CardMedia,
     Stack,
     Typography,
+    useMediaQuery,
 } from "@mui/material";
 
 import { blue } from "@mui/material/colors";
+import Theme from "../../Theme";
 
 const TransportationInfo = (props) => {
+    const cardImageHeight = useMediaQuery(Theme.breakpoints.down("md"))
+        ? 200
+        : 400;
+
     return (
         <Stack
             id="transportation-info"
@@ -22,7 +28,7 @@ const TransportationInfo = (props) => {
             pb={4}
         >
             <Box
-                width={{ xs: 1, lg: 0.6 }}
+                width={{ xs: 1, lg: 0.5 }}
                 display="flex"
                 flexDirection="column"
             >
@@ -70,14 +76,14 @@ const TransportationInfo = (props) => {
 
             <Card
                 sx={{
-                    width: { xs: 1, lg: 0.4 },
+                    width: { xs: 1, lg: 0.5 },
                     height: "fit-content",
                     boxShadow: 3,
                 }}
             >
                 <CardMedia
                     component="img"
-                    height="200"
+                    height={cardImageHeight}
                     sx={{
                         backgroundImage: `url(${process.env.PUBLIC_URL}/cityTraffic.jpg)`,
                     }}

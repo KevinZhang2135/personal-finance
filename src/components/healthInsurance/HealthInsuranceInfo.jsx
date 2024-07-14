@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, CardMedia, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import HealthInsuranceForm from "./HealthInsuranceForm";
 
 const HealthInsuranceInfo = (props) => {
@@ -12,7 +12,7 @@ const HealthInsuranceInfo = (props) => {
             pt="5vh"
             pb={4}
         >
-            <Box width={{ xs: 1, lg: 0.6 }}>
+            <Box width={{ xs: 1, lg: 0.5 }}>
                 <Typography variant="h1" gutterBottom>
                     Health Insurance
                 </Typography>
@@ -48,21 +48,23 @@ const HealthInsuranceInfo = (props) => {
                 <Typography variant="p">
                     Conversely, other plans may charge relatively higher
                     premiums for lower deductibles which is favorable for older
-                    adults or those who use medical services regularly.<sup>16</sup>
+                    adults or those who use medical services regularly.
+                    <sup>16</sup>
                 </Typography>
             </Box>
 
-            <Stack width={{ xs: 1, lg: 0.4 }} spacing={4}>
-                <CardMedia
+            <Stack width={{ xs: 1, lg: 0.5 }} spacing={4}>
+                <img
                     className="mui-paper-shadow-3"
-                    component="img"
-                    sx={{
-                        height: 200,
-                        backgroundImage: `url(${process.env.PUBLIC_URL}/ambulance.jpg)`,
-                        borderRadius: 2,
+                    src={`${process.env.PUBLIC_URL}/ambulance.jpg`}
+                    alt="ambulance"
+                    style={{
+                        height: 400,
+                        objectFit: "cover",
+                        borderRadius: 4,
                     }}
                 />
-                <HealthInsuranceForm {...props}/>
+                <HealthInsuranceForm {...props} />
             </Stack>
         </Stack>
     );

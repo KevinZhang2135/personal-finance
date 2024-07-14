@@ -33,7 +33,7 @@ const RetirementForm = (props) => {
             id="retirement-form"
             elevation={3}
             sx={{
-                width: { xs: 1, lg: 0.4 },
+                width: { xs: 1, lg: 0.5 },
                 height: "fit-content",
                 p: 4,
             }}
