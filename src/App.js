@@ -151,6 +151,8 @@ const App = () => {
         food: foodCost.groceries + foodCost.eatingOut,
         healthInsurance:
             healthInsuranceCost.premium + healthInsuranceCost.deductibleSavings,
+        miscExpenses: miscExpenses
+            .reduce((sum, expense) => sum + expense.amount, 0)
     };
 
     /* Summary modal */

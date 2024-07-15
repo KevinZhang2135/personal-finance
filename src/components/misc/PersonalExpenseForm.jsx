@@ -2,43 +2,72 @@ import React from "react";
 import {
     Box,
     Button,
-    Divider,
     FormControl,
     InputAdornment,
     InputLabel,
     OutlinedInput,
     Stack,
     Typography,
-    useMediaQuery,
 } from "@mui/material";
 
-import { blue } from "@mui/material/colors";
-import { AddCircle, Clear } from "@mui/icons-material";
-import { TransitionGroup } from "react-transition-group";
+import { positiveClamp } from "../../App";
 
 const PersonalExpenseForm = (props) => {
-    const formItemWidth = { xs: 1, lg: 0.33 };
+    const { expense, miscExpenses, setMiscExpenses } = props;
+
+    const handleAmountChange = (e) => {
+        const expensesCopy = [...miscExpenses];
+        const expenseIndex = miscExpenses.indexOf(expense);
+
+        expensesCopy[expenseIndex] = {
+            ...expense,
+            amount: positiveClamp(e.target.value),
+        };
+
+        setMiscExpenses(expensesCopy);
+    };
 
     return (
-        <Stack width={1} direction={{ xs: "column", lg: "row" }} spacing={4}>
-            <FormControl width={formItemWidth}>
+        <Stack
+            width={1}
+            direction={{ xs: "column", lg: "row" }}
+            justifyContent="space-evenly"
+            spacing={4}
+        >
+            <FormControl sx={{ flexGrow: 1 }}>
                 <InputLabel>Label</InputLabel>
                 <OutlinedInput label="Label" />
             </FormControl>
 
-            <FormControl width={formItemWidth}>
+            <FormControl sx={{ flexGrow: 5 }}>
                 <InputLabel>Monthly Cost</InputLabel>
                 <OutlinedInput
                     startAdornment={
                         <InputAdornment position="start">$</InputAdornment>
                     }
                     label="Monthly Cost"
-                    value={"todo"}
-                    onChange={() => {}}
+                    value={expense.amount}
+                    onChange={handleAmountChange}
                 />
             </FormControl>
 
-            <Box width={formItemWidth}>hello</Box>
+            <Box display="flex" justifyContent="center">
+                <Button
+                    variant="contained"
+                    color="error"
+                    size="large"
+                    disableElevation
+                    startIcon={<Clear fontSize="large" />}
+                    onClick={() =>
+                        setMiscExpenses(
+                            miscExpenses.filter((e) => e.id !== expense.id)
+                        )
+                    }
+                    sx={{ width: 200, textTransform: "capitalize" }}
+                >
+                    <Typography variant="p">Remove</Typography>
+                </Button>
+            </Box>
         </Stack>
     );
 };
