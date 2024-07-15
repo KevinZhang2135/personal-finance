@@ -36,6 +36,7 @@ import HealthInsuranceInfo from "./components/healthInsurance/HealthInsuranceInf
 
 // Misc
 import PersonalExpensesInfo from "./components/misc/PersonalExpensesInfo.jsx";
+import PersonalExpenses from "./components/misc/PersonalExpenses.jsx";
 
 import Citations from "./components/Citations.jsx";
 import Footer from "./components/Footer.jsx";
@@ -123,7 +124,8 @@ const App = () => {
     });
 
     // Misc expenditures
-    const [loans, setLoans] = useState([]);
+    const [miscExpenses, setMiscExpenses] = useState([]);
+    const [miscLoans, setMiscLoans] = useState([]);
 
     // Totals
     const expenditures = {
@@ -215,8 +217,14 @@ const App = () => {
                 setHealthInsuranceCost={setHealthInsuranceCost}
             />
 
-            <PersonalExpensesInfo loans={loans} setLoans={setLoans}/>
-            
+            <PersonalExpensesInfo
+                miscExpenses={miscExpenses}
+                setMiscExpenses={setMiscExpenses}
+            />
+            <PersonalExpenses
+                miscExpenses={miscExpenses}
+                setMiscExpenses={setMiscExpenses}
+            />
 
             <Citations />
             <Footer />

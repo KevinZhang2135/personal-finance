@@ -34,7 +34,7 @@ const StudentLoansInfo = (props) => {
                 variant="contained"
                 size="large"
                 disableElevation
-                disabled={studentLoans.length >= 4}
+                disabled={studentLoans.length >= 3}
                 startIcon={<AddCircle fontSize="large" />}
                 onClick={addLoan}
                 sx={{ width: 200, textTransform: "capitalize", mt: 4 }}
