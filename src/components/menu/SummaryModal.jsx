@@ -17,8 +17,8 @@ const SummaryModal = (props) => {
     // Styling
     const scrollGutterWidth = 2;
     const modalBoxSx = {
-        width: 0.8,
-        height: 0.8,
+        width: 0.75,
+        height: 0.75,
         position: "absolute",
         top: "50%",
         left: "50%",

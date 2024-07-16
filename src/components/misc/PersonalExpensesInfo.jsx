@@ -1,22 +1,15 @@
 import React from "react";
-import { Box, Button, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { blue } from "@mui/material/colors";
 import { AddCircle, Clear } from "@mui/icons-material";
 import { v4 as uuid } from "uuid";
 
-import Theme from "../../Theme";
-
 const PersonalExpensesInfo = (props) => {
     const { miscExpenses, setMiscExpenses } = props;
 
-    const images = ["clothes", "diningRoom"];
-    const infoItemWidth = useMediaQuery(Theme.breakpoints.down("lg"))
-        ? "100%"
-        : "50%";
-
     const addExpense = () => {
         const newExpense = { id: uuid(), amount: 0 };
-        setMiscExpenses([ ...miscExpenses, newExpense ]);
+        setMiscExpenses([...miscExpenses, newExpense]);
     };
 
     const addExpenseButtons = (
@@ -59,59 +52,28 @@ const PersonalExpensesInfo = (props) => {
             <Typography variant="h1" gutterBottom>
                 Personal Expenses
             </Typography>
-
-            <Stack direction={{ xs: "column", lg: "row" }} spacing={4} mb={4}>
-                <Box width={infoItemWidth}>
-                    <Typography
-                        className="misc-expense-form"
-                        variant="h3"
-                        gutterBottom
-                    >
-                        Other Expenses
-                    </Typography>
-                    <Typography variant="p" display="block">
-                        After managing living expenses and paying necessities,
-                        there may be some money left for personal expenses.
-                        Discretionary income can be used for assortment of
-                        everyday items and non-essentials:
-                    </Typography>
-                    <Stack direction="row">
-                        <Typography variant="p" width={0.5}>
-                            <li>Apparel</li>
-                            <li>Cell Service</li>
-                            <li>Electronics</li>
-                            <li>Furniture</li>
-                            <li>Gifts</li>
-                        </Typography>
-                        <Typography variant="p" width={0.5}>
-                            <li>Hygiene products</li>
-                            <li>Internet</li>
-                            <li>Entertainment</li>
-                            <li>Savings</li>
-                        </Typography>
-                    </Stack>
-                </Box>
-
-                <Stack
-                    width={infoItemWidth}
-                    direction={{ xs: "column", lg: "row" }}
-                    spacing={4}
-                >
-                    {images.map((title) => (
-                        <img
-                            key={`${title}-image`}
-                            className="mui-paper-shadow-3"
-                            src={`${process.env.PUBLIC_URL}/${title}.jpg`}
-                            alt={title}
-                            style={{
-                                width: "100%",
-                                height: 300,
-                                objectFit: "cover",
-                                borderRadius: 4,
-                            }}
-                        />
-                    ))}
-                </Stack>
+            <Typography className="misc-expense-form" variant="h3" gutterBottom>
+                Other Expenses
+            </Typography>
+            <Typography variant="p" display="block">
+                After managing living expenses and paying necessities, there may
+                be some money left for personal expenses. Discretionary income
+                can be used for assortment of everyday items and non-essentials:
+            </Typography>
+            <Stack direction="row" mb={4}>
+                <Typography variant="p" width={0.5}>
+                    <li>Apparel</li>
+                    <li>Cell Service</li>
+                    <li>Electronics</li>
+                    <li>Furniture</li>
+                    <li>Gifts</li>
+                </Typography>
+                <Typography variant="p" width={0.5}>
+                    <li>Hygiene products</li>
+                    <li>Internet</li>
+                    <li>Entertainment</li>
+                    <li>Savings</li>
+                </Typography>
             </Stack>
             {addExpenseButtons}
         </Box>

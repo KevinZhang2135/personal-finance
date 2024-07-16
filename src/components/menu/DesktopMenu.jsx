@@ -16,17 +16,23 @@ const DesktopMenu = (props) => {
     // Hide menu upon scroll
     const scrollTrigger = useScrollTrigger();
     const menuButtonSx = {
-        color: "white",
+        height: "100% !important",
         bgcolor: "inherit",
         "&:hover": { bgcolor: "black.main" },
+        borderRadius: 0,
+        color: "white",
         textTransform: "capitalize",
-        ml: 4,
+        px: 2,
     };
 
     return (
         <Slide appear={false} direction="down" in={!scrollTrigger}>
-            <AppBar elevation={0} sx={{ bgcolor: "black.dark" }}>
-                <Toolbar className="menu-buttons">
+            <AppBar
+                className="content-container"
+                elevation={0}
+                sx={{ bgcolor: "black.dark" }}
+            >
+                <Toolbar sx={{ p: "0 !important" }}>
                     <Typography variant="h5" flexGrow={1}>
                         Personal Finance
                     </Typography>

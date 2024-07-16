@@ -2,16 +2,12 @@ import React from "react";
 import {
     Box,
     Button,
-    Divider,
     Stack,
     Typography,
-    useMediaQuery,
 } from "@mui/material";
 
 import { AddCircle, Clear } from "@mui/icons-material";
 import { v4 as uuid } from "uuid";
-
-import Theme from "../../Theme";
 
 const StudentLoansInfo = (props) => {
     const { studentLoans, setStudentLoans } = props;
@@ -72,16 +68,6 @@ const StudentLoansInfo = (props) => {
 
             <Stack
                 direction={{ xs: "column", lg: "row" }}
-                divider={
-                    <Divider
-                        orientation={
-                            useMediaQuery(Theme.breakpoints.down("lg"))
-                                ? "horizontal"
-                                : "vertical"
-                        }
-                        flexItem
-                    />
-                }
                 spacing={4}
                 mb={4}
             >

@@ -31,9 +31,9 @@ const HealthInsuranceForm = (props) => {
             elevation={3}
             sx={{ height: "fit-content", p: 4 }}
         >
-            <Stack direction="column" spacing={4}>
+            <Stack direction={{xs: "column", md: "row"}} spacing={4}>
                 <FormControl fullWidth sx={{ mb: 4 }}>
-                    <InputLabel sx={{ fontSize: "1.1rem" }}>
+                    <InputLabel>
                         Monthly Premium
                     </InputLabel>
                     <OutlinedInput
@@ -47,7 +47,7 @@ const HealthInsuranceForm = (props) => {
                 </FormControl>
 
                 <FormControl fullWidth>
-                    <InputLabel sx={{ fontSize: "1.1rem" }}>
+                    <InputLabel>
                         Monthly Deductible Savings
                     </InputLabel>
                     <OutlinedInput
