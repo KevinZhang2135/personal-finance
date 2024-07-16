@@ -73,6 +73,7 @@ const PersonalExpensesInfo = (props) => {
                     <li>Internet</li>
                     <li>Entertainment</li>
                     <li>Savings</li>
+                    <li>Vacation and travel</li>
                 </Typography>
             </Stack>
             {addExpenseButtons}

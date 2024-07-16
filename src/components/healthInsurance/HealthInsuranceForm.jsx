@@ -29,13 +29,11 @@ const HealthInsuranceForm = (props) => {
         <Paper
             id="health-insurance-form"
             elevation={3}
-            sx={{ height: "fit-content", p: 4 }}
+            sx={{ width: { xs: 1, lg: 0.5 }, height: "fit-content", p: 4 }}
         >
-            <Stack direction={{xs: "column", md: "row"}} spacing={4}>
+            <Stack spacing={4}>
                 <FormControl fullWidth sx={{ mb: 4 }}>
-                    <InputLabel>
-                        Monthly Premium
-                    </InputLabel>
+                    <InputLabel>Monthly Premium</InputLabel>
                     <OutlinedInput
                         startAdornment={
                             <InputAdornment position="start">$</InputAdornment>
@@ -47,9 +45,7 @@ const HealthInsuranceForm = (props) => {
                 </FormControl>
 
                 <FormControl fullWidth>
-                    <InputLabel>
-                        Monthly Deductible Savings
-                    </InputLabel>
+                    <InputLabel>Monthly Deductible Savings</InputLabel>
                     <OutlinedInput
                         startAdornment={
                             <InputAdornment position="start">$</InputAdornment>
