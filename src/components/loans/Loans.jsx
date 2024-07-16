@@ -1,27 +1,19 @@
 import React from "react";
-import {
-    Box,
-    Collapse,
-    List,
-    ListItem,
-    Paper,
-    Typography,
-} from "@mui/material";
+import { Box, Collapse, List, ListItem, Paper } from "@mui/material";
 import { TransitionGroup } from "react-transition-group";
 
 import LoanForm from "./LoanForm";
 
 const Loans = (props) => {
     const { loans, setLoans, bgcolor } = props;
-
-    const listSx = {
-        bgcolor,
-        boxShadow: 3,
-        p: 0,
-    };
+    const listSx = { bgcolor: "white", borderRadius: 1, boxShadow: 3, p: 0 };
 
     return (
-        <Box className="content-container" pb={loans.length > 0 ? "5vh" : 0}>
+        <Box
+            className="content-container"
+            bgcolor={bgcolor}
+            pb={loans.length > 0 ? "5vh" : 0}
+        >
             <List sx={listSx}>
                 <TransitionGroup>
                     {loans.map((loan, index) => (

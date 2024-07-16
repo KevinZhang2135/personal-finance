@@ -1,6 +1,7 @@
 import "./App.css";
 
 import React, { useState } from "react";
+import { blue } from "@mui/material/colors";
 
 // UI
 import MenuBar from "./components/menu/MenuBar.jsx";
@@ -40,6 +41,7 @@ import PersonalExpenses from "./components/misc/PersonalExpenses.jsx";
 
 import Citations from "./components/Citations.jsx";
 import Footer from "./components/Footer.jsx";
+import PersonalLoansInfo from "./components/misc/PersonalLoansInfo.jsx";
 
 // JSON resources
 const taxBrackets = await (
@@ -151,8 +153,11 @@ const App = () => {
         food: foodCost.groceries + foodCost.eatingOut,
         healthInsurance:
             healthInsuranceCost.premium + healthInsuranceCost.deductibleSavings,
-        miscExpenses: miscExpenses
-            .reduce((sum, expense) => sum + expense.amount, 0)
+        personalExpenses:
+            miscExpenses.reduce((sum, expense) => sum + expense.amount, 0) +
+            miscLoans
+                .filter((loan) => isFinite(loan.emi))
+                .reduce((sum, loan) => sum + loan.emi, 0),
     };
 
     /* Summary modal */
@@ -226,6 +231,15 @@ const App = () => {
             <PersonalExpenses
                 miscExpenses={miscExpenses}
                 setMiscExpenses={setMiscExpenses}
+            />
+            <PersonalLoansInfo
+                miscLoans={miscLoans}
+                setMiscLoans={setMiscLoans}
+            />
+            <Loans
+                loans={miscLoans}
+                setLoans={setMiscLoans}
+                bgcolor={blue[50]}
             />
 
             <Citations />

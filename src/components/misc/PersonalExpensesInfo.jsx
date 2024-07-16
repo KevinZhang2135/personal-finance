@@ -81,12 +81,13 @@ const PersonalExpensesInfo = (props) => {
                             <li>Cell Service</li>
                             <li>Electronics</li>
                             <li>Furniture</li>
+                            <li>Gifts</li>
                         </Typography>
                         <Typography variant="p" width={0.5}>
-                            <li>Gifts</li>
                             <li>Hygiene products</li>
                             <li>Internet</li>
                             <li>Entertainment</li>
+                            <li>Savings</li>
                         </Typography>
                     </Stack>
                 </Box>

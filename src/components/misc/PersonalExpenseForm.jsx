@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 
 import { positiveClamp } from "../../App";
+import { Clear } from "@mui/icons-material";
 
 const PersonalExpenseForm = (props) => {
     const { expense, miscExpenses, setMiscExpenses } = props;
@@ -51,7 +52,7 @@ const PersonalExpenseForm = (props) => {
                 />
             </FormControl>
 
-            <Box display="flex" justifyContent="center">
+            <Box display="flex" alignItems="center" justifyContent="center">
                 <Button
                     variant="contained"
                     color="error"
@@ -63,7 +64,11 @@ const PersonalExpenseForm = (props) => {
                             miscExpenses.filter((e) => e.id !== expense.id)
                         )
                     }
-                    sx={{ width: 200, textTransform: "capitalize" }}
+                    sx={{
+                        width: 200,
+                        height: "fit-content",
+                        textTransform: "capitalize",
+                    }}
                 >
                     <Typography variant="p">Remove</Typography>
                 </Button>

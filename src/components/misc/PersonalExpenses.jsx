@@ -15,7 +15,7 @@ const PersonalExpenses = (props) => {
         <Box
             className="content-container"
             bgcolor={blue[50]}
-            pb={miscExpenses.length > 0 ? "5vh" : 0}
+            pb={miscExpenses.length > 0 ? 4 : 0}
         >
             <List sx={listSx}>
                 <TransitionGroup>
