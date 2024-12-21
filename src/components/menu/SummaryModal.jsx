@@ -113,10 +113,17 @@ const SummaryModal = (props) => {
     );
 };
 
+/**
+ * Returns the specified string in title case with non-characters replaced by
+ * whitespace
+ * @param {string} string The specified string to format
+ * @returns the specified string in title case with non-characters replaced by
+ *     a whitespace
+ */
 const formatTitle = (string) => {
     string = toTitleCase(string);
     if (string.length === 1) return string;
-    return string.match(/[A-Z][a-z]+/g).join(" ");
+    return string.match(/\w+/g).join(" ");
 };
 
 export default SummaryModal;

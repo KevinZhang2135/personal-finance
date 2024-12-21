@@ -248,16 +248,35 @@ const App = () => {
     );
 };
 
+/**
+ * Capitalizes the first character and any characters proceding a non-character
+ * in the specified string.
+ * @param {string} string The specified string
+ * @returns A string with words capitalized
+ */
 const toTitleCase = (string) => {
-    // Capitalizes the first character and any characters proceding a non-character
-    return string.replace(/(^.)|(\W.)/g, (char) => char.toUpperCase());
+    return string
+        .toLowerCase()
+        .replace(/(^.)|(\W.)/g, (char) => char.toUpperCase());
 };
 
+/**
+ * Formats the specified float into a string in US currency.
+ * @param {number} float The specified float
+ * @returns A string representing the float in US currency
+ */
 const currencyFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
 }).format;
 
+/**
+ * Returns the specified number if it is greater or equal to zero; zero
+ * otherwise.
+ * @param {number} value The specified number
+ * @returns the specified number if it is greater or equal to zero; zero
+ *     otherwise
+ */
 const positiveClamp = (value) => {
     const clampedInteger = Math.min(
         Math.max(0, value),
@@ -267,19 +286,27 @@ const positiveClamp = (value) => {
     return Number.isNaN(clampedInteger) ? 0 : clampedInteger;
 };
 
-const calculateTax = (annualSalary, type) => {
-    // Determines the total taxes for a region with a single filing status
+/**
+ * Returns the total annual tax for the specified salary according to the region
+ * of taxation with a single filing status.
+ * @param {number} annualSalary The specified annual salary
+ * @param {string} region The region of taxation which is either specified as
+ *     "federal" or the state name
+ * @returns The total annual tax for the specified salary according to the
+ *     region of taxation.
+ */
+const calculateTax = (annualSalary, region) => {
     let totalTax = 0;
-    if (type === "federal")
+    if (region === "federal")
         // Additional federal tax of $90 per $10,000 of income earned above $200,000
         totalTax = (Math.max(0, annualSalary - 200000) * 90) / 10000;
 
     // Deducts tax exemption
-    annualSalary = Math.max(0, annualSalary - taxBrackets[type].deduction);
+    annualSalary = Math.max(0, annualSalary - taxBrackets[region].deduction);
 
     // Adds taxes according to brackets
     for (let [key, taxRate] of Object.entries(
-        taxBrackets[type].brackets
+        taxBrackets[region].brackets
     ).reverse()) {
         const bracket = parseInt(key);
 
@@ -290,12 +317,17 @@ const calculateTax = (annualSalary, type) => {
     }
 
     // Reduces tax with credits
-    return totalTax - taxBrackets[type].credits;
+    return totalTax - taxBrackets[region].credits;
 };
 
+/**
+ * Returns the monthly loan payment based on Equated Monthy Installment (EMI).
+ * @param {number} principal The specified principal or initial loan amount
+ * @param {number} apr The specified annual percentage rate for interest
+ * @param {number} termMonths The number of months used to pay back the loan
+ * @returns
+ */
 const calculateLoanEMI = (principal, apr, termMonths) => {
-    // Calculates monthly payment based on the equated monthly installment (EMI) formula
-
     const frequency = 12; // compounded monthly
     const interestRate = apr / frequency; // monthly interest rate
 

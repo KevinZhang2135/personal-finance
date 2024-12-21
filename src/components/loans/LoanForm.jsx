@@ -35,31 +35,33 @@ const LoanForm = (props) => {
     const handlePrincipalChange = (e) => {
         const principal = positiveClamp(e.target.value);
         const emi = calculateLoanEMI(principal, loan.apr, loan.termMonths);
+
+        // If the form has only a single loan input
         if (single) {
             setLoan({ ...loan, principal, emi });
-            return;
+        } else {
+            const loanIndex = loans.indexOf(loan);
+            const loansCopy = [...loans];
+            loansCopy[loanIndex] = { ...loan, principal, emi };
+
+            setLoans(loansCopy);
         }
-
-        const loanIndex = loans.indexOf(loan);
-        const loansCopy = [...loans];
-        loansCopy[loanIndex] = { ...loan, principal, emi };
-
-        setLoans(loansCopy);
     };
 
     const handleTermMonthsChange = (e) => {
         const termMonths = positiveClamp(e.target.value);
         const emi = calculateLoanEMI(loan.principal, loan.apr, termMonths);
+
+        // If the form has only a single loan input
         if (single) {
             setLoan({ ...loan, termMonths, emi });
-            return;
+        } else {
+            const loanIndex = loans.indexOf(loan);
+            const loansCopy = [...loans];
+            loansCopy[loanIndex] = { ...loan, termMonths, emi };
+
+            setLoans(loansCopy);
         }
-
-        const loanIndex = loans.indexOf(loan);
-        const loansCopy = [...loans];
-        loansCopy[loanIndex] = { ...loan, termMonths, emi };
-
-        setLoans(loansCopy);
     };
 
     const handleAprChange = (e) => {
@@ -74,16 +76,19 @@ const LoanForm = (props) => {
 
         const emi = calculateLoanEMI(loan.principal, apr, loan.termMonths);
 
+        // If the form has only a single loan input
         if (single) {
             setLoan({ ...loan, apr, emi });
-            return;
+            
+        } else {
+            const loanIndex = loans.indexOf(loan);
+            const loansCopy = [...loans];
+            loansCopy[loanIndex] = { ...loan, apr, emi };
+
+            setLoans(loansCopy);
         }
 
-        const loanIndex = loans.indexOf(loan);
-        const loansCopy = [...loans];
-        loansCopy[loanIndex] = { ...loan, apr, emi };
-
-        setLoans(loansCopy);
+        
     };
 
     const formInput = (
