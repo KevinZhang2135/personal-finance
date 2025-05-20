@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-const Banner = (props) => {
+const Hero = (props) => {
     return (
         <Box
             className="content-container"
@@ -36,4 +36,4 @@ const Banner = (props) => {
     );
 };
 
-export default Banner;
+export default Hero;

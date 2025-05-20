@@ -8,7 +8,7 @@ import MenuBar from "./components/menu/MenuBar.jsx";
 import SummaryModal from "./components/menu/SummaryModal.jsx";
 
 // Call-to-action
-import Banner from "./components/Banner.jsx";
+import Hero from "./components/Hero.jsx";
 
 // Taxes
 import TaxInfo from "./components/taxes/TaxInfo.jsx";
@@ -175,7 +175,7 @@ const App = () => {
                 handleSummaryClose={handleSummaryClose}
             />
 
-            <Banner />
+            <Hero />
 
             <TaxInfo />
             <TaxForm
