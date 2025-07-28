@@ -4,10 +4,6 @@ As of 2023, more than 60% of Americans live from paycheck to paycheck according 
 
 Personal Finance is a web app to help individuals keep track of their expenditures and help estimate their budget. However, actual expenses may vary, especially since the calculations are only up-to-date for 2023.
 
-# Link
-
-https://kevinzhang2135.github.io/Personal-Finance/
-
 # References
 
 1. Malinsky G. More Americans say they are living paycheck to paycheck this year than in 2023—here’s why. CNBC. Published April 9, 2024. https://www.cnbc.com/2024/04/09/most-of-americans-are-living-paycheck-to-paycheck-heres-why.html

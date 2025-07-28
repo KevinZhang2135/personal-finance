@@ -325,7 +325,7 @@ const calculateTax = (annualSalary, region) => {
  * @param {number} principal The specified principal or initial loan amount
  * @param {number} apr The specified annual percentage rate for interest
  * @param {number} termMonths The number of months used to pay back the loan
- * @returns
+ * @returns The monthly loan payment based on EMI
  */
 const calculateLoanEMI = (principal, apr, termMonths) => {
     const frequency = 12; // compounded monthly
