@@ -16,7 +16,7 @@ const Footer = (props) => {
                 <Link
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.github.com/KevinZhang2135/Personal-Finance"
+                    href="https://www.github.com/KevinZhang2135/personal-finance"
                     color="inherit"
                     sx={{ wordWrap: "break-word" }}
                 >
