@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Personal-Finance/static/css/main.ee59cf2e.css",
-    "main.js": "/Personal-Finance/static/js/main.5f230184.js",
-    "index.html": "/Personal-Finance/index.html",
-    "main.ee59cf2e.css.map": "/Personal-Finance/static/css/main.ee59cf2e.css.map",
-    "main.5f230184.js.map": "/Personal-Finance/static/js/main.5f230184.js.map"
+    "main.css": "/personal-finance/static/css/main.ee59cf2e.css",
+    "main.js": "/personal-finance/static/js/main.cd35425f.js",
+    "index.html": "/personal-finance/index.html",
+    "main.ee59cf2e.css.map": "/personal-finance/static/css/main.ee59cf2e.css.map",
+    "main.cd35425f.js.map": "/personal-finance/static/js/main.cd35425f.js.map"
   },
   "entrypoints": [
     "static/css/main.ee59cf2e.css",
-    "static/js/main.5f230184.js"
+    "static/js/main.cd35425f.js"
   ]
 }
